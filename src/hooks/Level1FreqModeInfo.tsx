@@ -30,6 +30,7 @@ const Schema = z.object({
   Data: z.array(Entry),
 });
 
+export type L1FreqmodeInfo = z.infer<typeof Entry>;
 export type L1FreqmodeInfoResponse = z.infer<typeof Schema>;
 
 export function useL1FreqmodeInfo(url: string | undefined) {

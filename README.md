@@ -52,3 +52,40 @@ export default tseslint.config({
   },
 })
 ```
+
+## Generate the client
+
+Use the api specification to generate the client
+
+### get spec
+```bash
+curl https://odin-smr.org/rest_api/v5/spec > spec.json
+```
+### correct old spec
+
+Remove Terms of service
+
+```bash
+jq 'del(.info.termsOfService)' spec.json > spec_cor.json
+```
+
+## convert to openapi v3
+```bash
+npx swagger2openapi spec_cor.json -o spec3.json
+```
+
+### correct specification
+replace the contentype: 
+    
+```bash
+jq '
+  (.. | .content? // empty) |= (
+    with_entries(if .key == "*/*" then .key = "application/json" else . end)
+  )                                                 
+' spec3.json > spec3_cor.json
+```
+
+### finally generate the client:
+```bash
+npx openapi-zod-client spec3_cor.json --export-schemas --export-types --strict-objects --output client.tsx
+```

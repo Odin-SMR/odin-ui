@@ -21,8 +21,9 @@ import {
 import Footer from "./components/Footer";
 import { Home } from "./components/Home";
 import { Level1 } from "./components/Level1";
-import CalendarView from "./components/Level2";
+import CalendarView from "./components/L1Calendar";
 import { ColorModeContext } from "./contexts/ColorModeContext";
+import { NotFound } from "./components/NotFound";
 
 function App() {
   const theme = useTheme();
@@ -72,14 +73,14 @@ function App() {
               >
                 <MenuItem
                   component={RouterLink}
-                  to="/level1"
+                  to="/level1/statistics"
                   onClick={handleClose}
                 >
                   Level1 statistics
                 </MenuItem>
                 <MenuItem
                   component={RouterLink}
-                  to="/level1_calendar"
+                  to="/level1/calendar"
                   onClick={handleClose}
                 >
                   Level1 calendar
@@ -97,9 +98,11 @@ function App() {
         </AppBar>
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/level1/:year" element={<Level1 />} />
-          <Route path="/level1" element={<Level1 />} />
-          <Route path="/level2" element={<CalendarView />} />
+          <Route path="/level1/statistics" element={<Level1 />} />
+          <Route path="/level1/statistics/:year" element={<Level1 />} />
+          <Route path="/level1/calendar" element={<CalendarView />} />
+          <Route path="*" element={<NotFound />} />
+          
         </Routes>
         <Footer />
       </Box>
