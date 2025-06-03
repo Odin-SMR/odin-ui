@@ -1,6 +1,7 @@
 import { Box } from "@mui/material";
 import { Graticule, Mercator } from "@visx/geo";
 import { useParentSize } from "@visx/responsive";
+import { Text } from "@visx/text";
 import * as topojson from "topojson-client";
 import type z from "zod";
 import { schemas } from "../../odinApi/client";
@@ -32,7 +33,7 @@ export function Track({ data: series, selectedScanid }: TrackProps) {
   const centerX = width / 2;
   const centerY = height / 2;
 
-  const scale = (height<width)? (height / 630) * 100 : (width/630) *100;
+  const scale = height < width ? (height / 630) * 100 : (width / 630) * 100;
 
   return (
     <Box ref={parentRef} sx={{ height: "100%", width: "100%" }}>
@@ -78,18 +79,20 @@ export function Track({ data: series, selectedScanid }: TrackProps) {
                         }}
                       />
                     ))}
-                  {/* <LinePath
-                    data={track}
-                    x={(d) => d[0]}
-                    y={(d) => d[1]}
-                    stroke="red"
-                    strokeWidth={1.5}
-                    // curve={null} // or use `curveLinear`, `curveBasis`, etc.
-                  /> */}
                 </g>
               );
             }}
           </Mercator>
+        )}
+        {series === undefined && (
+          <Text
+            x={width / 2}
+            y={height / 2}
+            textAnchor="middle"
+            fontSize={12}
+          >
+            Select an event from the calendar to display a track
+          </Text>
         )}
       </svg>
     </Box>

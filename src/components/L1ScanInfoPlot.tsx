@@ -7,6 +7,7 @@ import { useParentSize } from "@visx/responsive";
 import { scaleLinear, scaleUtc } from "@visx/scale";
 import { LinePath } from "@visx/shape";
 import { useTooltip, useTooltipInPortal } from "@visx/tooltip";
+import { Text } from "@visx/text";
 import dayjs from "dayjs";
 import AdvancedFormat from "dayjs/plugin/advancedFormat";
 import timezone from "dayjs/plugin/timezone";
@@ -39,7 +40,10 @@ export const L1ScanInfoPlot = ({
   const time = series?.map((t) => dayjs.utc(t.DateTime).toDate()) ?? [];
 
   const yScale = scaleLinear<number>({
-    domain: [Math.min(...(series ?? []).map((v) => v.SunZD ?? NaN)), Math.max(...(series ?? []).map((v) => v.SunZD ?? NaN))],
+    domain: [
+      Math.min(...(series ?? []).map((v) => v.SunZD ?? NaN)),
+      Math.max(...(series ?? []).map((v) => v.SunZD ?? NaN)),
+    ],
     nice: true,
     range: [height - margin.top - margin.bottom, 0],
   });
@@ -73,6 +77,11 @@ export const L1ScanInfoPlot = ({
       <Box ref={containerRef}>
         <svg width={width} height={height}>
           <rect width={width} height={height} fill={background} rx={14} />
+          {series === undefined && (
+            <Text x={width / 2} y={height / 2} fontSize={12} textAnchor="middle">
+              Select an event from the calendar to display a track
+            </Text>
+          )}
           <Group top={margin.top} left={margin.left}>
             {series && (
               <LinePath

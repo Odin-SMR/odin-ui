@@ -1,8 +1,9 @@
-import { Box } from "@mui/material";
+import { Box, useTheme } from "@mui/material";
 import { AxisBottom, AxisLeft } from "@visx/axis";
 import { useParentSize } from "@visx/responsive";
 import { scaleLinear } from "@visx/scale";
 import { LinePath } from "@visx/shape";
+import { Text } from "@visx/text";
 import { useEffect, useState } from "react";
 import type z from "zod";
 import { createApiClient, schemas } from "../../odinApi/client";
@@ -14,9 +15,14 @@ interface L1BPlotProps {
 
 type L1BType = z.infer<typeof schemas.L1b>;
 const api = createApiClient("https://odin-smr.org/");
-const margin = { top: 10, bottom: 30, left: 30, right: 20 };
+const margin = { top: 10, bottom: 50, left: 30, right: 20 };
 
 export const L1BPlots = ({ freqmode, scanid }: L1BPlotProps) => {
+  const theme = useTheme();
+  const background =
+    theme.palette.mode == "light"
+      ? theme.palette.grey[300]
+      : theme.palette.grey[600];
   const { parentRef, width, height } = useParentSize({ debounceTime: 150 });
   const [series, setSeries] = useState<L1BType>();
 
@@ -31,6 +37,8 @@ export const L1BPlots = ({ freqmode, scanid }: L1BPlotProps) => {
         } catch (err) {
           console.error(err);
         }
+      } else {
+        setSeries(undefined);
       }
     };
     getData();
@@ -58,7 +66,8 @@ export const L1BPlots = ({ freqmode, scanid }: L1BPlotProps) => {
     return (
       <Box ref={parentRef} sx={{ height: "inherit" }}>
         <svg width={width} height={height}>
-          <rect width={width} height={height} fill="lightgray" />
+          <rect width={width} height={height} fill={background} />
+
           {scanid &&
             spectra.map((spectrum, idx) => (
               <LinePath
@@ -71,15 +80,27 @@ export const L1BPlots = ({ freqmode, scanid }: L1BPlotProps) => {
               />
             ))}
           <AxisLeft left={margin.left} scale={yScale} />
-          <AxisBottom top={height - margin.bottom} scale={xScale} />
+          <AxisBottom
+            top={height - margin.bottom}
+            scale={xScale}
+            tickLabelProps={() => ({
+              angle: -45,
+              textAnchor: "end",
+              dy: "0.25em",
+              fontSize: 11,
+            })}
+          />
         </svg>
       </Box>
     );
   }
   return (
-    <Box ref={parentRef} height={300}>
+    <Box ref={parentRef} height={height}>
       <svg width={width} height={height}>
-        <rect width={width} height={height} fill="lightgray" />
+        <rect width={width} height={height} fill={background} />
+        <Text x={width / 2} y={height / 2} textAnchor="middle">
+          Select an event from the calendar to display a track
+        </Text>
       </svg>
     </Box>
   );

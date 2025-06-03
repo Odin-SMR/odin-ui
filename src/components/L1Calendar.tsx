@@ -27,7 +27,6 @@ type ScanInfoType = z.infer<typeof schemas.freqmode_info>;
 type LogType = z.infer<typeof schemas.Log>;
 
 const api = createApiClient("https://odin-smr.org/");
-const breakpoints = { xs: 12, sm: 6, md: 4, lg: 3, xl: 3 };
 
 function toCalendarEvents(response: ScanInfoType[]): EventSourceInput {
   if (response === undefined) return [];
@@ -107,8 +106,8 @@ export default function CalendarView() {
   };
 
   return (
-    <Grid margin={2} spacing={2} container>
-      <Grid size={breakpoints}>
+    <Grid margin={2} spacing={2} container alignItems={"center"}>
+      <Grid size={{ xs: 12, md: 12, xl: 4 }}>
         <FullCalendar
           plugins={[dayGridPlugin, interactionPlugin]}
           initialView="dayGridMonth"
@@ -122,13 +121,13 @@ export default function CalendarView() {
           }}
         />
       </Grid>
-      <Grid size={breakpoints} sx={{ height: "585px" }}>
+      <Grid size={{ xs: 12, md: 6, xl: 4 }} sx={{ height: "585px" }}>
         <Track data={log} selectedScanid={SetScanId} />
       </Grid>
-      <Grid size={breakpoints} height={"40vh"}>
+      <Grid size={{ xs: 12, md: 6, xl: 4 }} height={"40vh"}>
         <L1ScanInfoPlot data={log} selectedScanid={SetScanId} />
       </Grid>
-      <Grid size={breakpoints} height={"40vh"}>
+      <Grid size={{ xs: 12 }} height={"40vh"}>
         <L1BPlots scanid={scanId} freqmode={fmDay?.FM} />
       </Grid>
     </Grid>

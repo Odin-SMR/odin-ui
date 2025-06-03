@@ -253,7 +253,7 @@ const L2 = z
     MJD: z.number(),
     Lat1D: z.number(),
     Lon1D: z.number(),
-    Quality: z.number(),
+    Quality: z.number().nullable(),
     Altitude: z.array(z.number()),
     Pressure: z.array(z.number()),
     Latitude: z.array(z.number()),
@@ -263,7 +263,7 @@ const L2 = z
     ErrorNoise: z.array(z.number()),
     MeasResponse: z.array(z.number()),
     Apriori: z.array(z.number()),
-    VMR: z.array(z.number()),
+    VMR: z.array(z.number().nullable()),
     AVK: z.array(z.array(z.number())),
   })
   .partial()

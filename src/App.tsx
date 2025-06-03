@@ -24,6 +24,7 @@ import { Level1 } from "./components/Level1";
 import CalendarView from "./components/L1Calendar";
 import { ColorModeContext } from "./contexts/ColorModeContext";
 import { NotFound } from "./components/NotFound";
+import { L2Calendar } from "./components/L2Calendar";
 
 function App() {
   const theme = useTheme();
@@ -87,7 +88,7 @@ function App() {
                 </MenuItem>
                 <MenuItem
                   component={RouterLink}
-                  to="/level2"
+                  to="/level2/calendar"
                   onClick={handleClose}
                 >
                   Level2 data
@@ -101,6 +102,8 @@ function App() {
           <Route path="/level1/statistics" element={<Level1 />} />
           <Route path="/level1/statistics/:year" element={<Level1 />} />
           <Route path="/level1/calendar" element={<CalendarView />} />
+          <Route path="/level2/calendar" element={<L2Calendar />} />
+
           <Route path="*" element={<NotFound />} />
           
         </Routes>
