@@ -1,4 +1,5 @@
-import { Grid, Typography } from "@mui/material";
+import Grid from "@mui/material/Grid";
+import Typography from "@mui/material/Typography";
 import { useEffect, useState } from "react";
 import type z from "zod";
 import { createApiClient, schemas } from "../odinApi/client";
@@ -40,6 +41,16 @@ export const L2ProductPlots = ({ scan }: L2ProductPlotsProps) => {
 
   return (
     <Grid spacing={2} container>
+      {scan && (
+        <Grid size={12}>
+          <Typography align="center">{`${scan.datetime.toISOString()} - ${
+            scan.scanid
+          } - ${scan.FM} - ${scan.project}`}</Typography>
+          <Typography align="center">{`latitude: ${l2?.[0]?.Lat1D?.toFixed(
+            2
+          )} - longitude: ${l2?.[0]?.Lon1D?.toFixed(2)}`}</Typography>
+        </Grid>
+      )}
       {l2.length === 0 && (
         <Grid size={12} alignItems={"center"} justifyItems={"center"}>
           <Typography>

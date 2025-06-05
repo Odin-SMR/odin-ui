@@ -1,16 +1,19 @@
-import { Box, useTheme } from "@mui/material";
 import { AxisBottom, AxisLeft } from "@visx/axis";
+import { localPoint } from "@visx/event";
 import { Group } from "@visx/group";
 import { useParentSize } from "@visx/responsive";
 import { scaleBand, scaleLinear } from "@visx/scale";
 import { BarStack } from "@visx/shape";
 import { useTooltip, useTooltipInPortal } from "@visx/tooltip";
-import { FREQMODE_COLOURS } from "../definitions";
+import { useState } from "react";
+import { FREQMODE_COLOURS, FREQMODE_INFO_TEXT } from "../definitions";
 import {
   useFrequencyModeData,
   type TotalResponse,
   type YearResponse,
 } from "../hooks/Level1Stats";
+import { useTheme } from "@mui/material/styles";
+import Box from "@mui/material/Box";
 
 type Props = {
   year: number | null;
@@ -62,8 +65,9 @@ function getKeys(data: TotalResponse | YearResponse): number[] {
 export default function StackedBarPlot({ year, updateYear }: Props) {
   const theme = useTheme();
   const { parentRef, width, height } = useParentSize();
+  const [hovered, setHovered] = useState<[number, number] | null>(null);
   const { series: data } = useFrequencyModeData(year);
-  const { TooltipInPortal } = useTooltipInPortal({
+  const { containerRef, TooltipInPortal } = useTooltipInPortal({
     scroll: true,
   });
 
@@ -112,11 +116,16 @@ export default function StackedBarPlot({ year, updateYear }: Props) {
       key: string;
       group: number;
       value: number;
+      freq: string;
+      spec: string;
     }>();
 
   return (
-    <Box ref={parentRef} height="45vh" p={2}>
-      <svg width={width} height={height}>
+    <Box
+      ref={parentRef}
+      sx={{ height: "100%", width: "100%", position: "relative" }}
+    >
+      <svg ref={containerRef} width={width} height={height}>
         <rect fill={background} width={width} height={height} rx={5} />
         {height > margin.top + margin.bottom && (
           <Group top={margin.top} left={margin.left}>
@@ -129,8 +138,8 @@ export default function StackedBarPlot({ year, updateYear }: Props) {
               color={(key) => FREQMODE_COLOURS[key]}
             >
               {(barStacks) =>
-                barStacks.map((barStack) =>
-                  barStack.bars.map((bar) => (
+                barStacks.map((barStack, i) =>
+                  barStack.bars.map((bar, j) => (
                     <rect
                       key={`${barStack.key}-${bar.index}`}
                       x={bar.x}
@@ -138,21 +147,34 @@ export default function StackedBarPlot({ year, updateYear }: Props) {
                       width={bar.width}
                       height={bar.height}
                       fill={bar.color}
+                      stroke="white"
+                      strokeWidth={
+                        hovered?.[0] === i && hovered?.[1] === j ? 3 : 1
+                      }
                       onClick={() =>
                         updateYear && updateYear(rows[bar.index]["group"])
                       }
-                      onMouseMove={() => {
+                      onMouseMove={(
+                        event: React.MouseEvent<SVGRectElement, MouseEvent>
+                      ) => {
+                        setHovered([i, j]);
+                        const point = localPoint(event) ?? { x: 0, y: 0 };
                         showTooltip({
-                          tooltipLeft: bar.x + bar.width / 2,
-                          tooltipTop: bar.y,
+                          tooltipLeft: point.x,
+                          tooltipTop: point.y,
                           tooltipData: {
                             key: bar.key,
                             group: rows[bar.index]["group"],
                             value: rows[bar.index][bar.key],
+                            freq: FREQMODE_INFO_TEXT[+bar.key][0],
+                            spec: FREQMODE_INFO_TEXT[+bar.key][1],
                           },
                         });
                       }}
-                      onMouseLeave={hideTooltip}
+                      onMouseLeave={() => {
+                        setHovered(null);
+                        hideTooltip();
+                      }}
                     />
                   ))
                 )
@@ -193,6 +215,10 @@ export default function StackedBarPlot({ year, updateYear }: Props) {
             <strong>FreqMode:</strong> {tooltipData.key}
             <br />
             <strong>Count:</strong> {tooltipData.value}
+            <br />
+            <strong>Range:</strong> {tooltipData.freq}
+            <br />
+            <strong>Species:</strong> {tooltipData.spec}
           </div>
         </TooltipInPortal>
       )}

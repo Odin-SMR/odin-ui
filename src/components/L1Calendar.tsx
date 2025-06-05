@@ -122,12 +122,12 @@ export default function CalendarView() {
         />
       </Grid>
       <Grid size={{ xs: 12, md: 6, xl: 4 }} sx={{ height: "585px" }}>
-        <Track data={log} selectedScanid={SetScanId} />
+        <Track data={log} scanid={scanId} selectedScanid={SetScanId} />
       </Grid>
       <Grid size={{ xs: 12, md: 6, xl: 4 }} height={"40vh"}>
-        <L1ScanInfoPlot data={log} selectedScanid={SetScanId} />
+        <L1ScanInfoPlot data={log} scanid={scanId} selectedScanid={SetScanId} />
       </Grid>
-      <Grid size={{ xs: 12 }} height={"40vh"}>
+      <Grid size={{ xs: 12 }} height={"30vh"}>
         <L1BPlots scanid={scanId} freqmode={fmDay?.FM} />
       </Grid>
     </Grid>

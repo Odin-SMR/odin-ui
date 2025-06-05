@@ -1,4 +1,6 @@
-import { Box, Grid, useTheme } from "@mui/material";
+import Box from "@mui/material/Box";
+import Grid from "@mui/material/Grid";
+import { useTheme } from "@mui/material/styles";
 import { AxisBottom, AxisLeft } from "@visx/axis";
 import { curveMonotoneX } from "@visx/curve";
 import { localPoint } from "@visx/event";
@@ -6,14 +8,15 @@ import { Group } from "@visx/group";
 import { useParentSize } from "@visx/responsive";
 import { scaleLinear, scaleUtc } from "@visx/scale";
 import { LinePath } from "@visx/shape";
-import { useTooltip, useTooltipInPortal } from "@visx/tooltip";
 import { Text } from "@visx/text";
+import { useTooltip, useTooltipInPortal } from "@visx/tooltip";
 import dayjs from "dayjs";
 import AdvancedFormat from "dayjs/plugin/advancedFormat";
 import timezone from "dayjs/plugin/timezone";
 import utc from "dayjs/plugin/utc";
 import type z from "zod";
 import type { schemas } from "../odinApi/client";
+
 dayjs.extend(utc);
 dayjs.extend(timezone);
 dayjs.extend(AdvancedFormat);
@@ -22,11 +25,13 @@ type LogType = z.infer<typeof schemas.Log>;
 
 interface L1ScanInfoPlotProps {
   data: LogType[] | undefined;
+  scanid: number | undefined;
   selectedScanid: (scanid: number | undefined) => void;
 }
 
 export const L1ScanInfoPlot = ({
   data: series,
+  scanid,
   selectedScanid,
 }: L1ScanInfoPlotProps) => {
   const theme = useTheme();
@@ -73,12 +78,29 @@ export const L1ScanInfoPlot = ({
     detectBounds: true,
   });
   return (
-    <Grid size={{ xs: 12 }} sx={{ height: "inherit" }} ref={parentRef}>
+    <Grid
+      size={{ xs: 12 }}
+      sx={{ height: "inherit", position: "relative" }}
+      ref={parentRef}
+    >
       <Box ref={containerRef}>
         <svg width={width} height={height}>
           <rect width={width} height={height} fill={background} rx={14} />
+          <Text
+            x={width / 2}
+            y={margin.top / 2}
+            textAnchor="middle"
+            fontSize={12}
+          >
+            Sun Zentith Angle (deg)
+          </Text>
           {series === undefined && (
-            <Text x={width / 2} y={height / 2} fontSize={12} textAnchor="middle">
+            <Text
+              x={width / 2}
+              y={height / 2}
+              fontSize={12}
+              textAnchor="middle"
+            >
               Select an event from the calendar to display a track
             </Text>
           )}
@@ -99,8 +121,8 @@ export const L1ScanInfoPlot = ({
                   key={i}
                   cx={xScale(dayjs.utc(d.DateTime).toDate())}
                   cy={yScale(d.SunZD ?? NaN)}
-                  r={3}
-                  fill="white"
+                  r={5}
+                  fill={scanid == d.ScanID ? "blue" : "white"}
                   stroke="steelblue"
                   onMouseEnter={(
                     event: React.MouseEvent<SVGCircleElement, MouseEvent>
@@ -135,13 +157,7 @@ export const L1ScanInfoPlot = ({
       {tooltipOpen && tooltipData && (
         <TooltipInPortal top={tooltipTop} left={tooltipLeft}>
           <div>
-            <strong>
-              {dayjs(tooltipData.DateTime).format("YYYY-MM-DD HH:mm")}
-            </strong>
-            <br />
-            {(tooltipData.LatStart ?? 0).toFixed(2)}
-            <br />
-            {tooltipData.FreqMode}
+            scanid {tooltipData.ScanID}
             <br />
             {tooltipData.Quality ?? NaN}
           </div>

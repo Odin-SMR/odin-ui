@@ -1,4 +1,4 @@
-import { Box } from "@mui/material";
+import Box from "@mui/material/Box";
 import { Graticule, Mercator } from "@visx/geo";
 import { useParentSize } from "@visx/responsive";
 import { Text } from "@visx/text";
@@ -25,10 +25,11 @@ type LogType = z.infer<typeof schemas.Log>;
 
 interface TrackProps {
   data: LogType[] | undefined;
+  scanid: number | undefined;
   selectedScanid: (scanid: number | undefined) => void;
 }
 
-export function Track({ data: series, selectedScanid }: TrackProps) {
+export function Track({ data: series, scanid, selectedScanid }: TrackProps) {
   const { parentRef, width, height } = useParentSize();
   const centerX = width / 2;
   const centerY = height / 2;
@@ -71,7 +72,7 @@ export function Track({ data: series, selectedScanid }: TrackProps) {
                         cx={v?.[0]}
                         cy={v?.[1]}
                         r={5}
-                        fill="red"
+                        fill={scanid === series?.[i]?.ScanID ? "blue" : "red"}
                         stroke="white"
                         strokeWidth={1}
                         onClick={() => {
@@ -85,12 +86,7 @@ export function Track({ data: series, selectedScanid }: TrackProps) {
           </Mercator>
         )}
         {series === undefined && (
-          <Text
-            x={width / 2}
-            y={height / 2}
-            textAnchor="middle"
-            fontSize={12}
-          >
+          <Text x={width / 2} y={height / 2} textAnchor="middle" fontSize={12}>
             Select an event from the calendar to display a track
           </Text>
         )}

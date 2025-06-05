@@ -1,11 +1,13 @@
-import { Box, useTheme } from "@mui/material";
+import Box from "@mui/material/Box";
+import { useTheme } from "@mui/material/styles";
 import { AxisBottom } from "@visx/axis";
 import { Group } from "@visx/group";
 import { useParentSize } from "@visx/responsive";
 import { scaleUtc } from "@visx/scale";
+import { Text } from "@visx/text";
 import type { Dayjs } from "dayjs";
 import dayjs from "dayjs";
-import { Text } from "@visx/text";
+import { useState } from "react";
 
 export interface ScanInfo {
   datetime: Dayjs;
@@ -30,6 +32,7 @@ export const Level2PlotInfo = ({
       : theme.palette.grey[600];
 
   const { parentRef, width, height } = useParentSize();
+  const [scanid, setScanid] = useState<number | null>(null);
   const margin = { top: 20, bottom: 50, left: 40, right: 20 };
   const minTime = dayjs(
     Math.min(...data.map((v) => v.datetime.valueOf()))
@@ -86,9 +89,12 @@ export const Level2PlotInfo = ({
               cx={xScale(d.datetime.toDate())}
               cy={margin.top + 10}
               r={4}
-              fill="white"
+              fill={scanid === d.scanid ? "red" : "white"}
               stroke="black"
-              onClick={() => handleSelectedScan(d)}
+              onClick={() => {
+                setScanid(d.scanid);
+                handleSelectedScan(d);
+              }}
             />
           ))}
           <AxisBottom

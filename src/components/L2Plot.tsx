@@ -1,14 +1,15 @@
-import { Box, useTheme } from "@mui/material";
+import Box from "@mui/material/Box";
+import { useTheme } from "@mui/material/styles";
 import { AxisBottom, AxisLeft } from "@visx/axis";
 import { curveMonotoneY } from "@visx/curve";
 import { Group } from "@visx/group";
 import { useParentSize } from "@visx/responsive";
 import { scaleLinear } from "@visx/scale";
 import { LinePath } from "@visx/shape";
+import { Text } from "@visx/text";
 import { format } from "d3-format";
 import type z from "zod";
 import type { schemas } from "../odinApi/client";
-import { Text } from "@visx/text";
 
 type L2 = z.infer<typeof schemas.L2>;
 
@@ -56,7 +57,12 @@ export const L2Plot = ({ data }: L2PlotProps) => {
     <Box ref={parentRef} height="inherit">
       <svg width={width} height={height}>
         <rect width={width} height={height} fill={background} rx={14} />
-        <Text x={width / 2} y={margin.top/2} textAnchor="middle" fontSize={12}>
+        <Text
+          x={width / 2}
+          y={margin.top / 2}
+          textAnchor="middle"
+          fontSize={12}
+        >
           {data.Product}
         </Text>
 

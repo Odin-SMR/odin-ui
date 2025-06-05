@@ -1,15 +1,14 @@
 import { Brightness4, Brightness7 } from "@mui/icons-material";
-import {
-  AppBar,
-  Box,
-  Button,
-  IconButton,
-  Menu,
-  MenuItem,
-  Toolbar,
-  Typography,
-  useTheme,
-} from "@mui/material";
+
+import AppBar from "@mui/material/AppBar";
+import Box from "@mui/material/Box";
+import Button from "@mui/material/Button";
+import IconButton from "@mui/material/IconButton";
+import Menu from "@mui/material/Menu";
+import MenuItem from "@mui/material/MenuItem";
+import { useTheme } from "@mui/material/styles";
+import Toolbar from "@mui/material/Toolbar";
+import Typography from "@mui/material/Typography";
 import { useContext, useState } from "react";
 import {
   BrowserRouter,
@@ -18,13 +17,15 @@ import {
   Link as RouterLink,
   Routes,
 } from "react-router-dom";
+import { Documents } from "./components/Documents";
 import Footer from "./components/Footer";
 import { Home } from "./components/Home";
-import { Level1 } from "./components/Level1";
 import CalendarView from "./components/L1Calendar";
-import { ColorModeContext } from "./contexts/ColorModeContext";
-import { NotFound } from "./components/NotFound";
 import { L2Calendar } from "./components/L2Calendar";
+import { Level1 } from "./components/Level1";
+import { NotFound } from "./components/NotFound";
+import { ColorModeContext } from "./contexts/ColorModeContext";
+import { DataAccess } from "./DataAccess";
 
 function App() {
   const theme = useTheme();
@@ -50,6 +51,9 @@ function App() {
             <Box>
               <Button color="inherit" component={Link} to="/">
                 Home
+              </Button>
+              <Button color="inherit" component={Link} to="/documentation">
+                Documents
               </Button>
               <Button
                 aria-controls="menu"
@@ -84,14 +88,21 @@ function App() {
                   to="/level1/calendar"
                   onClick={handleClose}
                 >
-                  Level1 calendar
+                  Level1 Calendar
                 </MenuItem>
                 <MenuItem
                   component={RouterLink}
                   to="/level2/calendar"
                   onClick={handleClose}
                 >
-                  Level2 data
+                  Level2 Calendar
+                </MenuItem>
+                <MenuItem
+                  component={RouterLink}
+                  to="/data_access"
+                  onClick={handleClose}
+                >
+                  Data Access
                 </MenuItem>
               </Menu>
             </Box>
@@ -99,13 +110,13 @@ function App() {
         </AppBar>
         <Routes>
           <Route path="/" element={<Home />} />
+          <Route path="/documentation" element={<Documents />} />
           <Route path="/level1/statistics" element={<Level1 />} />
           <Route path="/level1/statistics/:year" element={<Level1 />} />
           <Route path="/level1/calendar" element={<CalendarView />} />
           <Route path="/level2/calendar" element={<L2Calendar />} />
-
+          <Route path="/data_access" element={<DataAccess />} />
           <Route path="*" element={<NotFound />} />
-          
         </Routes>
         <Footer />
       </Box>

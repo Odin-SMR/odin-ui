@@ -1,3 +1,5 @@
+import Typography from "@mui/material/Typography";
+
 export const NotFound = () => {
-  return "404 - not found";
+  return <Typography variant="h1">"404 - not found";</Typography>;
 };
