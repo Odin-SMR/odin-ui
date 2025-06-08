@@ -108,16 +108,18 @@ function App() {
             </Box>
           </Toolbar>
         </AppBar>
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/documentation" element={<Documents />} />
-          <Route path="/level1/statistics" element={<Level1 />} />
-          <Route path="/level1/statistics/:year" element={<Level1 />} />
-          <Route path="/level1/calendar" element={<CalendarView />} />
-          <Route path="/level2/calendar" element={<L2Calendar />} />
-          <Route path="/data_access" element={<DataAccess />} />
-          <Route path="*" element={<NotFound />} />
-        </Routes>
+        <Box component="main" flexGrow={1}>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/documentation" element={<Documents />} />
+            <Route path="/level1/statistics" element={<Level1 />} />
+            <Route path="/level1/statistics/:year" element={<Level1 />} />
+            <Route path="/level1/calendar" element={<CalendarView />} />
+            <Route path="/level2/calendar" element={<L2Calendar />} />
+            <Route path="/data_access" element={<DataAccess />} />
+            <Route path="*" element={<NotFound />} />
+          </Routes>
+        </Box>
         <Footer />
       </Box>
     </BrowserRouter>

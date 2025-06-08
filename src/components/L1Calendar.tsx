@@ -26,7 +26,7 @@ interface FreqmodeDay {
 type ScanInfoType = z.infer<typeof schemas.freqmode_info>;
 type LogType = z.infer<typeof schemas.Log>;
 
-const api = createApiClient("https://odin-smr.org/");
+const api = createApiClient("/");
 
 function toCalendarEvents(response: ScanInfoType[]): EventSourceInput {
   if (response === undefined) return [];

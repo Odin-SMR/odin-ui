@@ -29,7 +29,7 @@ export function useLevel1(date: Dayjs, numDays: number = 30) {
       setLoading(true);
       setError(null);
       const response = await fetch(
-        `https://odin-smr.org/rest_api/v5/period_info/${date.format(
+        `/rest_api/v5/period_info/${date.format(
           "YYYY"
         )}/${date.format("MM")}/${date.format("DD")}/?length=${numDays}`
       );
