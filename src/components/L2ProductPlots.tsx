@@ -12,7 +12,7 @@ interface L2ProductPlotsProps {
 
 type L2 = z.infer<typeof schemas.L2>;
 
-const api = createApiClient("https://odin-smr.org/");
+const api = createApiClient("/");
 
 export const L2ProductPlots = ({ scan }: L2ProductPlotsProps) => {
   const [l2, setL2] = useState<L2[]>([]);

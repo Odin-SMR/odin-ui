@@ -23,7 +23,7 @@ interface ProjectsMap {
   count: number;
 }
 
-const api = createApiClient("https://odin-smr.org/");
+const api = createApiClient("/");
 
 const today = dayjs().utc().subtract(7, "week");
 

@@ -59,7 +59,7 @@ Use the api specification to generate the client
 
 ### get spec
 ```bash
-curl https://odin-smr.org/rest_api/v5/spec > spec.json
+curl /rest_api/v5/spec > spec.json
 ```
 ### correct old spec
 

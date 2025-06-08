@@ -26,7 +26,7 @@ interface ToolTipValues {
 }
 
 type L1BType = z.infer<typeof schemas.L1b>;
-const api = createApiClient("https://odin-smr.org/");
+const api = createApiClient("/");
 const margin = { top: 20, bottom: 50, left: 40, right: 20 };
 
 export const L1BPlots = ({ freqmode, scanid }: L1BPlotProps) => {

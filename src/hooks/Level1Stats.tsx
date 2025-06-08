@@ -33,7 +33,7 @@ export function useFrequencyModeData(year: number | null) {
         setLoading(true);
         setError(null);
         const response = await fetch(
-          "https://odin-smr.org/rest_api/v5/statistics/freqmode/timeline/"
+          "/rest_api/v5/statistics/freqmode/timeline/"
         );
         const json = await response.json();
         const result = TotalSchema.safeParse(json);
@@ -50,7 +50,7 @@ export function useFrequencyModeData(year: number | null) {
         setLoading(true);
         setError(null);
         const response = await fetch(
-          `https://odin-smr.org/rest_api/v5/statistics/freqmode/timeline/?year=${year}`
+          `/rest_api/v5/statistics/freqmode/timeline/?year=${year}`
         );
         const json = await response.json();
         const result = YearSchema.safeParse(json);
