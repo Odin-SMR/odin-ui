@@ -9,9 +9,9 @@ import { LinePath } from "@visx/shape";
 import { Text } from "@visx/text";
 import { format } from "d3-format";
 import type z from "zod";
-import type { schemas } from "../odinApi/client";
+import type { schemas } from "../odinApi/cloud_client";
 
-type L2 = z.infer<typeof schemas.L2>;
+type L2 = z.infer<typeof schemas.Product>;
 
 interface L2PlotProps {
   data: L2;
@@ -26,21 +26,17 @@ export const L2Plot = ({ data }: L2PlotProps) => {
   const { parentRef, width, height } = useParentSize();
   const margin = { top: 30, bottom: 50, left: 40, right: 20 };
 
-  const plotdata = (data.Altitude ?? []).map((v, i) => ({
+  const plotdata = (data.data.alt ?? []).map((v, i) => ({
     altitude: v,
-    apriori: (data.Apriori?.[i] ?? NaN) * 1e6,
-    vmr: (data.VMR?.[i] ?? NaN) * 1e6,
-    err: (data.ErrorTotal?.[i] ?? NaN) * 1e6,
+    vmr: (data.data.vmr?.[i] ?? NaN) * 1e6,
   }));
 
   const siTickFormat = format("~s");
 
   const vmrMin = Math.min(...plotdata.map((v) => v.vmr));
   const vmrMax = Math.max(...plotdata.map((v) => v.vmr));
-  const aprMin = Math.min(...plotdata.map((v) => v.apriori));
-  const aprMax = Math.max(...plotdata.map((v) => v.apriori));
   const xScale = scaleLinear<number>({
-    domain: [Math.min(vmrMin, aprMin), Math.max(vmrMax, aprMax)],
+    domain: [vmrMin, vmrMax],
     range: [0, width - margin.right - margin.left],
     nice: true,
   });
@@ -63,7 +59,7 @@ export const L2Plot = ({ data }: L2PlotProps) => {
           textAnchor="middle"
           fontSize={12}
         >
-          {data.Product}
+          {data.name}
         </Text>
 
         <Text
@@ -83,20 +79,13 @@ export const L2Plot = ({ data }: L2PlotProps) => {
         <Group top={margin.top} left={margin.left}>
           <LinePath
             data={plotdata}
-            x={(d) => xScale(d.apriori)}
-            y={(d) => yScale(d.altitude)}
-            stroke="gray"
-            curve={curveMonotoneY}
-          />
-          <LinePath
-            data={plotdata}
             x={(d) => xScale(d.vmr)}
             y={(d) => yScale(d.altitude)}
             stroke="black"
             strokeWidth={2}
             curve={curveMonotoneY}
           />
-          {plotdata.map((d, i) => {
+          {/* {plotdata.map((d, i) => {
             const y = yScale(d.altitude);
             const x0 = xScale(d.vmr - d.err);
             const x1 = xScale(d.vmr + d.err);
@@ -111,7 +100,7 @@ export const L2Plot = ({ data }: L2PlotProps) => {
                 strokeWidth={1}
               />
             );
-          })}
+          })} */}
 
           <AxisLeft scale={yScale} tickFormat={siTickFormat} />
           <AxisBottom
