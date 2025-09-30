@@ -11,6 +11,29 @@ export default defineConfig({
         changeOrigin: true,
         secure: false,
       },
+      "/api": {
+        target: "https://odin-smr.org",
+        changeOrigin: true,
+        secure: true,
+        configure: (proxy) => {
+          proxy.on("proxyRes", (proxyRes) => {
+            const loc = proxyRes.headers["location"];
+            if (typeof loc === "string") {
+              // Keep browser on the Vite dev server instead of following origin’s absolute redirect
+              proxyRes.headers["location"] = loc
+                .replace(/^https?:\/\/[^/]+/i, "") // strip scheme+host
+                .replace(/^\/+/, "/");             // ensure leading slash
+            }
+            // If the origin sets domain cookies, keep them for localhost
+            const cookies = proxyRes.headers["set-cookie"];
+            if (Array.isArray(cookies)) {
+              proxyRes.headers["set-cookie"] = cookies.map(c =>
+                c.replace(/;\s*Domain=[^;]+/i, "; Domain=localhost")
+              );
+            }
+          });
+        },
+      },
     },
   },
 });
