@@ -7,15 +7,15 @@ import dayGridPlugin from "@fullcalendar/daygrid";
 import interactionPlugin from "@fullcalendar/interaction";
 import FullCalendar from "@fullcalendar/react";
 import Grid from "@mui/material/Grid";
-import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
+// import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
 import dayjs, { Dayjs } from "dayjs";
 import { useEffect, useState } from "react";
 import { FREQMODE_COLOURS } from "../definitions";
 import { createApiClient as cloud, schemas } from "../odinApi/cloud_client";
 import { L2ProductPlots } from "./L2ProductPlots";
 
-import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
-import { DatePicker } from "@mui/x-date-pickers/DatePicker";
+// import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
+// import { DatePicker } from "@mui/x-date-pickers/DatePicker";
 import type z from "zod";
 import Box from "@mui/material/Box";
 import { Track } from "./plots/TrackMap";
@@ -112,8 +112,8 @@ export function L2Calendar() {
 
   return (
     <Grid margin={2} spacing={2} container>
-      <Grid size={12}>
-        <LocalizationProvider dateAdapter={AdapterDayjs}>
+      <Grid size={{xs:12, xl:6 }}>
+        {/* <LocalizationProvider dateAdapter={AdapterDayjs}>
           <DatePicker
             views={["year", "month"]}
             label="Pick month"
@@ -122,7 +122,7 @@ export function L2Calendar() {
             //   if (newVal) gotoDate(newVal.year(), newVal.month());
             // }}
           />
-        </LocalizationProvider>
+        </LocalizationProvider> */}
         <Box
           sx={{
             "& .fc-event": {
@@ -157,12 +157,12 @@ export function L2Calendar() {
           />
         </Box>
       </Grid>
-      <Grid size={{ xs: 12, md: 6, xl: 4 }} sx={{ height: "585px" }}>
+      <Grid size={{ xs: 12, md: 6, xl: 3 }} sx={{ height: "585px" }}>
         <Track data={scans} scanid={scanid} selectedScanid={setScanid} />
       </Grid>
-      <Grid size={12}>
+      {/* <Grid size={12}> */}
         <L2ProductPlots scanid={scanid ?? 0} day={selectedEvent?.day ?? "1976-10-09"} />
-      </Grid>
+      {/* </Grid> */}
     </Grid>
   );
 }

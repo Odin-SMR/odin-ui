@@ -29,6 +29,7 @@ export const L2Plot = ({ data }: L2PlotProps) => {
   const plotdata = (data.data.alt ?? []).map((v, i) => ({
     altitude: v,
     vmr: (data.data.vmr?.[i] ?? NaN) * 1e6,
+    measresp: data.data.meas_resp[i],
   }));
 
   const siTickFormat = format("~s");
@@ -82,25 +83,9 @@ export const L2Plot = ({ data }: L2PlotProps) => {
             x={(d) => xScale(d.vmr)}
             y={(d) => yScale(d.altitude)}
             stroke="black"
-            strokeWidth={2}
+            strokeWidth={1}
             curve={curveMonotoneY}
           />
-          {/* {plotdata.map((d, i) => {
-            const y = yScale(d.altitude);
-            const x0 = xScale(d.vmr - d.err);
-            const x1 = xScale(d.vmr + d.err);
-            return (
-              <line
-                key={`err-${i}`}
-                x1={x0}
-                x2={x1}
-                y1={y}
-                y2={y}
-                stroke="black"
-                strokeWidth={1}
-              />
-            );
-          })} */}
 
           <AxisLeft scale={yScale} tickFormat={siTickFormat} />
           <AxisBottom
@@ -115,6 +100,26 @@ export const L2Plot = ({ data }: L2PlotProps) => {
               fontSize: 11,
             })}
           />
+          {/* <LinePath
+            data={plotdata.filter((p) => p.measresp > 0.8)}
+            x={(d) => xScale(d.vmr)}
+            y={(d) => yScale(d.altitude)}
+            stroke="black"
+            strokeWidth={4}
+            // curve={curveMonotoneY}
+          /> */}
+          {plotdata.map((v, i) => {
+            return (
+              <g key={`response-${i}`}>
+                <circle
+                  cx={xScale(v.vmr)}
+                  cy={yScale(v.altitude)}
+                  r={5}
+                  fill={v.measresp > 0.8 ? "blue" : "red"}
+                />
+              </g>
+            );
+          })}
         </Group>
       </svg>
     </Box>

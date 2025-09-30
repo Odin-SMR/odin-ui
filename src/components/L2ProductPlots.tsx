@@ -1,5 +1,4 @@
 import Grid from "@mui/material/Grid";
-import Typography from "@mui/material/Typography";
 import { useEffect, useState } from "react";
 import type z from "zod";
 import { createApiClient, schemas } from "../odinApi/cloud_client";
@@ -36,19 +35,7 @@ export const L2ProductPlots = ({ scanid, day }: L2ProductPlotsProps) => {
   }, [scanid, day]);
 
   return (
-    <Grid spacing={2} container>
-      {scanid && (
-        <Grid size={12}>
-          <Typography align="center">{`${day} - ${scanid}`}</Typography>
-        </Grid>
-      )}
-      {l2.length === 0 && (
-        <Grid size={12} alignItems={"center"} justifyItems={"center"}>
-          <Typography>
-            Select a scan in the timeline to view products
-          </Typography>
-        </Grid>
-      )}
+    <>
       {l2
         .filter((v) => !v.name?.startsWith("Temperature"))
         .map((v, i) => (
@@ -56,6 +43,6 @@ export const L2ProductPlots = ({ scanid, day }: L2ProductPlotsProps) => {
             <L2Plot data={v} />
           </Grid>
         ))}
-    </Grid>
+    </>
   );
 };
