@@ -26,10 +26,6 @@ export const Level2PlotInfo = ({
   handleSelectedScan,
 }: Level2PlotInfoProps) => {
   const theme = useTheme();
-  const background =
-    theme.palette.mode == "light"
-      ? theme.palette.grey[300]
-      : theme.palette.grey[600];
 
   const { parentRef, width, height } = useParentSize();
   const [scanid, setScanid] = useState<number | null>(null);
@@ -56,7 +52,7 @@ export const Level2PlotInfo = ({
   return (
     <Box ref={parentRef} height="inherit">
       <svg width={width} height={height}>
-        <rect width={width} height={height} fill={background} rx={14} />
+        <rect width={width} height={height} fill={theme.palette.background.default} rx={14} />
         {data.length === 0 && (
           <Text x={width / 2} y={height / 2} textAnchor="middle">
             Select an entry in the calendar to display a time line
@@ -77,7 +73,7 @@ export const Level2PlotInfo = ({
               x2={xScale(d.datetime.toDate())}
               y1={margin.top + 10}
               y2={height - margin.top - margin.bottom}
-              stroke="black"
+              stroke={theme.palette.primary.main}
               strokeWidth={1}
               //   strokeDasharray="4,2"
               onClick={() => handleSelectedScan(d)}

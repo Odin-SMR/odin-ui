@@ -36,13 +36,25 @@ export const L2ProductPlots = ({ scanid, day }: L2ProductPlotsProps) => {
 
   return (
     <>
-      {l2
-        .filter((v) => !v.name?.startsWith("Temperature"))
-        .map((v, i) => (
-          <Grid key={i} size={{ xs: 12, md: 6, xl: 3 }} height="40vh">
-            <L2Plot data={v} />
-          </Grid>
-        ))}
+      <Grid container size={{ xs: 12 }} spacing={1} > 
+        {l2
+          .filter((v) => !v.name?.startsWith("Temperature"))
+          .map((v, i) => (
+            <Grid
+              key={i}
+              size={{ xs: 12 }}
+              sx={{
+                flex: 1,
+                display: "flex",
+                flexDirection: "row",
+                height: "420px",
+                minWidth: 120,
+              }}
+            >
+              <L2Plot data={v} />
+            </Grid>
+          ))}
+      </Grid>
     </>
   );
 };

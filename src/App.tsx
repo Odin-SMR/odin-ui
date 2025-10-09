@@ -116,6 +116,8 @@ function App() {
             <Route path="/level1/statistics/:year" element={<Level1 />} />
             <Route path="/level1/calendar" element={<CalendarView />} />
             <Route path="/level2/calendar" element={<L2Calendar />} />
+            <Route path="/level2/calendar/:year/:month" element={<L2Calendar />} />
+            <Route path="/level2/calendar/:year/:month/:day/:fm" element={<L2Calendar />} />
             <Route path="/data_access" element={<DataAccess />} />
             <Route path="*" element={<NotFound />} />
           </Routes>

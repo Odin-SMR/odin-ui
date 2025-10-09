@@ -7,25 +7,27 @@ import dayGridPlugin from "@fullcalendar/daygrid";
 import interactionPlugin from "@fullcalendar/interaction";
 import FullCalendar from "@fullcalendar/react";
 import Grid from "@mui/material/Grid";
-// import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
+import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
 import dayjs, { Dayjs } from "dayjs";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { FREQMODE_COLOURS } from "../definitions";
 import { createApiClient as cloud, schemas } from "../odinApi/cloud_client";
 import { L2ProductPlots } from "./L2ProductPlots";
 
-// import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
-// import { DatePicker } from "@mui/x-date-pickers/DatePicker";
+import Backdrop from "@mui/material/Backdrop";
+import CircularProgress from "@mui/material/CircularProgress";
+import Paper from "@mui/material/Paper";
+import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
+import { DatePicker } from "@mui/x-date-pickers/DatePicker";
+import { useParams } from "react-router-dom";
 import type z from "zod";
-import Box from "@mui/material/Box";
 import { Track } from "./plots/TrackMap";
 
 const cloud_api = cloud("/api");
 
-const today = dayjs().utc().subtract(7, "week");
+const today = dayjs().utc();
 
 interface SelectedEvent {
-  project: string;
   freqmode: number;
   day: string;
 }
@@ -39,7 +41,6 @@ function toCalendarEvents2(cal: FreqModeDaysType): EventSourceInput {
       extendedProps: {
         count: c.count,
         freqmode: c.freqmode,
-        project: "all",
       },
       color: FREQMODE_COLOURS[c.freqmode] ?? "gray",
     };
@@ -51,24 +52,33 @@ type FreqModeDaysType = z.infer<typeof schemas.FreqModeDays>;
 type ScansType = z.infer<typeof schemas.Scans>;
 
 export function L2Calendar() {
+  const { year, month } = useParams<{
+    year: string;
+    month: string;
+    day: string;
+    fm: string;
+  }>();
+  const startday = dayjs.utc(
+    `${year ? year : today.year()}-${month ? month : today.month() + 1}-01`
+  );
+
+  const calref = useRef<FullCalendar>(null);
+  const [loading, setLoading] = useState<boolean>(true);
   const [scanid, setScanid] = useState<number>();
   const [scans, setScans] = useState<ScansType>([]);
   const [scanCounts, setScanCounts] = useState<FreqModeDaysType>([]);
   const [selectedEvent, setSelectedEvent] = useState<SelectedEvent>();
-  const [currentMonth, setCurrentMonth] = useState<Dayjs>(
-    dayjs.utc().startOf("month")
-  );
+  const [currentMonth, setCurrentMonth] = useState<Dayjs>(startday);
 
   useEffect(() => {
+    const date = dayjs.utc(selectedEvent?.day);
+    const fm = selectedEvent?.freqmode;
     const fetchData = async () => {
-      const day = selectedEvent?.day;
-      const fm = selectedEvent?.freqmode;
-      if (day && fm) {
-        console.log("params", day, fm);
+      if (date && fm) {
         try {
           const data = await cloud_api.dayscans_scans_get({
             queries: {
-              day: day,
+              day: date.format("YYYY-MM-DD"),
               fm: fm,
             },
           });
@@ -82,10 +92,8 @@ export function L2Calendar() {
   }, [selectedEvent]);
 
   useEffect(() => {
-    console.log(scans);
-  }, [scans]);
-  useEffect(() => {
     const fetchData = async () => {
+      setLoading(true);
       try {
         const data = await cloud_api.l2_calendar_calendar_get({
           queries: {
@@ -97,72 +105,108 @@ export function L2Calendar() {
       } catch {
         setScanCounts([]);
       }
+      setLoading(false);
     };
     fetchData();
   }, [currentMonth]);
+
+  useEffect(()=>{console.log(loading)},[loading])
 
   const handleClickedEvent = (event: EventClickArg) => {
     event.jsEvent.preventDefault();
     setSelectedEvent({
       day: dayjs(event.event.start).utc(true).format("YYYY-MM-DD"),
       freqmode: event.event.extendedProps.freqmode,
-      project: "all",
     });
   };
 
   return (
-    <Grid margin={2} spacing={2} container>
-      <Grid size={{xs:12, xl:6 }}>
-        {/* <LocalizationProvider dateAdapter={AdapterDayjs}>
-          <DatePicker
-            views={["year", "month"]}
-            label="Pick month"
-            // value={dayjs(new Date(year, month))}
-            // onChange={(newVal) => {
-            //   if (newVal) gotoDate(newVal.year(), newVal.month());
-            // }}
-          />
-        </LocalizationProvider> */}
-        <Box
+    <Grid container padding={1} spacing={1} alignItems="stretch">
+      <Grid size={{ xs: 12, xl: 6 }}>
+        <Paper>
+          <Grid
+            container
+            size={12}
+            sx={{ margin: 0, padding: 2 }}
+            justifyContent="center"
+          >
+            <LocalizationProvider dateAdapter={AdapterDayjs}>
+              <DatePicker
+                // timezone="UTC"
+                sx={{ margin: 2 }}
+                views={["year", "month"]}
+                label="Select month"
+                disabled={loading}
+                defaultValue={currentMonth}
+                // value={dayjs(new Date(year, month))}
+                onChange={(newVal) => {
+                  if (newVal) {
+                    const day = newVal.utc().startOf("month");
+                    setCurrentMonth(day);
+                    const calendarApi = calref.current?.getApi();
+                    if (calendarApi) calendarApi.gotoDate(day.toISOString());
+                  }
+                }}
+              />
+            </LocalizationProvider>
+            <Grid
+              container
+              sx={{
+                position: "relative",
+                filter: loading ? "blur(1px)" : "none",
+              }}
+              aria-busy={loading}
+              aria-live="polite"
+            >
+              <FullCalendar
+                ref={calref}
+                timeZone="utc"
+                plugins={[dayGridPlugin, interactionPlugin]}
+                headerToolbar={false}
+                initialView="dayGridMonth"
+                events={toCalendarEvents2(scanCounts)}
+                height="auto"
+                initialDate={currentMonth.toDate()}
+                dayMaxEvents={6}
+                eventClick={(arg) => {
+                  handleClickedEvent(arg);
+                }}
+              />
+            </Grid>
+          </Grid>
+        </Paper>
+      </Grid>
+      <Grid size={{ xs: 12, xl: 6 }} sx={{ display: "flex" }}>
+        <Paper
           sx={{
-            "& .fc-event": {
-              cursor: "pointer",
-              borderRadius: 1,
-              transition: "transform 120ms ease, box-shadow 120ms ease",
-            },
-            "& .fc-event:hover": {
-              transform: "scale(1.03)",
-              boxShadow: 6, // uses MUI shadow scale
-            },
+            padding: 1,
+            flex: 1,
+            display: "flex",
+            flexDirection: "column",
+            minHeight: "240px",
+            minWidth: 0,
           }}
         >
-          <FullCalendar
-            timeZone="utc"
-            plugins={[dayGridPlugin, interactionPlugin]}
-            initialView="dayGridMonth"
-            events={toCalendarEvents2(scanCounts)}
-            height="auto"
-            initialDate={today.toDate()}
-            datesSet={(arg) => {
-              setCurrentMonth(dayjs(arg.view.currentStart));
-              console.log(
-                dayjs(arg.view.currentStart).toISOString(),
-                currentMonth.toISOString()
-              );
-            }}
-            dayMaxEvents={6} // show "+1 more" if > 6
-            eventClick={(arg) => {
-              handleClickedEvent(arg);
-            }}
-          />
-        </Box>
+          <Track data={scans} scanid={scanid} selectedScanid={setScanid} />
+        </Paper>
       </Grid>
-      <Grid size={{ xs: 12, md: 6, xl: 3 }} sx={{ height: "585px" }}>
-        <Track data={scans} scanid={scanid} selectedScanid={setScanid} />
+      <Grid size={{ xs: 12 }}>
+        <L2ProductPlots
+          scanid={scanid ?? 0}
+          day={selectedEvent?.day ?? "1976-10-09"}
+        />
       </Grid>
-      {/* <Grid size={12}> */}
-        <L2ProductPlots scanid={scanid ?? 0} day={selectedEvent?.day ?? "1976-10-09"} />
-      {/* </Grid> */}
+      <Backdrop
+        open={loading}
+        sx={{
+          position: "absolute",
+          inset: 0,
+          zIndex: (t) => t.zIndex.modal + 1,
+          // color: "#fff",
+        }}
+      >
+        <CircularProgress color="inherit" />
+      </Backdrop>
     </Grid>
   );
 }
