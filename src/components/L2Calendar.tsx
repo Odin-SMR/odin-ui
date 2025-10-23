@@ -64,16 +64,33 @@ export function L2Calendar() {
 
   const calref = useRef<FullCalendar>(null);
   const [loading, setLoading] = useState<boolean>(true);
+  const [loadingEvent, setLoadingEvent] = useState<boolean>(true);
   const [scanid, setScanid] = useState<number>();
   const [scans, setScans] = useState<ScansType>([]);
   const [scanCounts, setScanCounts] = useState<FreqModeDaysType>([]);
   const [selectedEvent, setSelectedEvent] = useState<SelectedEvent>();
   const [currentMonth, setCurrentMonth] = useState<Dayjs>(startday);
 
+  // const handleClick = async () => {
+  //   try {
+  //     const url =
+  //       "https://odin-smr.org/l2/project=ALL-Meso-v3.0.0/freq_mode=13/inv_mode=meso/product=H2O-557GHz-45to100km/year=2018/month=01/43b69ac7672b4c3bb31283d15a042846-0.parquet";
+  //     const res = await fetch(url, { method: "GET" });
+  //     if (!res.ok) throw new Error(`HTTP ${res.status} ${res.statusText}`);
+
+  //     const blob = await res.blob();
+  //     console.log("File size (bytes):", blob.size);
+  //   } catch {
+  //     console.log("error");
+  //   }
+  // };
+
   useEffect(() => {
     const date = dayjs.utc(selectedEvent?.day);
     const fm = selectedEvent?.freqmode;
     const fetchData = async () => {
+      setLoadingEvent(true);
+      setScanid(undefined);
       if (date && fm) {
         try {
           const data = await cloud_api.dayscans_scans_get({
@@ -87,12 +104,14 @@ export function L2Calendar() {
           // setScans([]);
         }
       }
+      setLoadingEvent(false);
     };
     fetchData();
   }, [selectedEvent]);
 
   useEffect(() => {
     const fetchData = async () => {
+      setScanCounts([]);
       setLoading(true);
       try {
         const data = await cloud_api.l2_calendar_calendar_get({
@@ -110,9 +129,8 @@ export function L2Calendar() {
     fetchData();
   }, [currentMonth]);
 
-  useEffect(()=>{console.log(loading)},[loading])
-
   const handleClickedEvent = (event: EventClickArg) => {
+    setScanid(undefined);
     event.jsEvent.preventDefault();
     setSelectedEvent({
       day: dayjs(event.event.start).utc(true).format("YYYY-MM-DD"),
@@ -139,7 +157,7 @@ export function L2Calendar() {
                 disabled={loading}
                 defaultValue={currentMonth}
                 // value={dayjs(new Date(year, month))}
-                onChange={(newVal) => {
+                onAccept={(newVal) => {
                   if (newVal) {
                     const day = newVal.utc().startOf("month");
                     setCurrentMonth(day);
@@ -172,41 +190,58 @@ export function L2Calendar() {
                   handleClickedEvent(arg);
                 }}
               />
+              <Backdrop
+                open={loading}
+                sx={{
+                  position: "absolute",
+                  inset: 0,
+                  zIndex: (t) => t.zIndex.modal + 1,
+                  // color: "#fff",
+                }}
+              >
+                <CircularProgress color="inherit" />
+              </Backdrop>
             </Grid>
           </Grid>
         </Paper>
       </Grid>
-      <Grid size={{ xs: 12, xl: 6 }} sx={{ display: "flex" }}>
+      <Grid
+        size={{ xs: 12, xl: 6 }}
+        sx={{
+          height: { xs: 420, xl: "auto" }, // fixed height when stacked, flexible when side by side
+          display: "flex",
+          alignItems: "stretch",
+        }}
+      >
         <Paper
           sx={{
+            position: "relative",
             padding: 1,
             flex: 1,
             display: "flex",
             flexDirection: "column",
-            minHeight: "240px",
+            minHeight: 0,
             minWidth: 0,
           }}
         >
           <Track data={scans} scanid={scanid} selectedScanid={setScanid} />
+          <Backdrop
+            open={loadingEvent}
+            sx={{
+              position: "absolute",
+              inset: 0,
+              zIndex: (theme) => theme.zIndex.drawer + 1,
+              bgcolor: "rgba(0, 0, 0, 0.3)", // semi-transparent gray
+            }}
+          >
+            <CircularProgress color="inherit" />
+          </Backdrop>
         </Paper>
       </Grid>
-      <Grid size={{ xs: 12 }}>
-        <L2ProductPlots
-          scanid={scanid ?? 0}
-          day={selectedEvent?.day ?? "1976-10-09"}
-        />
-      </Grid>
-      <Backdrop
-        open={loading}
-        sx={{
-          position: "absolute",
-          inset: 0,
-          zIndex: (t) => t.zIndex.modal + 1,
-          // color: "#fff",
-        }}
-      >
-        <CircularProgress color="inherit" />
-      </Backdrop>
+      <L2ProductPlots
+        scanid={scanid ?? 0}
+        day={selectedEvent?.day ?? "1976-10-09"}
+      />
     </Grid>
   );
 }

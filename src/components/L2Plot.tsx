@@ -20,7 +20,7 @@ interface L2PlotProps {
 export const L2Plot = ({ data }: L2PlotProps) => {
   const theme = useTheme();
   const { parentRef, width, height } = useParentSize();
-  const margin = { top: 30, bottom: 50, left: 40, right: 20 };
+  const margin = { top: 15, bottom: 50, left: 40, right: 20 };
 
   const plotdata = (data.data.alt ?? []).map((v, i) => ({
     altitude: v,
@@ -51,8 +51,8 @@ export const L2Plot = ({ data }: L2PlotProps) => {
       ref={parentRef}
       sx={{
         flex: 1, // let it grow/shrink with parent
-        height:"100%",
-         width: "100%",
+        height: "420px",
+        width: "100%",
         minWidth: 0,
         minHeight: 0, // super important in flex/grids
         overflow: "hidden",
@@ -66,7 +66,7 @@ export const L2Plot = ({ data }: L2PlotProps) => {
           rx={14}
           style={{ display: "block" }}
         />
-        <Text
+        {/* <Text
           x={width / 2}
           y={margin.top / 2}
           textAnchor="middle"
@@ -74,7 +74,7 @@ export const L2Plot = ({ data }: L2PlotProps) => {
           fill={theme.palette.primary.dark}
         >
           {data.name}
-        </Text>
+        </Text> */}
 
         <Text
           x={5}

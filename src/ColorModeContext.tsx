@@ -8,26 +8,16 @@ import {
 import { useMemo, useState } from "react";
 import { ColorModeContext } from "./contexts/ColorModeContext";
 
-export const lightThemeOptions = {
+const lightThemeOptions = {
   palette: {
     mode: "light",
-    // primary: { main: "#6750A4" },
-    // secondary: { main: "#625B71" },
-    // background: { default: "#ffb3ffff", paper: "#e1a8a8ff" },
   },
-  // shape: { borderRadius: 12 },
-  // typography: { fontFamily: "'Inter', system-ui, sans-serif" },
 } as const;
 
-export const darkThemeOptions = {
+const darkThemeOptions = {
   palette: {
     mode: "dark",
-    // primary: { main: "#CFBCFF" },
-    // secondary: { main: "#CCC2DC" },
-    // background: { default: "#121212", paper: "#1E1E1E" },
   },
-  shape: { borderRadius: 12 },
-  // typography: { fontFamily: "'Inter', system-ui, sans-serif" },
 } as const;
 
 export function ColorModeProvider({ children }: { children: React.ReactNode }) {
