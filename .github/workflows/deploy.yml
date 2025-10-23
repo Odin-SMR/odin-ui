@@ -40,5 +40,5 @@ jobs:
         id: get_distribution
         run: |
           export DIST_ID=$(aws cloudfront list-distributions | jq -r '.DistributionList.Items[] | select(.Aliases.Items[]? == "odin-smr.org") | .Id')
-          aws cloudfront create-invalidation --distribution-id ${{ env.DIST_ID }} --paths "/index.html"
+          aws cloudfront create-invalidation --distribution-id "$DIST_ID" --paths "/index.html"
 
