@@ -19,12 +19,8 @@ interface L2PlotProps {
 
 export const L2Plot = ({ data }: L2PlotProps) => {
   const theme = useTheme();
-  const background =
-    theme.palette.mode == "light"
-      ? theme.palette.grey[300]
-      : theme.palette.grey[600];
   const { parentRef, width, height } = useParentSize();
-  const margin = { top: 30, bottom: 50, left: 40, right: 20 };
+  const margin = { top: 15, bottom: 50, left: 40, right: 20 };
 
   const plotdata = (data.data.alt ?? []).map((v, i) => ({
     altitude: v,
@@ -51,17 +47,34 @@ export const L2Plot = ({ data }: L2PlotProps) => {
   });
 
   return (
-    <Box ref={parentRef} height="inherit">
+    <Box
+      ref={parentRef}
+      sx={{
+        flex: 1, // let it grow/shrink with parent
+        height: "420px",
+        width: "100%",
+        minWidth: 0,
+        minHeight: 0, // super important in flex/grids
+        overflow: "hidden",
+      }}
+    >
       <svg width={width} height={height}>
-        <rect width={width} height={height} fill={background} rx={14} />
-        <Text
+        <rect
+          width={width}
+          height={height}
+          fill={theme.palette.background.paper}
+          rx={14}
+          style={{ display: "block" }}
+        />
+        {/* <Text
           x={width / 2}
           y={margin.top / 2}
           textAnchor="middle"
           fontSize={12}
+          fill={theme.palette.primary.dark}
         >
           {data.name}
-        </Text>
+        </Text> */}
 
         <Text
           x={5}
@@ -70,11 +83,18 @@ export const L2Plot = ({ data }: L2PlotProps) => {
           textAnchor="middle"
           verticalAnchor="middle"
           fontSize={10}
+          fill={theme.palette.primary.dark}
         >
           Altitude (m)
         </Text>
 
-        <Text x={width / 2} y={height - 5} textAnchor="middle" fontSize={12}>
+        <Text
+          x={width / 2}
+          y={height - 5}
+          textAnchor="middle"
+          fontSize={12}
+          fill={theme.palette.primary.dark}
+        >
           VMR (ppmv)
         </Text>
         <Group top={margin.top} left={margin.left}>
@@ -82,23 +102,37 @@ export const L2Plot = ({ data }: L2PlotProps) => {
             data={plotdata}
             x={(d) => xScale(d.vmr)}
             y={(d) => yScale(d.altitude)}
-            stroke="black"
+            stroke={theme.palette.primary.main}
             strokeWidth={1}
             curve={curveMonotoneY}
           />
 
-          <AxisLeft scale={yScale} tickFormat={siTickFormat} />
+          <AxisLeft
+            scale={yScale}
+            tickFormat={siTickFormat}
+            tickStroke={theme.palette.primary.dark}
+            stroke={theme.palette.primary.dark}
+            tickLabelProps={() => ({
+              fill: theme.palette.primary.dark,
+              textAnchor: "end",
+              fontSize: 11,
+              dx: "-0.25em",
+            })}
+          />
           <AxisBottom
             scale={xScale}
             top={height - margin.bottom - margin.top}
             tickFormat={siTickFormat}
             numTicks={5}
+            tickStroke={theme.palette.primary.dark}
             tickLabelProps={() => ({
               angle: -45,
               textAnchor: "end",
               dy: "0.25em",
               fontSize: 11,
+              fill: theme.palette.primary.dark,
             })}
+            stroke={theme.palette.primary.dark}
           />
           {/* <LinePath
             data={plotdata.filter((p) => p.measresp > 0.8)}
@@ -115,7 +149,12 @@ export const L2Plot = ({ data }: L2PlotProps) => {
                   cx={xScale(v.vmr)}
                   cy={yScale(v.altitude)}
                   r={5}
-                  fill={v.measresp > 0.8 ? "blue" : "red"}
+                  fill={
+                    v.measresp > 0.8
+                      ? theme.palette.info.main
+                      : theme.palette.error.main
+                  }
+                  stroke={theme.palette.primary.dark}
                 />
               </g>
             );

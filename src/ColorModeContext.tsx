@@ -1,7 +1,24 @@
 // src/theme/ColorModeContext.tsx
-import { createTheme, CssBaseline, ThemeProvider } from "@mui/material";
+import {
+  createTheme,
+  CssBaseline,
+  GlobalStyles,
+  ThemeProvider,
+} from "@mui/material";
 import { useMemo, useState } from "react";
 import { ColorModeContext } from "./contexts/ColorModeContext";
+
+const lightThemeOptions = {
+  palette: {
+    mode: "light",
+  },
+} as const;
+
+const darkThemeOptions = {
+  palette: {
+    mode: "dark",
+  },
+} as const;
 
 export function ColorModeProvider({ children }: { children: React.ReactNode }) {
   const [mode, setMode] = useState<"light" | "dark">(
@@ -22,12 +39,7 @@ export function ColorModeProvider({ children }: { children: React.ReactNode }) {
   );
 
   const theme = useMemo(
-    () =>
-      createTheme({
-        palette: {
-          mode,
-        },
-      }),
+    () => createTheme(mode === "dark" ? darkThemeOptions : lightThemeOptions),
     [mode]
   );
 
@@ -35,6 +47,22 @@ export function ColorModeProvider({ children }: { children: React.ReactNode }) {
     <ColorModeContext.Provider value={colorMode}>
       <ThemeProvider theme={theme}>
         <CssBaseline />
+        <GlobalStyles
+          styles={(theme) => ({
+            ".fc-col-header-cell": {
+              background: theme.palette.background.paper,
+            },
+            "& .fc-event": {
+              cursor: "pointer",
+              borderRadius: 4,
+              transition: "transform 120ms ease, box-shadow 120ms ease",
+            },
+            "& .fc-event:hover": {
+              transform: "scale(1.03)",
+              boxShadow: 6, // uses MUI shadow scale
+            },
+          })}
+        />
         {children}
       </ThemeProvider>
     </ColorModeContext.Provider>

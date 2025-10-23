@@ -39,6 +39,6 @@ jobs:
       - name: Look up CloudFront distribution ID by domain name
         id: get_distribution
         run: |
-          export DIST_ID=$(aws cloudfront list-distributions --profile odin-cdk  | jq -r '.DistributionList.Items[] | select(.Aliases.Items[]? == "odin-smr.org") | .Id')
+          export DIST_ID=$(aws cloudfront list-distributions | jq -r '.DistributionList.Items[] | select(.Aliases.Items[]? == "odin-smr.org") | .Id')
           aws cloudfront create-invalidation --distribution-id ${{ env.DIST_ID }} --paths "/index.html"
 
