@@ -5,9 +5,9 @@ import { Text } from "@visx/text";
 import { geoNaturalEarth1, geoPath } from "d3-geo";
 import { useMemo, useState } from "react";
 import * as topojson from "topojson-client";
-import type z from "zod";
-import { schemas } from "../../odinApi/cloud_client";
 import topology from "./world-topo.json";
+import Backdrop from "@mui/material/Backdrop";
+import CircularProgress from "@mui/material/CircularProgress";
 
 export const background = "#f9f7e8";
 
@@ -24,10 +24,15 @@ const world = topojson.feature(topology, topology.objects.units) as {
   features: FeatureShape[];
 };
 
-type ScansType = z.infer<typeof schemas.Scans>;
+export interface TrackType {
+  lat: number;
+  lon: number;
+  scanid: number;
+}
 
 interface TrackProps {
-  data: ScansType | undefined;
+  data: TrackType[] | undefined;
+  loading: boolean;
   scanid: number | undefined;
   selectedScanid: (scanid: number | undefined) => void;
 }
@@ -36,7 +41,12 @@ interface TrackProps {
 const toLon180 = (lon?: number) =>
   lon == null ? 0 : ((lon + 540) % 360) - 180;
 
-export function Track({ data: series, scanid, selectedScanid }: TrackProps) {
+export function OdinTrack({
+  data: series,
+  scanid,
+  selectedScanid,
+  loading,
+}: TrackProps) {
   const { parentRef, width, height } = useParentSize();
   const [hoveredIdx, setHoveredIdx] = useState<number | null>(null);
 
@@ -67,6 +77,8 @@ export function Track({ data: series, scanid, selectedScanid }: TrackProps) {
     <Box
       ref={parentRef}
       sx={{
+        width: "100%",
+        height: "100%",
         flex: 1, // let it grow/shrink with parent
         minWidth: 0,
         minHeight: 0, // super important in flex/grids
@@ -150,6 +162,17 @@ export function Track({ data: series, scanid, selectedScanid }: TrackProps) {
           </Text>
         )}
       </svg>
+      <Backdrop
+        open={loading}
+        sx={{
+          position: "absolute",
+          inset: 0,
+          zIndex: (theme) => theme.zIndex.drawer + 1,
+          bgcolor: "rgba(0, 0, 0, 0.3)", // semi-transparent gray
+        }}
+      >
+        <CircularProgress color="inherit" />
+      </Backdrop>
     </Box>
   );
 }

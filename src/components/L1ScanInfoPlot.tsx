@@ -1,5 +1,4 @@
 import Box from "@mui/material/Box";
-import Grid from "@mui/material/Grid";
 import { useTheme } from "@mui/material/styles";
 import { AxisBottom, AxisLeft } from "@visx/axis";
 import { curveMonotoneX } from "@visx/curve";
@@ -40,7 +39,7 @@ export const L1ScanInfoPlot = ({
       ? theme.palette.grey[300]
       : theme.palette.grey[600];
 
-  const { parentRef, width, height } = useParentSize();
+  const { parentRef, width, height } = useParentSize({ debounceTime: 150 });
   const margin = { top: 20, bottom: 50, left: 40, right: 20 };
   const time = series?.map((t) => dayjs.utc(t.DateTime).toDate()) ?? [];
 
@@ -78,13 +77,9 @@ export const L1ScanInfoPlot = ({
     detectBounds: true,
   });
   return (
-    <Grid
-      size={{ xs: 12 }}
-      sx={{ height: "inherit", position: "relative" }}
-      ref={parentRef}
-    >
-      <Box ref={containerRef}>
-        <svg width={width} height={height}>
+    <Box sx={{ height: "100%", width: "100%" }} ref={parentRef}>
+      <Box ref={containerRef} sx={{ height: "100%", width: "100%" }}>
+        <svg width="100%" height="100%">
           <rect width={width} height={height} fill={background} rx={14} />
           <Text
             x={width / 2}
@@ -163,6 +158,6 @@ export const L1ScanInfoPlot = ({
           </div>
         </TooltipInPortal>
       )}
-    </Grid>
+    </Box>
   );
 };
