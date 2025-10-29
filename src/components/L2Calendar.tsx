@@ -3,25 +3,18 @@ import type {
   EventInput,
   EventSourceInput,
 } from "@fullcalendar/core/index.js";
-import dayGridPlugin from "@fullcalendar/daygrid";
-import interactionPlugin from "@fullcalendar/interaction";
-import FullCalendar from "@fullcalendar/react";
 import Grid from "@mui/material/Grid";
-import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
 import dayjs, { Dayjs } from "dayjs";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import { FREQMODE_COLOURS } from "../definitions";
 import { createApiClient as cloud, schemas } from "../odinApi/cloud_client";
 import { L2ProductPlots } from "./L2ProductPlots";
 
-import Backdrop from "@mui/material/Backdrop";
-import CircularProgress from "@mui/material/CircularProgress";
 import Paper from "@mui/material/Paper";
-import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
-import { DatePicker } from "@mui/x-date-pickers/DatePicker";
 import { useParams } from "react-router-dom";
 import type z from "zod";
-import { Track } from "./plots/TrackMap";
+import { OdinCalendar } from "./OdinCalendar";
+import { OdinTrack, type TrackType } from "./plots/OdinTrack";
 
 const cloud_api = cloud("/api");
 
@@ -62,7 +55,6 @@ export function L2Calendar() {
     `${year ? year : today.year()}-${month ? month : today.month() + 1}-01`
   );
 
-  const calref = useRef<FullCalendar>(null);
   const [loading, setLoading] = useState<boolean>(true);
   const [loadingEvent, setLoadingEvent] = useState<boolean>(true);
   const [scanid, setScanid] = useState<number>();
@@ -138,71 +130,24 @@ export function L2Calendar() {
     });
   };
 
+  const toTrack = (input: ScansType) => {
+    const data = input.map((v) => {
+      return { lat: v.lat, lon: v.lon, scanid: v.scanid };
+    });
+    return data as TrackType[];
+  };
+
   return (
     <Grid container padding={1} spacing={1} alignItems="stretch">
       <Grid size={{ xs: 12, xl: 6 }}>
         <Paper>
-          <Grid
-            container
-            size={12}
-            sx={{ margin: 0, padding: 2 }}
-            justifyContent="center"
-          >
-            <LocalizationProvider dateAdapter={AdapterDayjs}>
-              <DatePicker
-                // timezone="UTC"
-                sx={{ margin: 2 }}
-                views={["year", "month"]}
-                label="Select month"
-                disabled={loading}
-                defaultValue={currentMonth}
-                // value={dayjs(new Date(year, month))}
-                onAccept={(newVal) => {
-                  if (newVal) {
-                    const day = newVal.utc().startOf("month");
-                    setCurrentMonth(day);
-                    const calendarApi = calref.current?.getApi();
-                    if (calendarApi) calendarApi.gotoDate(day.toISOString());
-                  }
-                }}
-              />
-            </LocalizationProvider>
-            <Grid
-              container
-              sx={{
-                position: "relative",
-                filter: loading ? "blur(1px)" : "none",
-              }}
-              aria-busy={loading}
-              aria-live="polite"
-            >
-              <FullCalendar
-                ref={calref}
-                timeZone="utc"
-                plugins={[dayGridPlugin, interactionPlugin]}
-                headerToolbar={false}
-                initialView="dayGridMonth"
-                events={toCalendarEvents2(scanCounts)}
-                height="auto"
-                initialDate={currentMonth.toDate()}
-                dayMaxEvents={6}
-                eventClick={(arg) => {
-                  handleClickedEvent(arg);
-                }}
-              />
-              <Backdrop
-                open={loading}
-                sx={{
-                  position: "absolute",
-                  inset: 0,
-                  zIndex: (t) => t.zIndex.modal + 1,
-                  // color: "#fff",
-                }}
-              >
-                <CircularProgress color="inherit" />
-              </Backdrop>
-            </Grid>
-          </Grid>
+          <OdinCalendar
+            loading={loading}
+            events={toCalendarEvents2(scanCounts)}
+            month={currentMonth}
+            setMonth={setCurrentMonth}
+            eventClick={handleClickedEvent}
+          />
         </Paper>
       </Grid>
       <Grid
@@ -224,18 +169,12 @@ export function L2Calendar() {
             minWidth: 0,
           }}
         >
-          <Track data={scans} scanid={scanid} selectedScanid={setScanid} />
-          <Backdrop
-            open={loadingEvent}
-            sx={{
-              position: "absolute",
-              inset: 0,
-              zIndex: (theme) => theme.zIndex.drawer + 1,
-              bgcolor: "rgba(0, 0, 0, 0.3)", // semi-transparent gray
-            }}
-          >
-            <CircularProgress color="inherit" />
-          </Backdrop>
+          <OdinTrack
+            data={toTrack(scans)}
+            scanid={scanid}
+            selectedScanid={setScanid}
+            loading={loadingEvent}
+          />
         </Paper>
       </Grid>
       <L2ProductPlots

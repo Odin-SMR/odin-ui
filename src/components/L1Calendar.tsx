@@ -2,23 +2,18 @@ import type {
   EventClickArg,
   EventSourceInput,
 } from "@fullcalendar/core/index.js";
-import dayGridPlugin from "@fullcalendar/daygrid";
-import interactionPlugin from "@fullcalendar/interaction";
-import FullCalendar from "@fullcalendar/react";
 import Grid from "@mui/material/Grid";
+import Paper from "@mui/material/Paper";
 import dayjs, { Dayjs } from "dayjs";
 import { useEffect, useState } from "react";
 import type { z } from "zod";
 import { FREQMODE_COLOURS } from "../definitions";
 import { createApiClient, schemas } from "../odinApi/client";
 import { L1ScanInfoPlot } from "./L1ScanInfoPlot";
+import { OdinCalendar } from "./OdinCalendar";
 import { L1BPlots } from "./plots/L1b";
-import { Track } from "./plots/SatelliteTrackMap";
+import { OdinTrack, type TrackType } from "./plots/OdinTrack";
 
-interface DatasetRange {
-  start: Dayjs;
-  days: number;
-}
 interface FreqmodeDay {
   day: Dayjs;
   FM: number;
@@ -42,36 +37,39 @@ function toCalendarEvents(response: ScanInfoType[]): EventSourceInput {
   }));
 }
 
-const today = dayjs().subtract(1, "month");
-
 export default function CalendarView() {
-  const [range, setRange] = useState<DatasetRange>({ start: today, days: 10 });
+  const [loading, setLoading] = useState<boolean>(true);
+  const [loadingScans, setLoadingScans] = useState<boolean>(true);
   const [scaninfo, setScaninfo] = useState<ScanInfoType[]>([]);
   const [fmDay, setFmDay] = useState<FreqmodeDay>();
   const [log, setLog] = useState<LogType[]>();
   const [scanId, SetScanId] = useState<number>();
+  const [currentMonth, setCurrentMonth] = useState<Dayjs>(dayjs());
   // const [hoverScanId, SetHoverScanId] = useState<number>();
 
   useEffect(() => {
-    const year = range.start.format("YYYY");
-    const month = range.start.format("MM");
-    const day = range.start.format("DD");
+    const year = currentMonth.format("YYYY");
+    const month = currentMonth.format("MM");
+    const day = currentMonth.format("DD");
     const getData = async () => {
+      setLoading(true);
       try {
         const data = await api.getRest_apiv5period_infoYearMonthDay({
           params: { day: day, month: month, year: year },
-          queries: { length: range.days },
+          queries: { length: currentMonth.daysInMonth() },
         });
         setScaninfo(data.Data);
       } catch {
         console.error("error");
       }
+      setLoading(false);
     };
     getData();
-  }, [range]);
+  }, [currentMonth]);
 
   useEffect(() => {
     const getData = async () => {
+      setLoadingScans(true);
       if (fmDay) {
         try {
           const data = await api.getRest_apiv5freqmode_infoDateFreqmode({
@@ -85,16 +83,10 @@ export default function CalendarView() {
           console.error(err);
         }
       }
+      setLoadingScans(false);
     };
     getData();
   }, [fmDay]);
-  const events = toCalendarEvents(scaninfo);
-
-  const handleUpdateDate = (date: Dayjs) => {
-    const start = date.subtract(-6, "days");
-    const numDays = date.daysInMonth() + 12;
-    setRange({ start: start.utc(true), days: numDays });
-  };
 
   const handleClickedEvent = (event: EventClickArg) => {
     event.jsEvent.preventDefault();
@@ -105,30 +97,84 @@ export default function CalendarView() {
     SetScanId(undefined);
   };
 
+  const toTrack = (input: LogType[]) => {
+    const data = input.map((v) => {
+      return { lat: v.LatStart, lon: v.LonStart, scanid: v.ScanID };
+    });
+    return data as TrackType[];
+  };
+
   return (
-    <Grid margin={2} spacing={2} container alignItems={"center"}>
+    <Grid margin={2} spacing={2} container alignItems={"strech"}>
       <Grid size={{ xs: 12, md: 12, xl: 4 }}>
-        <FullCalendar
-          plugins={[dayGridPlugin, interactionPlugin]}
-          initialView="dayGridMonth"
-          events={events}
-          height="auto"
-          initialDate={today.toDate()}
-          datesSet={(arg) => handleUpdateDate(dayjs(arg.start))}
-          dayMaxEvents={6} // show "+1 more" if > 6
-          eventClick={(arg) => {
-            handleClickedEvent(arg);
+        <Paper>
+          <OdinCalendar
+            loading={loading}
+            events={toCalendarEvents(scaninfo)}
+            month={currentMonth}
+            setMonth={setCurrentMonth}
+            eventClick={handleClickedEvent}
+          />
+        </Paper>
+      </Grid>
+      <Grid
+        size={{ xs: 12, md: 6, xl: 4 }}
+        sx={{
+          height: { xs: 420, xl: "auto" }, // fixed height when stacked, flexible when side by side
+          display: "flex",
+          alignItems: "stretch",
+        }}
+      >
+        <Paper
+          sx={{
+            position: "relative",
+            padding: 1,
+            flex: 1,
+            display: "flex",
+            flexDirection: "column",
+            minHeight: 0,
+            minWidth: 0,
           }}
-        />
+        >
+          <OdinTrack
+            data={toTrack(log ?? [])}
+            scanid={scanId}
+            selectedScanid={SetScanId}
+            loading={loadingScans}
+          />
+        </Paper>
       </Grid>
-      <Grid size={{ xs: 12, md: 6, xl: 4 }} sx={{ height: "585px" }}>
-        <Track data={log} scanid={scanId} selectedScanid={SetScanId} />
+      <Grid
+        size={{ xs: 12, md: 6, xl: 4 }}
+        sx={{
+          height: { xs: 420, xl: "auto" }, // fixed height when stacked, flexible when side by side
+          display: "flex",
+          alignItems: "stretch",
+        }}
+      >
+        <Paper
+          sx={{
+            position: "relative",
+            padding: 1,
+            flex: 1,
+            display: "flex",
+            flexDirection: "column",
+            minHeight: 0,
+            minWidth: 0,
+          }}
+        >
+          <L1ScanInfoPlot
+            data={log}
+            scanid={scanId}
+            selectedScanid={SetScanId}
+          />
+          {/* <FakeSVG/> */}
+        </Paper>
       </Grid>
-      <Grid size={{ xs: 12, md: 6, xl: 4 }} height={"40vh"}>
-        <L1ScanInfoPlot data={log} scanid={scanId} selectedScanid={SetScanId} />
-      </Grid>
-      <Grid size={{ xs: 12 }} height={"30vh"}>
-        <L1BPlots scanid={scanId} freqmode={fmDay?.FM} />
+      <Grid size={{ xs: 12 }}>
+        <Paper>
+          <L1BPlots scanid={scanId} freqmode={fmDay?.FM} />
+        </Paper>
       </Grid>
     </Grid>
   );
