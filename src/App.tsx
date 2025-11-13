@@ -23,6 +23,7 @@ import { Home } from "./components/Home";
 import CalendarView from "./components/L1Calendar";
 import { L2Calendar } from "./components/L2Calendar";
 import { Level1 } from "./components/Level1";
+import { News } from "./components/News";
 import { NotFound } from "./components/NotFound";
 import { ColorModeContext } from "./contexts/ColorModeContext";
 import { DataAccess } from "./DataAccess";
@@ -45,12 +46,22 @@ function App() {
       <Box display="flex" flexDirection="column" minHeight="100vh">
         <AppBar position="static">
           <Toolbar>
-            <Typography variant="h6" sx={{ flexGrow: 1 }}>
+            <Typography
+              variant="h6"
+              to="/"
+              component={Link}
+              sx={{
+                flexGrow: 1,
+                textDecoration: "none",
+                color: "inherit",
+                cursor: "pointer",
+              }}
+            >
               Odin-SMR
             </Typography>
             <Box>
-              <Button color="inherit" component={Link} to="/">
-                Home
+              <Button color="inherit" component={Link} to="/news">
+                News
               </Button>
               <Button color="inherit" component={Link} to="/documentation">
                 Documents
@@ -111,13 +122,20 @@ function App() {
         <Box component="main" flexGrow={1}>
           <Routes>
             <Route path="/" element={<Home />} />
+            <Route path="/news" element={<News />} />
             <Route path="/documentation" element={<Documents />} />
             <Route path="/level1/statistics" element={<Level1 />} />
             <Route path="/level1/statistics/:year" element={<Level1 />} />
             <Route path="/level1/calendar" element={<CalendarView />} />
             <Route path="/level2/calendar" element={<L2Calendar />} />
-            <Route path="/level2/calendar/:year/:month" element={<L2Calendar />} />
-            <Route path="/level2/calendar/:year/:month/:day/:fm" element={<L2Calendar />} />
+            <Route
+              path="/level2/calendar/:year/:month"
+              element={<L2Calendar />}
+            />
+            <Route
+              path="/level2/calendar/:year/:month/:day/:fm"
+              element={<L2Calendar />}
+            />
             <Route path="/data_access" element={<DataAccess />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
