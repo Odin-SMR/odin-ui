@@ -42,7 +42,7 @@ export const L2Card: React.FC<L2PlotProps> = ({ data, children }) => {
     <Card>
       <CardHeader
         title={data.name}
-        // subheader={"bajs"}
+        subheader={data.scanid}
         action={
           <IconButton
             aria-controls="menu"
