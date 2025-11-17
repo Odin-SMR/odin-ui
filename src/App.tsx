@@ -92,7 +92,7 @@ function App() {
                   to="/level1/statistics"
                   onClick={handleClose}
                 >
-                  Level1 statistics
+                  Statistics
                 </MenuItem>
                 <MenuItem
                   component={RouterLink}

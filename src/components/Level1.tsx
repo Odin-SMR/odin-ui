@@ -103,7 +103,7 @@ useEffect(()=>{console.log(stats)},[stats])
     <>
       <Grid container padding={2} spacing={2}>
         <Grid>
-          <Typography variant="h3"> Distribution of measurements</Typography>
+          <Typography variant="h3"> Distribution of measurements (L1)</Typography>
         </Grid>
         {/* <DonutChart width={400} height={400} data={series} /> */}
         <Grid size={12} height={"30vh"}>
@@ -119,7 +119,7 @@ useEffect(()=>{console.log(stats)},[stats])
         {focusYear && (
           <Grid>
             <Typography variant="h3">
-              {`${focusYear} monthly distribution`}
+              {`${focusYear} monthly distribution vs. L2`}
             </Typography>
           </Grid>
         )}

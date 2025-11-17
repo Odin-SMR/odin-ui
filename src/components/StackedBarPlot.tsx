@@ -209,7 +209,7 @@ export default function StackedBarPlot({ updateYear }: Props) {
           left={tooltipLeft}
         >
           <div>
-            <strong>Group:</strong> {tooltipData.group}
+            <strong>Year:</strong> {tooltipData.group}
             <br />
             <strong>FreqMode:</strong> {tooltipData.key}
             <br />
