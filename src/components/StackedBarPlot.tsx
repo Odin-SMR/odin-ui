@@ -16,7 +16,6 @@ import { useTheme } from "@mui/material/styles";
 import Box from "@mui/material/Box";
 
 type Props = {
-  year: number | null;
   updateYear?: (year: number) => void;
 };
 
@@ -62,11 +61,11 @@ function getKeys(data: TotalResponse | YearResponse): number[] {
   }
 }
 
-export default function StackedBarPlot({ year, updateYear }: Props) {
+export default function StackedBarPlot({ updateYear }: Props) {
   const theme = useTheme();
   const { parentRef, width, height } = useParentSize();
   const [hovered, setHovered] = useState<[number, number] | null>(null);
-  const { series: data } = useFrequencyModeData(year);
+  const { series: data } = useFrequencyModeData(null);
   const { containerRef, TooltipInPortal } = useTooltipInPortal({
     scroll: true,
   });
@@ -210,7 +209,7 @@ export default function StackedBarPlot({ year, updateYear }: Props) {
           left={tooltipLeft}
         >
           <div>
-            <strong>Group:</strong> {tooltipData.group}
+            <strong>Year:</strong> {tooltipData.group}
             <br />
             <strong>FreqMode:</strong> {tooltipData.key}
             <br />
