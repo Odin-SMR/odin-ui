@@ -78,6 +78,14 @@ const Product: z.ZodType<Product> = z
   .strict()
   .passthrough();
 const Products: z.ZodType<Products> = z.array(Product);
+const FreqModeMonth = z
+  .object({
+    month: z.number().int(),
+    freqmode: z.number().int(),
+    count: z.number().int(),
+  })
+  .strict()
+  .passthrough();
 
 export const schemas = {
   FreqModeDay,
@@ -90,6 +98,7 @@ export const schemas = {
   ProductData,
   Product,
   Products,
+  FreqModeMonth,
 };
 
 const endpoints = makeApi([
@@ -183,6 +192,42 @@ const endpoints = makeApi([
       },
     ],
     response: z.array(Scan),
+    errors: [
+      {
+        status: 404,
+        description: `Not Found`,
+        schema: z.object({ detail: z.string() }).strict().passthrough(),
+      },
+      {
+        status: 422,
+        description: `Validation Error`,
+        schema: HTTPValidationError,
+      },
+      {
+        status: 424,
+        description: `Failed Dependency`,
+        schema: z.object({ detail: z.string() }).strict().passthrough(),
+      },
+    ],
+  },
+  {
+    method: "get",
+    path: "/stats",
+    alias: "l2_stats_stats_get",
+    requestFormat: "json",
+    parameters: [
+      {
+        name: "fm",
+        type: "Query",
+        schema: z.number().int(),
+      },
+      {
+        name: "year",
+        type: "Query",
+        schema: z.number().int().gte(2000).lte(2050),
+      },
+    ],
+    response: z.array(FreqModeMonth),
     errors: [
       {
         status: 404,

@@ -1,3 +1,5 @@
+export const FREQMODES = [1, 2, 8, 13, 14, 19, 21, 22, 24] as const;
+
 export const FREQMODE_COLOURS: Record<string, string> = {
   "0": "#101010",
   "1": "#E6E6FA",
