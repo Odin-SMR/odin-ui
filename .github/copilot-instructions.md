@@ -1,6 +1,6 @@
 # Overview
 
-Odin-ui is a webbased user interface for the Odin project. Its purpose is to give the user an overview of the project's data. Basically what measurements are made, and the results of those measurements.
+Odin-ui is a web-based user interface for the Odin project. Its purpose is to give the user an overview of the project's data. Basically what measurements are made, and the results of those measurements.
 
 ## Measurements
 
@@ -20,4 +20,4 @@ The site is built using React and TypeScript. It uses two APIs: "odin-api" for l
  - Use the VisX library for all graphing needs.
  - Use storybook for all UI components, and write stories for all components. 
  - Use storybook playwright for testing all components.
- - Provide screeshots of components when creating a pull request.
+ - Provide screenshots of components when creating a pull request.
