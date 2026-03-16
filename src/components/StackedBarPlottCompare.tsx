@@ -327,7 +327,7 @@ export default function StackedBarPlotCompare({ year, level2 }: Props) {
             <br />
             <strong>L2 count:</strong> {tooltipData.valueL2}
             <br />
-            <strong>L1 / L2:</strong>{" "}
+            <strong>L2 / L1:</strong>{" "}
             {tooltipData.ratio !== null
               ? `${(tooltipData.ratio * 100).toFixed(1)} %`
               : "—"}

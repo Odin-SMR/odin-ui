@@ -20,9 +20,11 @@ const darkThemeOptions = {
   },
 } as const;
 
+type Mode = "light" | "dark";
+
 export function ColorModeProvider({ children }: { children: React.ReactNode }) {
-  const [mode, setMode] = useState<"light" | "dark">(
-    () => (localStorage.getItem("themeMode") as "light" | "dark") || "light"
+  const [mode, setMode] = useState<Mode>(
+    () => (localStorage.getItem("themeMode") as Mode) || "light"
   );
 
   const colorMode = useMemo(
