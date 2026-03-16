@@ -32,6 +32,7 @@ export const Default: StoryObj<typeof OdinTrack> = {
       { lat: 20, lon: 20, scanid: 2 },
     ],
     scanid: 2,
+    loading: false,
     selectedScanid: fn(),
   },
 };
