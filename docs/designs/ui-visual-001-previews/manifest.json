@@ -1,0 +1,56 @@
+{
+  "task": "UI-VISUAL-001",
+  "fixtureOnly": true,
+  "images": [
+    {
+      "file": "home-phone.png",
+      "width": 390,
+      "height": 1710,
+      "bytes": 74192,
+      "sha256": "bb776de0eb373a7bb7ca4b0fadf16dc1011305623e43099322760bb150ca736c"
+    },
+    {
+      "file": "phone-inspector.png",
+      "width": 390,
+      "height": 1000,
+      "bytes": 41728,
+      "sha256": "233e9f383c93ea89e3e218ac1ab70857b666dbff4d954a49cea5c9ad96db9354"
+    },
+    {
+      "file": "phone-profile.png",
+      "width": 390,
+      "height": 2364,
+      "bytes": 151276,
+      "sha256": "54d0af3909026c467b584639b314f5328a2ccc633e960d4c395a5165ce191cc7"
+    },
+    {
+      "file": "phone-spectrum.png",
+      "width": 390,
+      "height": 1870,
+      "bytes": 88467,
+      "sha256": "2abcad426d8ea77a7d8c6fe0f000b4166dd9aed3c3286b6d7c6d9b3c02a1679b"
+    },
+    {
+      "file": "touch-profile-tablet.png",
+      "width": 834,
+      "height": 1000,
+      "bytes": 62533,
+      "sha256": "b6e12635a1f4bd8d6e4314c2467d23a85e27e163d3ac4b10d0466f6a5d62afef"
+    },
+    {
+      "file": "touch-spectrum-phone.png",
+      "width": 390,
+      "height": 1000,
+      "bytes": 39892,
+      "sha256": "4c5689d4bc322fda373dd3993d47fd3e08045ef7e894a806a33b5b14c319772b"
+    },
+    {
+      "file": "workstation-l1.png",
+      "width": 1920,
+      "height": 1950,
+      "bytes": 236059,
+      "sha256": "dfc9250e009f65af1972451998008cd55826095119f427c0b6d93e8171e9bc81"
+    }
+  ],
+  "totalBytes": 694147
+}

@@ -1,0 +1,47 @@
+{
+  "task": "UI-SITE-001",
+  "observation_date": "2026-11-11",
+  "note": "Copied byte-for-byte from refreshed Penpot exports after text recreation. Illustrative scientific data. Additional temporary exports remain in /tmp/odin-ui-site-001/penpot/.",
+  "files": [
+    {
+      "name": "phone-spectrum.png",
+      "source_export": "spectrumPhone.png",
+      "width": 390,
+      "height": 1310,
+      "bytes": 62772,
+      "sha256": "0d71fb8ca778f05dfde48b65278a2978a307f17c463b3180e71e18c34c13bcd5"
+    },
+    {
+      "name": "phone-profile.png",
+      "source_export": "profilePhone.png",
+      "width": 390,
+      "height": 1370,
+      "bytes": 63066,
+      "sha256": "c0b23c0a8f819fa4c4d893f8bc84063801b50a9dcc64d8fed946213a0f69d985"
+    },
+    {
+      "name": "workstation-l1.png",
+      "source_export": "l1Workstation.png",
+      "width": 1920,
+      "height": 1250,
+      "bytes": 223452,
+      "sha256": "8fca61cf3f2e80185f52afc4547932bce1b5a58cae2ebf21d0d71ec89628bc9b"
+    },
+    {
+      "name": "responsive-rules.png",
+      "source_export": "responsiveRules.png",
+      "width": 1120,
+      "height": 900,
+      "bytes": 92723,
+      "sha256": "fc27865869b44a59a1d8c2cc8c2fbff18264efb9f00e7189284d479b35585326"
+    },
+    {
+      "name": "scientific-overview.png",
+      "source_export": "contact-4.png",
+      "width": 1240,
+      "height": 1920,
+      "bytes": 328978,
+      "sha256": "f626cf95a874443867e1f51699728a01aadceaa8f5a0a0c3bba5b671643f6212"
+    }
+  ]
+}

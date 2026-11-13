@@ -1,70 +1,27 @@
-import MoreVertIcon from "@mui/icons-material/MoreVert";
+import DownloadIcon from "@mui/icons-material/Download";
+import Button from "@mui/material/Button";
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import CardHeader from "@mui/material/CardHeader";
-import IconButton from "@mui/material/IconButton";
-import Menu from "@mui/material/Menu";
-import MenuItem from "@mui/material/MenuItem";
-import type React from "react";
-import { useState, type PropsWithChildren } from "react";
+import Typography from "@mui/material/Typography";
+import type { PropsWithChildren } from "react";
 import type { z } from "zod";
 import type { schemas } from "../odinApi/cloud_client";
+import { InspectMenu } from "./InspectMenu";
+import { saveJson } from "./plots/scientificValues";
+
 type L2 = z.infer<typeof schemas.Product>;
 
-type L2PlotProps = PropsWithChildren<{
-  data: L2;
-}>;
-
-export const L2Card: React.FC<L2PlotProps> = ({ data, children }) => {
-  const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
-  const handleOpen = (event: React.MouseEvent<HTMLElement>) => {
-    setAnchorEl(event.currentTarget);
-  };
-
-  const handleClose = () => {
-    setAnchorEl(null);
-  };
-
-  const download = async () => {
-    const jsonString = JSON.stringify(data.data, null, 2); // pretty-print with indentation
-    const blob = new Blob([jsonString], { type: "application/json" });
-    // const blob = new Blob([csv], { type: 'text/csv;charset=utf-8' });
-    const url = URL.createObjectURL(blob);
-    const a = document.createElement("a");
-    a.href = url;
-    a.download = `${data.scanid}_${data.name}.json`;
-    document.body.appendChild(a);
-    a.click();
-    a.remove();
-    URL.revokeObjectURL(url);
-  };
-  return (
-    <Card>
-      <CardHeader
-        title={data.name}
-        subheader={data.scanid}
-        action={
-          <IconButton
-            aria-controls="menu"
-            aria-haspopup="true"
-            onClick={handleOpen}
-          >
-            <MoreVertIcon />
-          </IconButton>
-        }
-      ></CardHeader>
-      <Menu
-        id="menu"
-        anchorEl={anchorEl}
-        open={Boolean(anchorEl)}
-        onClose={handleClose}
-      >
-        <MenuItem onClick={download}>Download as json</MenuItem>
-      </Menu>
-      <CardContent> {children}</CardContent>
-      {/* <CardActions>
-        <Button> test</Button>
-      </CardActions> */}
-    </Card>
-  );
-};
+export function L2Card({ data, children }: PropsWithChildren<{ data: L2 }>) {
+  return <Card variant="outlined" sx={{ height: "100%", minWidth: 0 }}>
+    <CardHeader sx={{ flexWrap: "wrap", gap: 1, "& .MuiCardHeader-content": { minWidth: 0, flex: "1 1 12rem" } }} title={data.name} subheader={`Scan ${data.scanid}`} slotProps={{ title: { component: "h3", variant: "h6", sx: { overflowWrap: "anywhere" } }, action: { sx: { m: 0, alignSelf: "center" } } }} action={
+      <InspectMenu label="Download" buttonLabel={<DownloadIcon />} title="Product data and metadata" description="Anonymous JSON downloads retain the original values.">
+        <Typography variant="body2" sx={{ overflowWrap: "anywhere" }}>{data.name} · Scan {data.scanid}</Typography>
+        <Typography variant="caption">Downloads retain any supplied noise and total-error arrays. Explicit project/version is unavailable from this API response. The metadata download includes the returned product name and scan ID.</Typography>
+        <Button variant="outlined" onClick={() => saveJson(data.data, `${data.scanid}_${data.name}.json`)}>Download JSON</Button>
+        <Button onClick={() => saveJson(data, `${data.scanid}_${data.name}_product.json`)}>Include product metadata</Button>
+      </InspectMenu>
+    } />
+    <CardContent>{children}</CardContent>
+  </Card>;
+}

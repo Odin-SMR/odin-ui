@@ -26,6 +26,8 @@ type ProductData = {
   temp: Array<number>;
   pressure: Array<number>;
   alt: Array<number>;
+  error_noise?: (Array<number | null> | null) | undefined;
+  error_total?: (Array<number | null> | null) | undefined;
 };
 type Products = Array<Product>;
 type Scans = Array<Scan>;
@@ -70,6 +72,8 @@ const ProductData: z.ZodType<ProductData> = z
     temp: z.array(z.number()),
     pressure: z.array(z.number()),
     alt: z.array(z.number()),
+    error_noise: z.array(z.number().nullable()).nullish(),
+    error_total: z.array(z.number().nullable()).nullish(),
   })
   .strict()
   .passthrough();

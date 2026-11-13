@@ -1,0 +1,48 @@
+{
+  "science_data": "Local fixtures only; these images do not demonstrate live product availability.",
+  "browser_receipt": "../ui-implement-001-browser.json",
+  "previews": [
+    {
+      "file": "home-phone.png",
+      "width": 390,
+      "height": 1757,
+      "bytes": 203674,
+      "sha256": "e0e37b69f93847d7d06fe8b19706d8fc331c98e4abcbe715976817394fb09971"
+    },
+    {
+      "file": "documents-desktop.png",
+      "width": 1440,
+      "height": 1463,
+      "bytes": 122662,
+      "sha256": "646c53f55483148f01305bd07520b2cdda35efebb5a520847643eee7417b781e"
+    },
+    {
+      "file": "workstation-l1.png",
+      "width": 1920,
+      "height": 3216,
+      "bytes": 337625,
+      "sha256": "ea62e74907465a29c33e1695725544ffa71b4bb399ad7b42c2c9bf4fc13cc18f"
+    },
+    {
+      "file": "phone-spectrum.png",
+      "width": 390,
+      "height": 3274,
+      "bytes": 147998,
+      "sha256": "c96aeff34f1ef8e4455ca8a35a4ea5944ab43e0c53d74457e5c80cab7b59bfc8"
+    },
+    {
+      "file": "phone-profile.png",
+      "width": 390,
+      "height": 3301,
+      "bytes": 190565,
+      "sha256": "ad0fb0b22428cd2d71cc34a732d17f809a03e49e3b9c0c8dceb35a69fa3fd442"
+    },
+    {
+      "file": "dark-statistics.png",
+      "width": 390,
+      "height": 2317,
+      "bytes": 93934,
+      "sha256": "ef6fb24522ab0127b218538eafab5d8487d886a99f7dc55df553801af1646aec"
+    }
+  ]
+}

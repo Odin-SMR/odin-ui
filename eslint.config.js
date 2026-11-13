@@ -7,7 +7,7 @@ import reactHooks from 'eslint-plugin-react-hooks'
 import reactRefresh from 'eslint-plugin-react-refresh'
 import tseslint from 'typescript-eslint'
 
-export default tseslint.config({ ignores: ['dist'] }, {
+export default tseslint.config({ ignores: ['dist', 'storybook-static', 'coverage'] }, {
   extends: [js.configs.recommended, ...tseslint.configs.recommended],
   files: ['**/*.{ts,tsx}'],
   languageOptions: {
@@ -19,7 +19,9 @@ export default tseslint.config({ ignores: ['dist'] }, {
     'react-refresh': reactRefresh,
   },
   rules: {
-    ...reactHooks.configs.recommended.rules,
+    // Keep the conventional Hooks checks; React Compiler is not configured.
+    'react-hooks/rules-of-hooks': 'error',
+    'react-hooks/exhaustive-deps': 'warn',
     'react-refresh/only-export-components': [
       'warn',
       { allowConstantExport: true },

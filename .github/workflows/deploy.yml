@@ -5,6 +5,10 @@ on:
     branches:
       - main
 
+concurrency:
+  group: odin-ui-production
+  cancel-in-progress: false
+
 jobs:
   deploy:
     name: Build and Deploy to S3
@@ -23,8 +27,21 @@ jobs:
         with:
           node-version-file: .nvmrc
 
+      - name: Setup npm
+        run: npm install --global npm@12.2.2
+
       - name: Install dependencies
         run: npm ci
+
+      - name: Install browser for Storybook tests
+        run: npx playwright install --with-deps chromium
+
+      - name: Validate release
+        run: |
+          npm run lint
+          npm test
+          node scripts/validate-parquet-catalog.ts
+          node scripts/validate-parquet-archive.ts
 
       - name: Build project
         run: npm run build
@@ -35,13 +52,22 @@ jobs:
           aws-region: eu-north-1
           role-to-assume: arn:aws:iam::991049544436:role/OdinGithubRole
 
-      - name: Deploy to S3
+      - name: Verify deployment account and distribution
+        id: distribution
         run: |
-          aws s3 sync dist/ s3://odin-smr-ui --delete
+          test "$(aws sts get-caller-identity --query Account --output text)" = "991049544436"
+          distribution_id=$(aws cloudfront list-distributions --output json | jq -er '[.DistributionList.Items[] | select(.Aliases.Items[]? == "odin-smr.org") | .Id] | if length == 1 then .[0] else error("Expected one Odin distribution") end')
+          echo "id=$distribution_id" >> "$GITHUB_OUTPUT"
 
-      - name: Look up CloudFront distribution ID by domain name
-        id: get_distribution
+      - name: Publish assets before the application entrypoint
         run: |
-          export DIST_ID=$(aws cloudfront list-distributions | jq -r '.DistributionList.Items[] | select(.Aliases.Items[]? == "odin-smr.org") | .Id')
-          aws cloudfront create-invalidation --distribution-id "$DIST_ID" --paths "/index.html"
+          # Keep old content-addressed assets for open browsers and rollback.
+          aws s3 sync dist/assets/ s3://odin-smr-ui/assets/ --no-follow-symlinks --cache-control 'public,max-age=31536000,immutable' --only-show-errors
+          # cp refreshes metadata even when a mutable file has unchanged bytes.
+          aws s3 cp dist/ s3://odin-smr-ui/ --recursive --exclude 'assets/*' --exclude 'index.html' --no-follow-symlinks --cache-control 'no-cache,max-age=0,must-revalidate' --only-show-errors
+          aws s3 cp dist/index.html s3://odin-smr-ui/index.html --no-follow-symlinks --cache-control 'no-cache,max-age=0,must-revalidate' --only-show-errors
 
+      - name: Refresh cached routes and publication metadata
+        env:
+          DISTRIBUTION_ID: ${{ steps.distribution.outputs.id }}
+        run: aws cloudfront create-invalidation --distribution-id "$DISTRIBUTION_ID" --paths '/*'

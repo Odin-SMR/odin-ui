@@ -1,0 +1,1667 @@
+{
+  "fixtureOnly": true,
+  "origin": "http://127.0.0.1:5173",
+  "startedAt": "2026-11-12T21:35:12.266Z",
+  "cases": [
+    {
+      "theme": "light",
+      "path": "/",
+      "width": 320,
+      "scrollWidth": 320,
+      "heading": "Odin/SMR",
+      "maxChartOverflow": 0,
+      "minPlotLabelSize": 12
+    },
+    {
+      "theme": "light",
+      "path": "/news",
+      "width": 320,
+      "scrollWidth": 320,
+      "heading": "News & mission updates",
+      "maxChartOverflow": 0,
+      "minPlotLabelSize": null
+    },
+    {
+      "theme": "light",
+      "path": "/documentation",
+      "width": 320,
+      "scrollWidth": 320,
+      "heading": "Odin/SMR documentation",
+      "maxChartOverflow": 0,
+      "minPlotLabelSize": null
+    },
+    {
+      "theme": "light",
+      "path": "/data_access",
+      "width": 320,
+      "scrollWidth": 320,
+      "heading": "Access Odin-SMR data",
+      "maxChartOverflow": 0,
+      "minPlotLabelSize": null
+    },
+    {
+      "theme": "light",
+      "path": "/level1/statistics/2015",
+      "width": 320,
+      "scrollWidth": 320,
+      "heading": "Measurement statistics",
+      "maxChartOverflow": 0,
+      "minPlotLabelSize": 12
+    },
+    {
+      "theme": "light",
+      "path": "/level1/calendar",
+      "width": 320,
+      "scrollWidth": 320,
+      "heading": "Level 1 observations",
+      "maxChartOverflow": 0,
+      "minPlotLabelSize": null
+    },
+    {
+      "theme": "light",
+      "path": "/level2/calendar/2015/1/11/1",
+      "width": 320,
+      "scrollWidth": 320,
+      "heading": "Level 2 retrievals",
+      "maxChartOverflow": 0,
+      "minPlotLabelSize": null
+    },
+    {
+      "theme": "light",
+      "path": "/migration",
+      "width": 320,
+      "scrollWidth": 320,
+      "heading": "Odin S3 archive migration",
+      "maxChartOverflow": 0,
+      "minPlotLabelSize": 12
+    },
+    {
+      "theme": "light",
+      "path": "/migration-pilot",
+      "width": 320,
+      "scrollWidth": 320,
+      "heading": "S3 migration pilot",
+      "maxChartOverflow": 0,
+      "minPlotLabelSize": null
+    },
+    {
+      "theme": "light",
+      "path": "/missing-page",
+      "width": 320,
+      "scrollWidth": 320,
+      "heading": "Let’s get you back to the observations",
+      "maxChartOverflow": 0,
+      "minPlotLabelSize": null
+    },
+    {
+      "theme": "light",
+      "path": "/",
+      "width": 390,
+      "scrollWidth": 390,
+      "heading": "Odin/SMR",
+      "maxChartOverflow": 0,
+      "minPlotLabelSize": 12
+    },
+    {
+      "theme": "light",
+      "path": "/news",
+      "width": 390,
+      "scrollWidth": 390,
+      "heading": "News & mission updates",
+      "maxChartOverflow": 0,
+      "minPlotLabelSize": null
+    },
+    {
+      "theme": "light",
+      "path": "/documentation",
+      "width": 390,
+      "scrollWidth": 390,
+      "heading": "Odin/SMR documentation",
+      "maxChartOverflow": 0,
+      "minPlotLabelSize": null
+    },
+    {
+      "theme": "light",
+      "path": "/data_access",
+      "width": 390,
+      "scrollWidth": 390,
+      "heading": "Access Odin-SMR data",
+      "maxChartOverflow": 0,
+      "minPlotLabelSize": null
+    },
+    {
+      "theme": "light",
+      "path": "/level1/statistics/2015",
+      "width": 390,
+      "scrollWidth": 390,
+      "heading": "Measurement statistics",
+      "maxChartOverflow": 0,
+      "minPlotLabelSize": 12
+    },
+    {
+      "theme": "light",
+      "path": "/level1/calendar",
+      "width": 390,
+      "scrollWidth": 390,
+      "heading": "Level 1 observations",
+      "maxChartOverflow": 0,
+      "minPlotLabelSize": null
+    },
+    {
+      "theme": "light",
+      "path": "/level2/calendar/2015/1/11/1",
+      "width": 390,
+      "scrollWidth": 390,
+      "heading": "Level 2 retrievals",
+      "maxChartOverflow": 0,
+      "minPlotLabelSize": null
+    },
+    {
+      "theme": "light",
+      "path": "/migration",
+      "width": 390,
+      "scrollWidth": 390,
+      "heading": "Odin S3 archive migration",
+      "maxChartOverflow": 0,
+      "minPlotLabelSize": 12
+    },
+    {
+      "theme": "light",
+      "path": "/migration-pilot",
+      "width": 390,
+      "scrollWidth": 390,
+      "heading": "S3 migration pilot",
+      "maxChartOverflow": 0,
+      "minPlotLabelSize": null
+    },
+    {
+      "theme": "light",
+      "path": "/missing-page",
+      "width": 390,
+      "scrollWidth": 390,
+      "heading": "Let’s get you back to the observations",
+      "maxChartOverflow": 0,
+      "minPlotLabelSize": null
+    },
+    {
+      "theme": "light",
+      "path": "/",
+      "width": 600,
+      "scrollWidth": 600,
+      "heading": "Odin/SMR",
+      "maxChartOverflow": 0,
+      "minPlotLabelSize": 12
+    },
+    {
+      "theme": "light",
+      "path": "/news",
+      "width": 600,
+      "scrollWidth": 600,
+      "heading": "News & mission updates",
+      "maxChartOverflow": 0,
+      "minPlotLabelSize": null
+    },
+    {
+      "theme": "light",
+      "path": "/documentation",
+      "width": 600,
+      "scrollWidth": 600,
+      "heading": "Odin/SMR documentation",
+      "maxChartOverflow": 0,
+      "minPlotLabelSize": null
+    },
+    {
+      "theme": "light",
+      "path": "/data_access",
+      "width": 600,
+      "scrollWidth": 600,
+      "heading": "Access Odin-SMR data",
+      "maxChartOverflow": 0,
+      "minPlotLabelSize": null
+    },
+    {
+      "theme": "light",
+      "path": "/level1/statistics/2015",
+      "width": 600,
+      "scrollWidth": 600,
+      "heading": "Measurement statistics",
+      "maxChartOverflow": 0,
+      "minPlotLabelSize": 12
+    },
+    {
+      "theme": "light",
+      "path": "/level1/calendar",
+      "width": 600,
+      "scrollWidth": 600,
+      "heading": "Level 1 observations",
+      "maxChartOverflow": 0,
+      "minPlotLabelSize": null
+    },
+    {
+      "theme": "light",
+      "path": "/level2/calendar/2015/1/11/1",
+      "width": 600,
+      "scrollWidth": 600,
+      "heading": "Level 2 retrievals",
+      "maxChartOverflow": 0,
+      "minPlotLabelSize": null
+    },
+    {
+      "theme": "light",
+      "path": "/migration",
+      "width": 600,
+      "scrollWidth": 600,
+      "heading": "Odin S3 archive migration",
+      "maxChartOverflow": 0,
+      "minPlotLabelSize": 12
+    },
+    {
+      "theme": "light",
+      "path": "/migration-pilot",
+      "width": 600,
+      "scrollWidth": 600,
+      "heading": "S3 migration pilot",
+      "maxChartOverflow": 0,
+      "minPlotLabelSize": null
+    },
+    {
+      "theme": "light",
+      "path": "/missing-page",
+      "width": 600,
+      "scrollWidth": 600,
+      "heading": "Let’s get you back to the observations",
+      "maxChartOverflow": 0,
+      "minPlotLabelSize": null
+    },
+    {
+      "theme": "light",
+      "path": "/",
+      "width": 834,
+      "scrollWidth": 834,
+      "heading": "Odin/SMR",
+      "maxChartOverflow": 0,
+      "minPlotLabelSize": 12
+    },
+    {
+      "theme": "light",
+      "path": "/news",
+      "width": 834,
+      "scrollWidth": 834,
+      "heading": "News & mission updates",
+      "maxChartOverflow": 0,
+      "minPlotLabelSize": null
+    },
+    {
+      "theme": "light",
+      "path": "/documentation",
+      "width": 834,
+      "scrollWidth": 834,
+      "heading": "Odin/SMR documentation",
+      "maxChartOverflow": 0,
+      "minPlotLabelSize": null
+    },
+    {
+      "theme": "light",
+      "path": "/data_access",
+      "width": 834,
+      "scrollWidth": 834,
+      "heading": "Access Odin-SMR data",
+      "maxChartOverflow": 0,
+      "minPlotLabelSize": null
+    },
+    {
+      "theme": "light",
+      "path": "/level1/statistics/2015",
+      "width": 834,
+      "scrollWidth": 834,
+      "heading": "Measurement statistics",
+      "maxChartOverflow": 0,
+      "minPlotLabelSize": 12
+    },
+    {
+      "theme": "light",
+      "path": "/level1/calendar",
+      "width": 834,
+      "scrollWidth": 834,
+      "heading": "Level 1 observations",
+      "maxChartOverflow": 0,
+      "minPlotLabelSize": null
+    },
+    {
+      "theme": "light",
+      "path": "/level2/calendar/2015/1/11/1",
+      "width": 834,
+      "scrollWidth": 834,
+      "heading": "Level 2 retrievals",
+      "maxChartOverflow": 0,
+      "minPlotLabelSize": null
+    },
+    {
+      "theme": "light",
+      "path": "/migration",
+      "width": 834,
+      "scrollWidth": 834,
+      "heading": "Odin S3 archive migration",
+      "maxChartOverflow": 0,
+      "minPlotLabelSize": 12
+    },
+    {
+      "theme": "light",
+      "path": "/migration-pilot",
+      "width": 834,
+      "scrollWidth": 834,
+      "heading": "S3 migration pilot",
+      "maxChartOverflow": 0,
+      "minPlotLabelSize": null
+    },
+    {
+      "theme": "light",
+      "path": "/missing-page",
+      "width": 834,
+      "scrollWidth": 834,
+      "heading": "Let’s get you back to the observations",
+      "maxChartOverflow": 0,
+      "minPlotLabelSize": null
+    },
+    {
+      "theme": "light",
+      "path": "/",
+      "width": 1024,
+      "scrollWidth": 1024,
+      "heading": "Odin/SMR",
+      "maxChartOverflow": 0,
+      "minPlotLabelSize": 12
+    },
+    {
+      "theme": "light",
+      "path": "/news",
+      "width": 1024,
+      "scrollWidth": 1024,
+      "heading": "News & mission updates",
+      "maxChartOverflow": 0,
+      "minPlotLabelSize": null
+    },
+    {
+      "theme": "light",
+      "path": "/documentation",
+      "width": 1024,
+      "scrollWidth": 1024,
+      "heading": "Odin/SMR documentation",
+      "maxChartOverflow": 0,
+      "minPlotLabelSize": null
+    },
+    {
+      "theme": "light",
+      "path": "/data_access",
+      "width": 1024,
+      "scrollWidth": 1024,
+      "heading": "Access Odin-SMR data",
+      "maxChartOverflow": 0,
+      "minPlotLabelSize": null
+    },
+    {
+      "theme": "light",
+      "path": "/level1/statistics/2015",
+      "width": 1024,
+      "scrollWidth": 1024,
+      "heading": "Measurement statistics",
+      "maxChartOverflow": 0,
+      "minPlotLabelSize": 12
+    },
+    {
+      "theme": "light",
+      "path": "/level1/calendar",
+      "width": 1024,
+      "scrollWidth": 1024,
+      "heading": "Level 1 observations",
+      "maxChartOverflow": 0,
+      "minPlotLabelSize": null
+    },
+    {
+      "theme": "light",
+      "path": "/level2/calendar/2015/1/11/1",
+      "width": 1024,
+      "scrollWidth": 1024,
+      "heading": "Level 2 retrievals",
+      "maxChartOverflow": 0,
+      "minPlotLabelSize": null
+    },
+    {
+      "theme": "light",
+      "path": "/migration",
+      "width": 1024,
+      "scrollWidth": 1024,
+      "heading": "Odin S3 archive migration",
+      "maxChartOverflow": 0,
+      "minPlotLabelSize": 12
+    },
+    {
+      "theme": "light",
+      "path": "/migration-pilot",
+      "width": 1024,
+      "scrollWidth": 1024,
+      "heading": "S3 migration pilot",
+      "maxChartOverflow": 0,
+      "minPlotLabelSize": null
+    },
+    {
+      "theme": "light",
+      "path": "/missing-page",
+      "width": 1024,
+      "scrollWidth": 1024,
+      "heading": "Let’s get you back to the observations",
+      "maxChartOverflow": 0,
+      "minPlotLabelSize": null
+    },
+    {
+      "theme": "light",
+      "path": "/",
+      "width": 1440,
+      "scrollWidth": 1440,
+      "heading": "Odin/SMR",
+      "maxChartOverflow": 0,
+      "minPlotLabelSize": 12
+    },
+    {
+      "theme": "light",
+      "path": "/news",
+      "width": 1440,
+      "scrollWidth": 1440,
+      "heading": "News & mission updates",
+      "maxChartOverflow": 0,
+      "minPlotLabelSize": null
+    },
+    {
+      "theme": "light",
+      "path": "/documentation",
+      "width": 1440,
+      "scrollWidth": 1440,
+      "heading": "Odin/SMR documentation",
+      "maxChartOverflow": 0,
+      "minPlotLabelSize": null
+    },
+    {
+      "theme": "light",
+      "path": "/data_access",
+      "width": 1440,
+      "scrollWidth": 1440,
+      "heading": "Access Odin-SMR data",
+      "maxChartOverflow": 0,
+      "minPlotLabelSize": null
+    },
+    {
+      "theme": "light",
+      "path": "/level1/statistics/2015",
+      "width": 1440,
+      "scrollWidth": 1440,
+      "heading": "Measurement statistics",
+      "maxChartOverflow": 0,
+      "minPlotLabelSize": 12
+    },
+    {
+      "theme": "light",
+      "path": "/level1/calendar",
+      "width": 1440,
+      "scrollWidth": 1440,
+      "heading": "Level 1 observations",
+      "maxChartOverflow": 0,
+      "minPlotLabelSize": null
+    },
+    {
+      "theme": "light",
+      "path": "/level2/calendar/2015/1/11/1",
+      "width": 1440,
+      "scrollWidth": 1440,
+      "heading": "Level 2 retrievals",
+      "maxChartOverflow": 0,
+      "minPlotLabelSize": null
+    },
+    {
+      "theme": "light",
+      "path": "/migration",
+      "width": 1440,
+      "scrollWidth": 1440,
+      "heading": "Odin S3 archive migration",
+      "maxChartOverflow": 0,
+      "minPlotLabelSize": 12
+    },
+    {
+      "theme": "light",
+      "path": "/migration-pilot",
+      "width": 1440,
+      "scrollWidth": 1440,
+      "heading": "S3 migration pilot",
+      "maxChartOverflow": 0,
+      "minPlotLabelSize": null
+    },
+    {
+      "theme": "light",
+      "path": "/missing-page",
+      "width": 1440,
+      "scrollWidth": 1440,
+      "heading": "Let’s get you back to the observations",
+      "maxChartOverflow": 0,
+      "minPlotLabelSize": null
+    },
+    {
+      "theme": "light",
+      "path": "/",
+      "width": 1920,
+      "scrollWidth": 1920,
+      "heading": "Odin/SMR",
+      "maxChartOverflow": 0,
+      "minPlotLabelSize": 12
+    },
+    {
+      "theme": "light",
+      "path": "/news",
+      "width": 1920,
+      "scrollWidth": 1920,
+      "heading": "News & mission updates",
+      "maxChartOverflow": 0,
+      "minPlotLabelSize": null
+    },
+    {
+      "theme": "light",
+      "path": "/documentation",
+      "width": 1920,
+      "scrollWidth": 1920,
+      "heading": "Odin/SMR documentation",
+      "maxChartOverflow": 0,
+      "minPlotLabelSize": null
+    },
+    {
+      "theme": "light",
+      "path": "/data_access",
+      "width": 1920,
+      "scrollWidth": 1920,
+      "heading": "Access Odin-SMR data",
+      "maxChartOverflow": 0,
+      "minPlotLabelSize": null
+    },
+    {
+      "theme": "light",
+      "path": "/level1/statistics/2015",
+      "width": 1920,
+      "scrollWidth": 1920,
+      "heading": "Measurement statistics",
+      "maxChartOverflow": 0,
+      "minPlotLabelSize": 12
+    },
+    {
+      "theme": "light",
+      "path": "/level1/calendar",
+      "width": 1920,
+      "scrollWidth": 1920,
+      "heading": "Level 1 observations",
+      "maxChartOverflow": 0,
+      "minPlotLabelSize": null
+    },
+    {
+      "theme": "light",
+      "path": "/level2/calendar/2015/1/11/1",
+      "width": 1920,
+      "scrollWidth": 1920,
+      "heading": "Level 2 retrievals",
+      "maxChartOverflow": 0,
+      "minPlotLabelSize": null
+    },
+    {
+      "theme": "light",
+      "path": "/migration",
+      "width": 1920,
+      "scrollWidth": 1920,
+      "heading": "Odin S3 archive migration",
+      "maxChartOverflow": 0,
+      "minPlotLabelSize": 12
+    },
+    {
+      "theme": "light",
+      "path": "/migration-pilot",
+      "width": 1920,
+      "scrollWidth": 1920,
+      "heading": "S3 migration pilot",
+      "maxChartOverflow": 0,
+      "minPlotLabelSize": null
+    },
+    {
+      "theme": "light",
+      "path": "/missing-page",
+      "width": 1920,
+      "scrollWidth": 1920,
+      "heading": "Let’s get you back to the observations",
+      "maxChartOverflow": 0,
+      "minPlotLabelSize": null
+    },
+    {
+      "theme": "dark",
+      "path": "/",
+      "width": 320,
+      "scrollWidth": 320,
+      "heading": "Odin/SMR",
+      "maxChartOverflow": 0,
+      "minPlotLabelSize": 12
+    },
+    {
+      "theme": "dark",
+      "path": "/news",
+      "width": 320,
+      "scrollWidth": 320,
+      "heading": "News & mission updates",
+      "maxChartOverflow": 0,
+      "minPlotLabelSize": null
+    },
+    {
+      "theme": "dark",
+      "path": "/documentation",
+      "width": 320,
+      "scrollWidth": 320,
+      "heading": "Odin/SMR documentation",
+      "maxChartOverflow": 0,
+      "minPlotLabelSize": null
+    },
+    {
+      "theme": "dark",
+      "path": "/data_access",
+      "width": 320,
+      "scrollWidth": 320,
+      "heading": "Access Odin-SMR data",
+      "maxChartOverflow": 0,
+      "minPlotLabelSize": null
+    },
+    {
+      "theme": "dark",
+      "path": "/level1/statistics/2015",
+      "width": 320,
+      "scrollWidth": 320,
+      "heading": "Measurement statistics",
+      "maxChartOverflow": 0,
+      "minPlotLabelSize": 12
+    },
+    {
+      "theme": "dark",
+      "path": "/level1/calendar",
+      "width": 320,
+      "scrollWidth": 320,
+      "heading": "Level 1 observations",
+      "maxChartOverflow": 0,
+      "minPlotLabelSize": null
+    },
+    {
+      "theme": "dark",
+      "path": "/level2/calendar/2015/1/11/1",
+      "width": 320,
+      "scrollWidth": 320,
+      "heading": "Level 2 retrievals",
+      "maxChartOverflow": 0,
+      "minPlotLabelSize": null
+    },
+    {
+      "theme": "dark",
+      "path": "/migration",
+      "width": 320,
+      "scrollWidth": 320,
+      "heading": "Odin S3 archive migration",
+      "maxChartOverflow": 0,
+      "minPlotLabelSize": 12
+    },
+    {
+      "theme": "dark",
+      "path": "/migration-pilot",
+      "width": 320,
+      "scrollWidth": 320,
+      "heading": "S3 migration pilot",
+      "maxChartOverflow": 0,
+      "minPlotLabelSize": null
+    },
+    {
+      "theme": "dark",
+      "path": "/missing-page",
+      "width": 320,
+      "scrollWidth": 320,
+      "heading": "Let’s get you back to the observations",
+      "maxChartOverflow": 0,
+      "minPlotLabelSize": null
+    },
+    {
+      "theme": "dark",
+      "path": "/",
+      "width": 390,
+      "scrollWidth": 390,
+      "heading": "Odin/SMR",
+      "maxChartOverflow": 0,
+      "minPlotLabelSize": 12
+    },
+    {
+      "theme": "dark",
+      "path": "/news",
+      "width": 390,
+      "scrollWidth": 390,
+      "heading": "News & mission updates",
+      "maxChartOverflow": 0,
+      "minPlotLabelSize": null
+    },
+    {
+      "theme": "dark",
+      "path": "/documentation",
+      "width": 390,
+      "scrollWidth": 390,
+      "heading": "Odin/SMR documentation",
+      "maxChartOverflow": 0,
+      "minPlotLabelSize": null
+    },
+    {
+      "theme": "dark",
+      "path": "/data_access",
+      "width": 390,
+      "scrollWidth": 390,
+      "heading": "Access Odin-SMR data",
+      "maxChartOverflow": 0,
+      "minPlotLabelSize": null
+    },
+    {
+      "theme": "dark",
+      "path": "/level1/statistics/2015",
+      "width": 390,
+      "scrollWidth": 390,
+      "heading": "Measurement statistics",
+      "maxChartOverflow": 0,
+      "minPlotLabelSize": 12
+    },
+    {
+      "theme": "dark",
+      "path": "/level1/calendar",
+      "width": 390,
+      "scrollWidth": 390,
+      "heading": "Level 1 observations",
+      "maxChartOverflow": 0,
+      "minPlotLabelSize": null
+    },
+    {
+      "theme": "dark",
+      "path": "/level2/calendar/2015/1/11/1",
+      "width": 390,
+      "scrollWidth": 390,
+      "heading": "Level 2 retrievals",
+      "maxChartOverflow": 0,
+      "minPlotLabelSize": null
+    },
+    {
+      "theme": "dark",
+      "path": "/migration",
+      "width": 390,
+      "scrollWidth": 390,
+      "heading": "Odin S3 archive migration",
+      "maxChartOverflow": 0,
+      "minPlotLabelSize": 12
+    },
+    {
+      "theme": "dark",
+      "path": "/migration-pilot",
+      "width": 390,
+      "scrollWidth": 390,
+      "heading": "S3 migration pilot",
+      "maxChartOverflow": 0,
+      "minPlotLabelSize": null
+    },
+    {
+      "theme": "dark",
+      "path": "/missing-page",
+      "width": 390,
+      "scrollWidth": 390,
+      "heading": "Let’s get you back to the observations",
+      "maxChartOverflow": 0,
+      "minPlotLabelSize": null
+    },
+    {
+      "theme": "dark",
+      "path": "/",
+      "width": 600,
+      "scrollWidth": 600,
+      "heading": "Odin/SMR",
+      "maxChartOverflow": 0,
+      "minPlotLabelSize": 12
+    },
+    {
+      "theme": "dark",
+      "path": "/news",
+      "width": 600,
+      "scrollWidth": 600,
+      "heading": "News & mission updates",
+      "maxChartOverflow": 0,
+      "minPlotLabelSize": null
+    },
+    {
+      "theme": "dark",
+      "path": "/documentation",
+      "width": 600,
+      "scrollWidth": 600,
+      "heading": "Odin/SMR documentation",
+      "maxChartOverflow": 0,
+      "minPlotLabelSize": null
+    },
+    {
+      "theme": "dark",
+      "path": "/data_access",
+      "width": 600,
+      "scrollWidth": 600,
+      "heading": "Access Odin-SMR data",
+      "maxChartOverflow": 0,
+      "minPlotLabelSize": null
+    },
+    {
+      "theme": "dark",
+      "path": "/level1/statistics/2015",
+      "width": 600,
+      "scrollWidth": 600,
+      "heading": "Measurement statistics",
+      "maxChartOverflow": 0,
+      "minPlotLabelSize": 12
+    },
+    {
+      "theme": "dark",
+      "path": "/level1/calendar",
+      "width": 600,
+      "scrollWidth": 600,
+      "heading": "Level 1 observations",
+      "maxChartOverflow": 0,
+      "minPlotLabelSize": null
+    },
+    {
+      "theme": "dark",
+      "path": "/level2/calendar/2015/1/11/1",
+      "width": 600,
+      "scrollWidth": 600,
+      "heading": "Level 2 retrievals",
+      "maxChartOverflow": 0,
+      "minPlotLabelSize": null
+    },
+    {
+      "theme": "dark",
+      "path": "/migration",
+      "width": 600,
+      "scrollWidth": 600,
+      "heading": "Odin S3 archive migration",
+      "maxChartOverflow": 0,
+      "minPlotLabelSize": 12
+    },
+    {
+      "theme": "dark",
+      "path": "/migration-pilot",
+      "width": 600,
+      "scrollWidth": 600,
+      "heading": "S3 migration pilot",
+      "maxChartOverflow": 0,
+      "minPlotLabelSize": null
+    },
+    {
+      "theme": "dark",
+      "path": "/missing-page",
+      "width": 600,
+      "scrollWidth": 600,
+      "heading": "Let’s get you back to the observations",
+      "maxChartOverflow": 0,
+      "minPlotLabelSize": null
+    },
+    {
+      "theme": "dark",
+      "path": "/",
+      "width": 834,
+      "scrollWidth": 834,
+      "heading": "Odin/SMR",
+      "maxChartOverflow": 0,
+      "minPlotLabelSize": 12
+    },
+    {
+      "theme": "dark",
+      "path": "/news",
+      "width": 834,
+      "scrollWidth": 834,
+      "heading": "News & mission updates",
+      "maxChartOverflow": 0,
+      "minPlotLabelSize": null
+    },
+    {
+      "theme": "dark",
+      "path": "/documentation",
+      "width": 834,
+      "scrollWidth": 834,
+      "heading": "Odin/SMR documentation",
+      "maxChartOverflow": 0,
+      "minPlotLabelSize": null
+    },
+    {
+      "theme": "dark",
+      "path": "/data_access",
+      "width": 834,
+      "scrollWidth": 834,
+      "heading": "Access Odin-SMR data",
+      "maxChartOverflow": 0,
+      "minPlotLabelSize": null
+    },
+    {
+      "theme": "dark",
+      "path": "/level1/statistics/2015",
+      "width": 834,
+      "scrollWidth": 834,
+      "heading": "Measurement statistics",
+      "maxChartOverflow": 0,
+      "minPlotLabelSize": 12
+    },
+    {
+      "theme": "dark",
+      "path": "/level1/calendar",
+      "width": 834,
+      "scrollWidth": 834,
+      "heading": "Level 1 observations",
+      "maxChartOverflow": 0,
+      "minPlotLabelSize": null
+    },
+    {
+      "theme": "dark",
+      "path": "/level2/calendar/2015/1/11/1",
+      "width": 834,
+      "scrollWidth": 834,
+      "heading": "Level 2 retrievals",
+      "maxChartOverflow": 0,
+      "minPlotLabelSize": null
+    },
+    {
+      "theme": "dark",
+      "path": "/migration",
+      "width": 834,
+      "scrollWidth": 834,
+      "heading": "Odin S3 archive migration",
+      "maxChartOverflow": 0,
+      "minPlotLabelSize": 12
+    },
+    {
+      "theme": "dark",
+      "path": "/migration-pilot",
+      "width": 834,
+      "scrollWidth": 834,
+      "heading": "S3 migration pilot",
+      "maxChartOverflow": 0,
+      "minPlotLabelSize": null
+    },
+    {
+      "theme": "dark",
+      "path": "/missing-page",
+      "width": 834,
+      "scrollWidth": 834,
+      "heading": "Let’s get you back to the observations",
+      "maxChartOverflow": 0,
+      "minPlotLabelSize": null
+    },
+    {
+      "theme": "dark",
+      "path": "/",
+      "width": 1024,
+      "scrollWidth": 1024,
+      "heading": "Odin/SMR",
+      "maxChartOverflow": 0,
+      "minPlotLabelSize": 12
+    },
+    {
+      "theme": "dark",
+      "path": "/news",
+      "width": 1024,
+      "scrollWidth": 1024,
+      "heading": "News & mission updates",
+      "maxChartOverflow": 0,
+      "minPlotLabelSize": null
+    },
+    {
+      "theme": "dark",
+      "path": "/documentation",
+      "width": 1024,
+      "scrollWidth": 1024,
+      "heading": "Odin/SMR documentation",
+      "maxChartOverflow": 0,
+      "minPlotLabelSize": null
+    },
+    {
+      "theme": "dark",
+      "path": "/data_access",
+      "width": 1024,
+      "scrollWidth": 1024,
+      "heading": "Access Odin-SMR data",
+      "maxChartOverflow": 0,
+      "minPlotLabelSize": null
+    },
+    {
+      "theme": "dark",
+      "path": "/level1/statistics/2015",
+      "width": 1024,
+      "scrollWidth": 1024,
+      "heading": "Measurement statistics",
+      "maxChartOverflow": 0,
+      "minPlotLabelSize": 12
+    },
+    {
+      "theme": "dark",
+      "path": "/level1/calendar",
+      "width": 1024,
+      "scrollWidth": 1024,
+      "heading": "Level 1 observations",
+      "maxChartOverflow": 0,
+      "minPlotLabelSize": null
+    },
+    {
+      "theme": "dark",
+      "path": "/level2/calendar/2015/1/11/1",
+      "width": 1024,
+      "scrollWidth": 1024,
+      "heading": "Level 2 retrievals",
+      "maxChartOverflow": 0,
+      "minPlotLabelSize": null
+    },
+    {
+      "theme": "dark",
+      "path": "/migration",
+      "width": 1024,
+      "scrollWidth": 1024,
+      "heading": "Odin S3 archive migration",
+      "maxChartOverflow": 0,
+      "minPlotLabelSize": 12
+    },
+    {
+      "theme": "dark",
+      "path": "/migration-pilot",
+      "width": 1024,
+      "scrollWidth": 1024,
+      "heading": "S3 migration pilot",
+      "maxChartOverflow": 0,
+      "minPlotLabelSize": null
+    },
+    {
+      "theme": "dark",
+      "path": "/missing-page",
+      "width": 1024,
+      "scrollWidth": 1024,
+      "heading": "Let’s get you back to the observations",
+      "maxChartOverflow": 0,
+      "minPlotLabelSize": null
+    },
+    {
+      "theme": "dark",
+      "path": "/",
+      "width": 1440,
+      "scrollWidth": 1440,
+      "heading": "Odin/SMR",
+      "maxChartOverflow": 0,
+      "minPlotLabelSize": 12
+    },
+    {
+      "theme": "dark",
+      "path": "/news",
+      "width": 1440,
+      "scrollWidth": 1440,
+      "heading": "News & mission updates",
+      "maxChartOverflow": 0,
+      "minPlotLabelSize": null
+    },
+    {
+      "theme": "dark",
+      "path": "/documentation",
+      "width": 1440,
+      "scrollWidth": 1440,
+      "heading": "Odin/SMR documentation",
+      "maxChartOverflow": 0,
+      "minPlotLabelSize": null
+    },
+    {
+      "theme": "dark",
+      "path": "/data_access",
+      "width": 1440,
+      "scrollWidth": 1440,
+      "heading": "Access Odin-SMR data",
+      "maxChartOverflow": 0,
+      "minPlotLabelSize": null
+    },
+    {
+      "theme": "dark",
+      "path": "/level1/statistics/2015",
+      "width": 1440,
+      "scrollWidth": 1440,
+      "heading": "Measurement statistics",
+      "maxChartOverflow": 0,
+      "minPlotLabelSize": 12
+    },
+    {
+      "theme": "dark",
+      "path": "/level1/calendar",
+      "width": 1440,
+      "scrollWidth": 1440,
+      "heading": "Level 1 observations",
+      "maxChartOverflow": 0,
+      "minPlotLabelSize": null
+    },
+    {
+      "theme": "dark",
+      "path": "/level2/calendar/2015/1/11/1",
+      "width": 1440,
+      "scrollWidth": 1440,
+      "heading": "Level 2 retrievals",
+      "maxChartOverflow": 0,
+      "minPlotLabelSize": null
+    },
+    {
+      "theme": "dark",
+      "path": "/migration",
+      "width": 1440,
+      "scrollWidth": 1440,
+      "heading": "Odin S3 archive migration",
+      "maxChartOverflow": 0,
+      "minPlotLabelSize": 12
+    },
+    {
+      "theme": "dark",
+      "path": "/migration-pilot",
+      "width": 1440,
+      "scrollWidth": 1440,
+      "heading": "S3 migration pilot",
+      "maxChartOverflow": 0,
+      "minPlotLabelSize": null
+    },
+    {
+      "theme": "dark",
+      "path": "/missing-page",
+      "width": 1440,
+      "scrollWidth": 1440,
+      "heading": "Let’s get you back to the observations",
+      "maxChartOverflow": 0,
+      "minPlotLabelSize": null
+    },
+    {
+      "theme": "dark",
+      "path": "/",
+      "width": 1920,
+      "scrollWidth": 1920,
+      "heading": "Odin/SMR",
+      "maxChartOverflow": 0,
+      "minPlotLabelSize": 12
+    },
+    {
+      "theme": "dark",
+      "path": "/news",
+      "width": 1920,
+      "scrollWidth": 1920,
+      "heading": "News & mission updates",
+      "maxChartOverflow": 0,
+      "minPlotLabelSize": null
+    },
+    {
+      "theme": "dark",
+      "path": "/documentation",
+      "width": 1920,
+      "scrollWidth": 1920,
+      "heading": "Odin/SMR documentation",
+      "maxChartOverflow": 0,
+      "minPlotLabelSize": null
+    },
+    {
+      "theme": "dark",
+      "path": "/data_access",
+      "width": 1920,
+      "scrollWidth": 1920,
+      "heading": "Access Odin-SMR data",
+      "maxChartOverflow": 0,
+      "minPlotLabelSize": null
+    },
+    {
+      "theme": "dark",
+      "path": "/level1/statistics/2015",
+      "width": 1920,
+      "scrollWidth": 1920,
+      "heading": "Measurement statistics",
+      "maxChartOverflow": 0,
+      "minPlotLabelSize": 12
+    },
+    {
+      "theme": "dark",
+      "path": "/level1/calendar",
+      "width": 1920,
+      "scrollWidth": 1920,
+      "heading": "Level 1 observations",
+      "maxChartOverflow": 0,
+      "minPlotLabelSize": null
+    },
+    {
+      "theme": "dark",
+      "path": "/level2/calendar/2015/1/11/1",
+      "width": 1920,
+      "scrollWidth": 1920,
+      "heading": "Level 2 retrievals",
+      "maxChartOverflow": 0,
+      "minPlotLabelSize": null
+    },
+    {
+      "theme": "dark",
+      "path": "/migration",
+      "width": 1920,
+      "scrollWidth": 1920,
+      "heading": "Odin S3 archive migration",
+      "maxChartOverflow": 0,
+      "minPlotLabelSize": 12
+    },
+    {
+      "theme": "dark",
+      "path": "/migration-pilot",
+      "width": 1920,
+      "scrollWidth": 1920,
+      "heading": "S3 migration pilot",
+      "maxChartOverflow": 0,
+      "minPlotLabelSize": null
+    },
+    {
+      "theme": "dark",
+      "path": "/missing-page",
+      "width": 1920,
+      "scrollWidth": 1920,
+      "heading": "Let’s get you back to the observations",
+      "maxChartOverflow": 0,
+      "minPlotLabelSize": null
+    },
+    {
+      "selectedView": "spectrum",
+      "width": 320,
+      "scrollWidth": 320,
+      "heading": "Level 1 observations",
+      "maxChartOverflow": 0,
+      "minPlotLabelSize": 12
+    },
+    {
+      "selectedView": "spectrum",
+      "width": 390,
+      "scrollWidth": 390,
+      "heading": "Level 1 observations",
+      "maxChartOverflow": 0,
+      "minPlotLabelSize": 12
+    },
+    {
+      "selectedView": "spectrum",
+      "width": 834,
+      "scrollWidth": 834,
+      "heading": "Level 1 observations",
+      "maxChartOverflow": 0,
+      "minPlotLabelSize": 12
+    },
+    {
+      "selectedView": "spectrum",
+      "width": 1440,
+      "scrollWidth": 1440,
+      "heading": "Level 1 observations",
+      "maxChartOverflow": 0,
+      "minPlotLabelSize": 12
+    },
+    {
+      "selectedView": "spectrum",
+      "width": 1920,
+      "scrollWidth": 1920,
+      "heading": "Level 1 observations",
+      "maxChartOverflow": 0,
+      "minPlotLabelSize": 12
+    },
+    {
+      "selectedView": "profile",
+      "width": 320,
+      "scrollWidth": 320,
+      "heading": "Level 2 retrievals",
+      "maxChartOverflow": 0,
+      "minPlotLabelSize": 12
+    },
+    {
+      "selectedView": "profile",
+      "width": 390,
+      "scrollWidth": 390,
+      "heading": "Level 2 retrievals",
+      "maxChartOverflow": 0,
+      "minPlotLabelSize": 12
+    },
+    {
+      "selectedView": "profile",
+      "width": 834,
+      "scrollWidth": 834,
+      "heading": "Level 2 retrievals",
+      "maxChartOverflow": 0,
+      "minPlotLabelSize": 12
+    },
+    {
+      "selectedView": "profile",
+      "width": 1440,
+      "scrollWidth": 1440,
+      "heading": "Level 2 retrievals",
+      "maxChartOverflow": 0,
+      "minPlotLabelSize": 12
+    },
+    {
+      "selectedView": "profile",
+      "width": 1920,
+      "scrollWidth": 1920,
+      "heading": "Level 2 retrievals",
+      "maxChartOverflow": 0,
+      "minPlotLabelSize": 12
+    },
+    {
+      "theme": "dark",
+      "textZoom": "200%",
+      "path": "/",
+      "width": 320,
+      "scrollWidth": 320,
+      "heading": "Odin/SMR",
+      "maxChartOverflow": 0,
+      "minPlotLabelSize": 12
+    },
+    {
+      "theme": "dark",
+      "textZoom": "200%",
+      "path": "/news",
+      "width": 320,
+      "scrollWidth": 320,
+      "heading": "News & mission updates",
+      "maxChartOverflow": 0,
+      "minPlotLabelSize": null
+    },
+    {
+      "theme": "dark",
+      "textZoom": "200%",
+      "path": "/documentation",
+      "width": 320,
+      "scrollWidth": 320,
+      "heading": "Odin/SMR documentation",
+      "maxChartOverflow": 0,
+      "minPlotLabelSize": null
+    },
+    {
+      "theme": "dark",
+      "textZoom": "200%",
+      "path": "/data_access",
+      "width": 320,
+      "scrollWidth": 320,
+      "heading": "Access Odin-SMR data",
+      "maxChartOverflow": 0,
+      "minPlotLabelSize": null
+    },
+    {
+      "theme": "dark",
+      "textZoom": "200%",
+      "path": "/level1/statistics/2015",
+      "width": 320,
+      "scrollWidth": 320,
+      "heading": "Measurement statistics",
+      "maxChartOverflow": 0,
+      "minPlotLabelSize": 12
+    },
+    {
+      "theme": "dark",
+      "textZoom": "200%",
+      "path": "/level1/calendar",
+      "width": 320,
+      "scrollWidth": 320,
+      "heading": "Level 1 observations",
+      "maxChartOverflow": 0,
+      "minPlotLabelSize": null
+    },
+    {
+      "theme": "dark",
+      "textZoom": "200%",
+      "path": "/level2/calendar/2015/1/11/1",
+      "width": 320,
+      "scrollWidth": 320,
+      "heading": "Level 2 retrievals",
+      "maxChartOverflow": 0,
+      "minPlotLabelSize": null
+    },
+    {
+      "theme": "dark",
+      "textZoom": "200%",
+      "path": "/migration",
+      "width": 320,
+      "scrollWidth": 320,
+      "heading": "Odin S3 archive migration",
+      "maxChartOverflow": 0,
+      "minPlotLabelSize": 12
+    },
+    {
+      "theme": "dark",
+      "textZoom": "200%",
+      "path": "/migration-pilot",
+      "width": 320,
+      "scrollWidth": 320,
+      "heading": "S3 migration pilot",
+      "maxChartOverflow": 0,
+      "minPlotLabelSize": null
+    },
+    {
+      "theme": "dark",
+      "textZoom": "200%",
+      "path": "/",
+      "width": 390,
+      "scrollWidth": 390,
+      "heading": "Odin/SMR",
+      "maxChartOverflow": 0,
+      "minPlotLabelSize": 12
+    },
+    {
+      "theme": "dark",
+      "textZoom": "200%",
+      "path": "/news",
+      "width": 390,
+      "scrollWidth": 390,
+      "heading": "News & mission updates",
+      "maxChartOverflow": 0,
+      "minPlotLabelSize": null
+    },
+    {
+      "theme": "dark",
+      "textZoom": "200%",
+      "path": "/documentation",
+      "width": 390,
+      "scrollWidth": 390,
+      "heading": "Odin/SMR documentation",
+      "maxChartOverflow": 0,
+      "minPlotLabelSize": null
+    },
+    {
+      "theme": "dark",
+      "textZoom": "200%",
+      "path": "/data_access",
+      "width": 390,
+      "scrollWidth": 390,
+      "heading": "Access Odin-SMR data",
+      "maxChartOverflow": 0,
+      "minPlotLabelSize": null
+    },
+    {
+      "theme": "dark",
+      "textZoom": "200%",
+      "path": "/level1/statistics/2015",
+      "width": 390,
+      "scrollWidth": 390,
+      "heading": "Measurement statistics",
+      "maxChartOverflow": 0,
+      "minPlotLabelSize": 12
+    },
+    {
+      "theme": "dark",
+      "textZoom": "200%",
+      "path": "/level1/calendar",
+      "width": 390,
+      "scrollWidth": 390,
+      "heading": "Level 1 observations",
+      "maxChartOverflow": 0,
+      "minPlotLabelSize": null
+    },
+    {
+      "theme": "dark",
+      "textZoom": "200%",
+      "path": "/level2/calendar/2015/1/11/1",
+      "width": 390,
+      "scrollWidth": 390,
+      "heading": "Level 2 retrievals",
+      "maxChartOverflow": 0,
+      "minPlotLabelSize": null
+    },
+    {
+      "theme": "dark",
+      "textZoom": "200%",
+      "path": "/migration",
+      "width": 390,
+      "scrollWidth": 390,
+      "heading": "Odin S3 archive migration",
+      "maxChartOverflow": 0,
+      "minPlotLabelSize": 12
+    },
+    {
+      "theme": "dark",
+      "textZoom": "200%",
+      "path": "/migration-pilot",
+      "width": 390,
+      "scrollWidth": 390,
+      "heading": "S3 migration pilot",
+      "maxChartOverflow": 0,
+      "minPlotLabelSize": null
+    },
+    {
+      "theme": "dark",
+      "textZoom": "200%",
+      "path": "/",
+      "width": 834,
+      "scrollWidth": 834,
+      "heading": "Odin/SMR",
+      "maxChartOverflow": 0,
+      "minPlotLabelSize": 12
+    },
+    {
+      "theme": "dark",
+      "textZoom": "200%",
+      "path": "/news",
+      "width": 834,
+      "scrollWidth": 834,
+      "heading": "News & mission updates",
+      "maxChartOverflow": 0,
+      "minPlotLabelSize": null
+    },
+    {
+      "theme": "dark",
+      "textZoom": "200%",
+      "path": "/documentation",
+      "width": 834,
+      "scrollWidth": 834,
+      "heading": "Odin/SMR documentation",
+      "maxChartOverflow": 0,
+      "minPlotLabelSize": null
+    },
+    {
+      "theme": "dark",
+      "textZoom": "200%",
+      "path": "/data_access",
+      "width": 834,
+      "scrollWidth": 834,
+      "heading": "Access Odin-SMR data",
+      "maxChartOverflow": 0,
+      "minPlotLabelSize": null
+    },
+    {
+      "theme": "dark",
+      "textZoom": "200%",
+      "path": "/level1/statistics/2015",
+      "width": 834,
+      "scrollWidth": 834,
+      "heading": "Measurement statistics",
+      "maxChartOverflow": 0,
+      "minPlotLabelSize": 12
+    },
+    {
+      "theme": "dark",
+      "textZoom": "200%",
+      "path": "/level1/calendar",
+      "width": 834,
+      "scrollWidth": 834,
+      "heading": "Level 1 observations",
+      "maxChartOverflow": 0,
+      "minPlotLabelSize": null
+    },
+    {
+      "theme": "dark",
+      "textZoom": "200%",
+      "path": "/level2/calendar/2015/1/11/1",
+      "width": 834,
+      "scrollWidth": 834,
+      "heading": "Level 2 retrievals",
+      "maxChartOverflow": 0,
+      "minPlotLabelSize": null
+    },
+    {
+      "theme": "dark",
+      "textZoom": "200%",
+      "path": "/migration",
+      "width": 834,
+      "scrollWidth": 834,
+      "heading": "Odin S3 archive migration",
+      "maxChartOverflow": 0,
+      "minPlotLabelSize": 12
+    },
+    {
+      "theme": "dark",
+      "textZoom": "200%",
+      "path": "/migration-pilot",
+      "width": 834,
+      "scrollWidth": 834,
+      "heading": "S3 migration pilot",
+      "maxChartOverflow": 0,
+      "minPlotLabelSize": null
+    }
+  ],
+  "interactions": [
+    "Mobile navigation → L1 day/mode → scan → spectrum; zoom/reset/exact table; downloaded JSON equals fixture",
+    "Distinct non-overlapping frequency ticks at320/390/834px for12Hz and20MHz ranges; desktop linked map selection",
+    "Selected spectrum and inspection menu at320/390/834/1440/1920px; Escape restores plot focus and retains pin",
+    "L2 day/FM deep link → scan → retrieval; original data-only JSON preserved",
+    "Selected profile at five widths; exact source/converted values available in keyboard/touch inspector; focus restored",
+    "Exact signed-count table → monthly comparison",
+    "Home visual count selection → persistent inspector → monthly URL → browser Back",
+    "Nine public PDF files and planning XLSX served anonymously with valid file signatures",
+    "Skip link and visible header keyboard focus; theme preference survives reload",
+    "Failed observation request shows error without inventing empty coverage",
+    "Pending archive preserves release/discovery gate"
+  ],
+  "errors": [],
+  "screenshotDirectory": "/tmp/odin-ui-visual-001-browser",
+  "sourceSha256": {
+    "src/components/InspectMenu.tsx": "e49f6811ffd323a8e8c1ddf93e2bf84245755a66201784edd8496e76f0d6890e",
+    "src/components/MigrationTimeline.tsx": "caf46808932880b06cdb53408fd6303cf7c12123d95c1533dd07f6f3d2b4c4c6",
+    "src/App.tsx": "e39d56d8c81cfe901925d8ac1e970a341d06a1ae06a283cb71a1cd501589b1f9",
+    "src/ColorModeContext.tsx": "b2177456afa0b0a4fbcd11c732e8f82aaa7fbd6b2fe0d3a6d55ac9c4659e7445",
+    "src/components/L1Calendar.tsx": "61ce8393b9da0f59abe84c6534a838b753faae33331e741c00b24b4921d7c859",
+    "src/components/L2Calendar.tsx": "e8fafe0e23bb47966ac7533a08fb0e7dd9e99c43b474d8768c0a7caad9f9e380",
+    "src/components/OdinCalendar.tsx": "340e32f69e4089daefaa927cd7ddfb2c5c4022ae437795685d1018a446236911",
+    "src/components/ScanTable.tsx": "020a0411695ab08f1fd53226795f5fb060871c31a10d0212d7f16cacc9459686",
+    "src/components/Level1.tsx": "fec635492e1d6ca457d7dcca37c912da8bc11ab83bfee18e1d2d0bf3c519a458",
+    "src/components/StackedBarPlot.tsx": "ad8df8a086c48b0de92b1dd6833adab5eea4e929029cd3897ea0fd18826a09f4",
+    "src/components/L1ScanInfoPlot.tsx": "e1aed268bdc2db6feb10028e0791fb8ea2fed785f6bb4d8b9668549df0011a6a",
+    "src/components/plots/OdinTrack.tsx": "36082356add5a68a097a3bb8b9be996b06661265d7ca40a1703c5c95dfc12bd6",
+    "src/components/plots/PilotSpectrum.tsx": "7d771af4c1dc2641326ebe828e421b2005bbf5e79f06aba16ebdb0418d8e601d",
+    "src/components/plots/usePlotWidth.ts": "006584f4f9ed7b991b0aabe53bb7cb818368c912d40e2b9dd4b07bcd50d18cb2",
+    "src/components/L2Plot.tsx": "d35521a188313ff5f6d270c37f822acd74fccf2d8ee5e2490d7c88bccdfe11db",
+    "src/components/L2Card.tsx": "2e898f5e536f7137444c0bf34be362dccb16137eae180a7a0ce2a221150cde15",
+    "src/components/L2ProductPlots.tsx": "fdee53ded582f6ba8a36469bca4cc34ed7a8b3c2af21937e7c2f6336f6c25906",
+    "src/components/MigrationArchive.tsx": "fd654fee048e2528cdd9dfb1ce353ac01fcd5815369a2bd50e3d50170b9825e9",
+    "src/components/MigrationPilot.tsx": "bb9760123454184308e442c74e87ebd52af99bd0e01fe080cfb5ba1de7b43ef2",
+    "src/components/plots/scientificValues.ts": "5d9a83f7974a297f212950137ee724ce00fc8da099022ec0551405e9537c4e38",
+    "src/components/plots/mapCoordinates.ts": "54b5f32ba8ed2fd4aeeb2d1478c4a6cd4a0d083eabc7f3c04cbbf630278157dc",
+    "src/components/Home.tsx": "ea807cd4522bb9d252769a795779e9f67d79df182304214b1b4a25ff30d65ea3",
+    "src/components/News.tsx": "00a734a77641570f4bbf584f565fb61f35a255d1fd772628662063f07c985077",
+    "src/components/Documents.tsx": "e46f172471bc7dce0f66cd53d83da9eec7fea0decfb11f76c2ad7f1eda6df5e6",
+    "src/components/Footer.tsx": "05f68935474e2cc49c2b47b05c3f54a5698e5a52200a434704ac292d321efc25",
+    "src/components/NotFound.tsx": "0a2a145fd6f6da4b659bc6456606810c16d82e6fbc1c3ac9b73bdfd233393ffe",
+    "src/components/PageIntro.tsx": "a77ed2f0c30cdfbb5582f86c6ac5739d2a8dcd362da4ff284c14221aa6f9397d",
+    "src/DataAccess.tsx": "398cf96cb72ad5df8b94806fd3630cccd57a3b5a8068c4187c32975402ff5487",
+    "package.json": "d5efc8026d703da4579ddf58e5d5f409fa9f3478b258869637684aefee4da7cc",
+    "package-lock.json": "cc6ec54ca133d0138140d4084f45ce55cf49c1847046f857fa19d570283798c7",
+    "tests/ui-browser-smoke.mjs": "1a2d315a09000d784db9d42cf8a9c46b92163d84d78bd5bd1084d801d79c0d2d"
+  },
+  "browser": "158.0.8127.18",
+  "finishedAt": "2026-11-12T21:39:10.852Z"
+}

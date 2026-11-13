@@ -1,0 +1,147 @@
+{
+  "provenance": {
+    "synthetic": true,
+    "app_sha256": "f55d929080ec23445c0cf2c166acc4b4b365a53dc724f9741d8b380307a5f16a",
+    "measurement_backend_type": "character(3)",
+    "scan_backend_type": "character varying(3)"
+  },
+  "status": {
+    "schema_version": "odin.pg-parquet-full/v1",
+    "release_id": "fixture-full",
+    "status": "validated",
+    "ready": true,
+    "source": "s3-parquet-migration",
+    "coverage": {
+      "date_start": "2015-01-11",
+      "date_end": "2015-01-11",
+      "freqmodes": [
+        20
+      ],
+      "backends": [
+        "FB ",
+        "FB"
+      ],
+      "versions": [
+        8
+      ],
+      "whole_mission": true
+    },
+    "scope": {
+      "whole_mission": true
+    },
+    "exclusions": [
+      "public.pg_stat_statements_bkp_20230922"
+    ],
+    "tables": {
+      "public.measurements_cache": {
+        "rows": 1,
+        "validation": {
+          "status": "passed"
+        },
+        "min": {
+          "date": "2015-01-11"
+        },
+        "max": {
+          "date": "2015-01-11"
+        }
+      },
+      "public.scans_cache": {
+        "rows": 1,
+        "validation": {
+          "status": "passed"
+        },
+        "min": {
+          "date": "2015-01-11",
+          "scanid": 1000
+        },
+        "max": {
+          "date": "2015-01-11",
+          "scanid": 1000
+        }
+      }
+    },
+    "serving": {
+      "spectra_backends": [
+        "AC1",
+        "AC2"
+      ],
+      "spectrum_version": 8,
+      "date_catalog_source": "measurements_cache",
+      "postgres_fallback": false
+    }
+  },
+  "calendar": {
+    "PeriodStart": "2015-01-11",
+    "PeriodEnd": "2015-01-11",
+    "Data": [
+      {
+        "Date": "2015-01-11",
+        "Backend": "FB ",
+        "FreqMode": 20,
+        "NumScan": 1,
+        "URL": "http://localhost/rest_api/migration/v1/freqmode_info/2015-01-11/20/?release_id=fixture-full&backend=FB"
+      }
+    ],
+    "Type": "freqmode_info",
+    "Count": 1
+  },
+  "scans": {
+    "Data": [
+      {
+        "FreqMode": 20,
+        "ScanID": 1000,
+        "AltEnd": 60000.0,
+        "AltStart": 20000.0,
+        "LatEnd": 40.0,
+        "LatStart": 30.0,
+        "LonEnd": 200.0,
+        "LonStart": 190.0,
+        "MJDEnd": 57033.5,
+        "MJDStart": 57033.4,
+        "NumSpec": 30,
+        "SunZD": 80.0,
+        "DateTime": "2015-01-11T12:00:00",
+        "Quality": 32,
+        "URLS": {
+          "URL-log": "http://localhost/rest_api/migration/v1/level1/20/1000/Log/?release_id=fixture-full&backend=FB",
+          "URL-spectra": "http://localhost/rest_api/migration/v1/level1/20/1000/L1b/?release_id=fixture-full&backend=FB"
+        }
+      }
+    ],
+    "Type": "Log",
+    "Count": 1
+  },
+  "log": {
+    "Data": {
+      "FreqMode": 20,
+      "ScanID": 1000,
+      "AltEnd": 60000.0,
+      "AltStart": 20000.0,
+      "LatEnd": 40.0,
+      "LatStart": 30.0,
+      "LonEnd": 200.0,
+      "LonStart": 190.0,
+      "MJDEnd": 57033.5,
+      "MJDStart": 57033.4,
+      "NumSpec": 30,
+      "SunZD": 80.0,
+      "DateTime": "2015-01-11T12:00:00",
+      "Quality": 32,
+      "URLS": {
+        "URL-log": "http://localhost/rest_api/migration/v1/level1/20/1000/Log/?release_id=fixture-full&backend=FB",
+        "URL-spectra": "http://localhost/rest_api/migration/v1/level1/20/1000/L1b/?release_id=fixture-full&backend=FB"
+      }
+    },
+    "Type": "Log",
+    "Count": null
+  },
+  "headers": {
+    "Content-Type": "application/json",
+    "Content-Length": "533",
+    "X-Odin-Source": "s3-parquet-migration",
+    "X-Odin-Release": "fixture-full",
+    "X-Odin-Coverage": "mission",
+    "Cache-Control": "no-store",
+    "Access-Control-Expose-Headers": "X-Odin-Source, X-Odin-Release, X-Odin-Coverage"
+  }
+}

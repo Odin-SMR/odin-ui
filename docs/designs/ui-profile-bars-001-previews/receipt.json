@@ -1,0 +1,253 @@
+{
+  "fixtureOnly": true,
+  "startedAt": "2026-11-12T21:55:24.499Z",
+  "cases": [
+    {
+      "width": 320,
+      "theme": "light",
+      "font": 100,
+      "touch": false,
+      "hover": true,
+      "keyboard": true,
+      "downloadExact": true
+    },
+    {
+      "width": 320,
+      "theme": "light",
+      "font": 200,
+      "touch": false,
+      "hover": true,
+      "keyboard": true,
+      "downloadExact": true
+    },
+    {
+      "width": 320,
+      "theme": "light",
+      "olderResponse": true
+    },
+    {
+      "width": 320,
+      "theme": "dark",
+      "font": 100,
+      "touch": false,
+      "hover": true,
+      "keyboard": true,
+      "downloadExact": true
+    },
+    {
+      "width": 320,
+      "theme": "dark",
+      "font": 200,
+      "touch": false,
+      "hover": true,
+      "keyboard": true,
+      "downloadExact": true
+    },
+    {
+      "width": 320,
+      "theme": "dark",
+      "olderResponse": true
+    },
+    {
+      "width": 390,
+      "theme": "light",
+      "font": 100,
+      "touch": true,
+      "hover": true,
+      "keyboard": true,
+      "downloadExact": true
+    },
+    {
+      "width": 390,
+      "theme": "light",
+      "font": 200,
+      "touch": true,
+      "hover": true,
+      "keyboard": true,
+      "downloadExact": true
+    },
+    {
+      "width": 390,
+      "theme": "light",
+      "olderResponse": true
+    },
+    {
+      "width": 390,
+      "theme": "dark",
+      "font": 100,
+      "touch": true,
+      "hover": true,
+      "keyboard": true,
+      "downloadExact": true
+    },
+    {
+      "width": 390,
+      "theme": "dark",
+      "font": 200,
+      "touch": true,
+      "hover": true,
+      "keyboard": true,
+      "downloadExact": true
+    },
+    {
+      "width": 390,
+      "theme": "dark",
+      "olderResponse": true
+    },
+    {
+      "width": 834,
+      "theme": "light",
+      "font": 100,
+      "touch": true,
+      "hover": true,
+      "keyboard": true,
+      "downloadExact": true
+    },
+    {
+      "width": 834,
+      "theme": "light",
+      "font": 200,
+      "touch": true,
+      "hover": true,
+      "keyboard": true,
+      "downloadExact": true
+    },
+    {
+      "width": 834,
+      "theme": "light",
+      "olderResponse": true
+    },
+    {
+      "width": 834,
+      "theme": "dark",
+      "font": 100,
+      "touch": true,
+      "hover": true,
+      "keyboard": true,
+      "downloadExact": true
+    },
+    {
+      "width": 834,
+      "theme": "dark",
+      "font": 200,
+      "touch": true,
+      "hover": true,
+      "keyboard": true,
+      "downloadExact": true
+    },
+    {
+      "width": 834,
+      "theme": "dark",
+      "olderResponse": true
+    },
+    {
+      "width": 1440,
+      "theme": "light",
+      "font": 100,
+      "touch": false,
+      "hover": true,
+      "keyboard": true,
+      "downloadExact": true
+    },
+    {
+      "width": 1440,
+      "theme": "light",
+      "font": 200,
+      "touch": false,
+      "hover": true,
+      "keyboard": true,
+      "downloadExact": true
+    },
+    {
+      "width": 1440,
+      "theme": "light",
+      "olderResponse": true
+    },
+    {
+      "width": 1440,
+      "theme": "dark",
+      "font": 100,
+      "touch": false,
+      "hover": true,
+      "keyboard": true,
+      "downloadExact": true
+    },
+    {
+      "width": 1440,
+      "theme": "dark",
+      "font": 200,
+      "touch": false,
+      "hover": true,
+      "keyboard": true,
+      "downloadExact": true
+    },
+    {
+      "width": 1440,
+      "theme": "dark",
+      "olderResponse": true
+    },
+    {
+      "width": 1920,
+      "theme": "light",
+      "font": 100,
+      "touch": false,
+      "hover": true,
+      "keyboard": true,
+      "downloadExact": true
+    },
+    {
+      "width": 1920,
+      "theme": "light",
+      "font": 200,
+      "touch": false,
+      "hover": true,
+      "keyboard": true,
+      "downloadExact": true
+    },
+    {
+      "width": 1920,
+      "theme": "light",
+      "olderResponse": true
+    },
+    {
+      "width": 1920,
+      "theme": "dark",
+      "font": 100,
+      "touch": false,
+      "hover": true,
+      "keyboard": true,
+      "downloadExact": true
+    },
+    {
+      "width": 1920,
+      "theme": "dark",
+      "font": 200,
+      "touch": false,
+      "hover": true,
+      "keyboard": true,
+      "downloadExact": true
+    },
+    {
+      "width": 1920,
+      "theme": "dark",
+      "olderResponse": true
+    }
+  ],
+  "errors": [],
+  "blocked": [],
+  "screenshots": [
+    "390-profile-hover.png",
+    "1440-profile-hover.png",
+    "profile-bars.png"
+  ],
+  "sourceSha256": {
+    "src/components/L2Plot.tsx": "e0c4b7b07735bed067a300b06fad036762ca83b207b9fe373896916085830917",
+    "src/components/L2Card.tsx": "da8e5ff89d10afd1686ed8c276b55b0839e5fa83a2d19309bc9acdcb124e05d0",
+    "src/components/L2ProductPlots.tsx": "fdee53ded582f6ba8a36469bca4cc34ed7a8b3c2af21937e7c2f6336f6c25906",
+    "src/components/plots/profileGeometry.ts": "118f4330c5e9de223a6e8882e358ad54cd2182248186e610caccd9670462af7f",
+    "src/odinApi/cloud_client.tsx": "23b0e84a08c1b6e3dd43a00388da58bed8d9815c482dc85ba2383e351d625eb0",
+    "tests/ui-profile-bars.mjs": "efd75a8c5924694c3857909e0b680ca4fd3d7a07e59224d97cbc3a4d8593cfe4"
+  },
+  "browser": "158.0.8127.18",
+  "completedAt": "2026-11-12T21:56:37.272Z"
+}

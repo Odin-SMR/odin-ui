@@ -1,0 +1,474 @@
+{
+  "observation_date": "2026-11-11",
+  "fileId": "110d30a4-9d92-80de-8008-ee405687389b",
+  "fileName": "Odin UI",
+  "revision": 50,
+  "pages": [
+    {
+      "id": "110d30a4-9d92-80de-8008-ee405687389c",
+      "name": "00 · Start & journeys",
+      "shapes": 73,
+      "boards": [
+        {
+          "id": "dfad651d-5a91-80a8-8008-ee591e12f8bb",
+          "name": "Start / Site atlas and evidence",
+          "width": 1200,
+          "height": 1000
+        }
+      ]
+    },
+    {
+      "id": "dfad651d-5a91-80a8-8008-ee58fa2131b0",
+      "name": "01 · Tokens & themes",
+      "shapes": 120,
+      "boards": [
+        {
+          "id": "dfad651d-5a91-80a8-8008-ee593b4e2e4e",
+          "name": "Foundations / Tokens and themes",
+          "width": 1200,
+          "height": 1000
+        },
+        {
+          "id": "dfad651d-5a91-80a8-8008-ee5c4ea1f49a",
+          "name": "Foundations / Frequency modes and scientific layers",
+          "width": 1200,
+          "height": 930.0000000000001
+        }
+      ]
+    },
+    {
+      "id": "dfad651d-5a91-80a8-8008-ee58fa4cbf17",
+      "name": "02 · Shared components",
+      "shapes": 74,
+      "boards": [
+        {
+          "id": "dfad651d-5a91-80a8-8008-ee595763ab88",
+          "name": "Library / Shared component specimens",
+          "width": 1200,
+          "height": 1050
+        },
+        {
+          "id": "dfad651d-5a91-80a8-8008-ee5c50c65751",
+          "name": "Library / Editable scientific axis primitives",
+          "width": 920,
+          "height": 620
+        }
+      ]
+    },
+    {
+      "id": "dfad651d-5a91-80a8-8008-ee58fa4dfb19",
+      "name": "03 · Responsive shell",
+      "shapes": 89,
+      "boards": [
+        {
+          "id": "dfad651d-5a91-80a8-8008-ee59c4f4d21e",
+          "name": "Phone / Compact shell and navigation",
+          "width": 390,
+          "height": 844
+        },
+        {
+          "id": "dfad651d-5a91-80a8-8008-ee59c58b02c6",
+          "name": "Tablet / Two-column workspace shell",
+          "width": 834,
+          "height": 1112
+        },
+        {
+          "id": "dfad651d-5a91-80a8-8008-ee59c6cd34ec",
+          "name": "Responsive / Layout contracts",
+          "width": 1120,
+          "height": 900
+        }
+      ]
+    },
+    {
+      "id": "dfad651d-5a91-80a8-8008-ee58fa4f56f7",
+      "name": "04 · Home & mission",
+      "shapes": 28,
+      "boards": [
+        {
+          "id": "dfad651d-5a91-80a8-8008-ee59d77b6564",
+          "name": "Laptop / Mission and discovery",
+          "width": 1440,
+          "height": 1100
+        },
+        {
+          "id": "dfad651d-5a91-80a8-8008-ee59d7d3a98e",
+          "name": "Phone / Mission and discovery",
+          "width": 390,
+          "height": 1100
+        }
+      ]
+    },
+    {
+      "id": "dfad651d-5a91-80a8-8008-ee58fa512022",
+      "name": "05 · News & documents",
+      "shapes": 76,
+      "boards": [
+        {
+          "id": "dfad651d-5a91-80a8-8008-ee59f63c16c5",
+          "name": "Laptop / Documentation catalogue",
+          "width": 1200,
+          "height": 1060
+        },
+        {
+          "id": "dfad651d-5a91-80a8-8008-ee59f741443f",
+          "name": "Tablet / News and mission updates",
+          "width": 834,
+          "height": 1112
+        },
+        {
+          "id": "dfad651d-5a91-80a8-8008-ee59f7fc0170",
+          "name": "Phone / News reflow",
+          "width": 390,
+          "height": 844
+        }
+      ]
+    },
+    {
+      "id": "dfad651d-5a91-80a8-8008-ee58fa52e8c2",
+      "name": "06 · Access & recovery",
+      "shapes": 71,
+      "boards": [
+        {
+          "id": "dfad651d-5a91-80a8-8008-ee5a13ac1588",
+          "name": "Laptop / Data access and product caveats",
+          "width": 1200,
+          "height": 1100
+        },
+        {
+          "id": "dfad651d-5a91-80a8-8008-ee5a14ab4195",
+          "name": "Phone / Product card and wrapped URL",
+          "width": 390,
+          "height": 1000
+        },
+        {
+          "id": "dfad651d-5a91-80a8-8008-ee5a152a6611",
+          "name": "Recovery / Unknown route",
+          "width": 800,
+          "height": 780
+        }
+      ]
+    },
+    {
+      "id": "dfad651d-5a91-80a8-8008-ee58fa54a88d",
+      "name": "07 · Measurement statistics",
+      "shapes": 305,
+      "boards": [
+        {
+          "id": "dfad651d-5a91-80a8-8008-ee5a3d569e05",
+          "name": "Laptop / Annual measurement distribution",
+          "width": 1440,
+          "height": 1120
+        },
+        {
+          "id": "dfad651d-5a91-80a8-8008-ee5a3f21669b",
+          "name": "Phone / Annual chart and year entry",
+          "width": 390,
+          "height": 1100
+        },
+        {
+          "id": "dfad651d-5a91-80a8-8008-ee5a4155bc2e",
+          "name": "State / Monthly L1 and L2 comparison",
+          "width": 1200,
+          "height": 900
+        },
+        {
+          "id": "dfad651d-5a91-80a8-8008-ee5ed9ec52da",
+          "name": "Phone state / Monthly signed comparison",
+          "width": 390,
+          "height": 1160
+        }
+      ]
+    },
+    {
+      "id": "dfad651d-5a91-80a8-8008-ee58fa561231",
+      "name": "08 · L1 discovery",
+      "shapes": 373,
+      "boards": [
+        {
+          "id": "dfad651d-5a91-80a8-8008-ee5ab216f648",
+          "name": "Workstation / L1 linked observation workspace",
+          "width": 1920,
+          "height": 1250
+        },
+        {
+          "id": "dfad651d-5a91-80a8-8008-ee5ab8798751",
+          "name": "Laptop / L1 discovery reflow",
+          "width": 1440,
+          "height": 1100
+        },
+        {
+          "id": "dfad651d-5a91-80a8-8008-ee5edddb8426",
+          "name": "Phone / L1 day-mode agenda and scan list",
+          "width": 390,
+          "height": 1250
+        }
+      ]
+    },
+    {
+      "id": "dfad651d-5a91-80a8-8008-ee58fa580390",
+      "name": "09 · Scan & spectra",
+      "shapes": 153,
+      "boards": [
+        {
+          "id": "dfad651d-5a91-80a8-8008-ee5afc0b9b7c",
+          "name": "Laptop / Spectrum and pinned data inspection",
+          "width": 1440,
+          "height": 1120
+        },
+        {
+          "id": "dfad651d-5a91-80a8-8008-ee5afd8ad3f8",
+          "name": "Phone / Spectrum and inspection",
+          "width": 390,
+          "height": 1310
+        },
+        {
+          "id": "dfad651d-5a91-80a8-8008-ee5aff1a581f",
+          "name": "State / Zoomed spectral domain",
+          "width": 1000,
+          "height": 900
+        }
+      ]
+    },
+    {
+      "id": "dfad651d-5a91-80a8-8008-ee58fa5a3c55",
+      "name": "10 · Maps & linked selection",
+      "shapes": 104,
+      "boards": [
+        {
+          "id": "dfad651d-5a91-80a8-8008-ee5b2f6599e9",
+          "name": "Map / World selection and coordinates",
+          "width": 1200,
+          "height": 980.0000000000001
+        },
+        {
+          "id": "dfad651d-5a91-80a8-8008-ee5b304d782c",
+          "name": "Map / Regional zoom and pinned inspection",
+          "width": 1200,
+          "height": 980.0000000000001
+        },
+        {
+          "id": "dfad651d-5a91-80a8-8008-ee5b311fbbd6",
+          "name": "Phone / Map and scan-list alternative",
+          "width": 390,
+          "height": 1150
+        }
+      ]
+    },
+    {
+      "id": "dfad651d-5a91-80a8-8008-ee58fa61b482",
+      "name": "11 · L2 discovery",
+      "shapes": 280,
+      "boards": [
+        {
+          "id": "dfad651d-5a91-80a8-8008-ee5b5264a041",
+          "name": "Laptop / Level 2 discovery and products",
+          "width": 1440,
+          "height": 1120
+        },
+        {
+          "id": "dfad651d-5a91-80a8-8008-ee5b56591fb7",
+          "name": "Tablet / L2 stacked discovery",
+          "width": 834,
+          "height": 1470
+        },
+        {
+          "id": "dfad651d-5a91-80a8-8008-ee5b5bd2c945",
+          "name": "Phone / Day-mode list and product entry",
+          "width": 390,
+          "height": 1250
+        }
+      ]
+    },
+    {
+      "id": "dfad651d-5a91-80a8-8008-ee58fa637850",
+      "name": "12 · Retrieval profiles",
+      "shapes": 182,
+      "boards": [
+        {
+          "id": "dfad651d-5a91-80a8-8008-ee5b9164e473",
+          "name": "Laptop / Retrieval profile and diagnostics",
+          "width": 1440,
+          "height": 1260
+        },
+        {
+          "id": "dfad651d-5a91-80a8-8008-ee5b92c79b04",
+          "name": "Phone / Retrieval profile and readout",
+          "width": 390,
+          "height": 1370
+        },
+        {
+          "id": "dfad651d-5a91-80a8-8008-ee5b94b78bc7",
+          "name": "Dark / Scientific plot contrast specimen",
+          "width": 834,
+          "height": 1112
+        }
+      ]
+    },
+    {
+      "id": "dfad651d-5a91-80a8-8008-ee58fa64aa7b",
+      "name": "13 · S3 pilot",
+      "shapes": 82,
+      "boards": [
+        {
+          "id": "dfad651d-5a91-80a8-8008-ee5bb98bd5d4",
+          "name": "Laptop / Validated S3 pilot exploration",
+          "width": 1440,
+          "height": 1250
+        },
+        {
+          "id": "dfad651d-5a91-80a8-8008-ee5bbade1664",
+          "name": "Phone / Pilot scope and scan selection",
+          "width": 390,
+          "height": 1290
+        }
+      ]
+    },
+    {
+      "id": "dfad651d-5a91-80a8-8008-ee58fa66710e",
+      "name": "14 · Archive progress",
+      "shapes": 127,
+      "boards": [
+        {
+          "id": "dfad651d-5a91-80a8-8008-ee5be5d92d52",
+          "name": "Laptop / Archive migration status and gates",
+          "width": 1440,
+          "height": 1180
+        },
+        {
+          "id": "dfad651d-5a91-80a8-8008-ee5be6d23798",
+          "name": "State / Validated archive and frequency timeline",
+          "width": 1440,
+          "height": 1330
+        },
+        {
+          "id": "dfad651d-5a91-80a8-8008-ee5be9c7b3f1",
+          "name": "Phone / Truthful archive progress",
+          "width": 390,
+          "height": 1160
+        }
+      ]
+    },
+    {
+      "id": "dfad651d-5a91-80a8-8008-ee58fa676a11",
+      "name": "15 · States & accessibility",
+      "shapes": 63,
+      "boards": [
+        {
+          "id": "dfad651d-5a91-80a8-8008-ee5c23e3493e",
+          "name": "States / Scientific data truth and recovery",
+          "width": 1200,
+          "height": 1240
+        },
+        {
+          "id": "dfad651d-5a91-80a8-8008-ee5c24f3223c",
+          "name": "Interaction / Input modes and scientific contracts",
+          "width": 1200,
+          "height": 1140
+        }
+      ]
+    }
+  ],
+  "bindings": 2612,
+  "interactions": 35,
+  "nativeNavigations": 11,
+  "smallAxisText": [],
+  "unknownTokens": [],
+  "interactionIssues": [],
+  "phoneActions": [
+    {
+      "boardId": "dfad651d-5a91-80a8-8008-ee59c4f4d21e",
+      "shapeId": "dfad651d-5a91-80a8-8008-ee59c5343064",
+      "name": "Action / Statistics",
+      "width": 326,
+      "height": 44
+    },
+    {
+      "boardId": "dfad651d-5a91-80a8-8008-ee59c4f4d21e",
+      "shapeId": "dfad651d-5a91-80a8-8008-ee59c54083c8",
+      "name": "Action / Level 1 calendar",
+      "width": 326,
+      "height": 44
+    },
+    {
+      "boardId": "dfad651d-5a91-80a8-8008-ee59c4f4d21e",
+      "shapeId": "dfad651d-5a91-80a8-8008-ee59c54c5817",
+      "name": "Action / Level 2 calendar",
+      "width": 326,
+      "height": 44
+    },
+    {
+      "boardId": "dfad651d-5a91-80a8-8008-ee59c4f4d21e",
+      "shapeId": "dfad651d-5a91-80a8-8008-ee59c5585875",
+      "name": "Action / S3 Migration Pilot",
+      "width": 326,
+      "height": 44
+    },
+    {
+      "boardId": "dfad651d-5a91-80a8-8008-ee59c4f4d21e",
+      "shapeId": "dfad651d-5a91-80a8-8008-ee59c5642675",
+      "name": "Action / S3 Archive Migration",
+      "width": 326,
+      "height": 44
+    },
+    {
+      "boardId": "dfad651d-5a91-80a8-8008-ee59c4f4d21e",
+      "shapeId": "dfad651d-5a91-80a8-8008-ee59c56fa4aa",
+      "name": "Action / Data Access",
+      "width": 326,
+      "height": 44
+    },
+    {
+      "boardId": "dfad651d-5a91-80a8-8008-ee59d7d3a98e",
+      "shapeId": "dfad651d-5a91-80a8-8008-ee59d80a560d",
+      "name": "Action / Level 1 calendar",
+      "width": 358,
+      "height": 44
+    },
+    {
+      "boardId": "dfad651d-5a91-80a8-8008-ee59d7d3a98e",
+      "shapeId": "dfad651d-5a91-80a8-8008-ee59d817f9e4",
+      "name": "Action / Level 2 calendar",
+      "width": 358,
+      "height": 44
+    },
+    {
+      "boardId": "dfad651d-5a91-80a8-8008-ee5a3f21669b",
+      "shapeId": "dfad651d-5a91-80a8-8008-ee5a41379a9b",
+      "name": "Action / View monthly",
+      "width": 358,
+      "height": 44
+    },
+    {
+      "boardId": "dfad651d-5a91-80a8-8008-ee5ed9ec52da",
+      "shapeId": "dfad651d-5a91-80a8-8008-ee5edcc9da71",
+      "name": "Action / Back to annual",
+      "width": 358,
+      "height": 44
+    }
+  ],
+  "library": {
+    "tokens": 55,
+    "colours": 38,
+    "typographies": 5,
+    "components": 13
+  },
+  "fileValidation": [],
+  "validation_scope": "Read-only native Penpot metadata; visual review and exported-artifact checks are recorded in ui-site-001.md",
+  "link_check_scope": "Destinations exist on the same Penpot page or use the expected public host; HTTP availability was not tested by this check.",
+  "limitations": [
+    "Illustrative scientific values, no scientific equivalence claim",
+    "Native prototype state navigation and public links differ from annotated continuous controls",
+    "320 px layouts and 200% text zoom are acceptance requirements, not tested application behavior",
+    "Hosting URL is unverified; UUIDs identify the actual connected file/pages/boards",
+    "No application source changes or deployment"
+  ],
+  "named_versions": [
+    {
+      "label": "UI-SITE-001 · responsive site documentation · 2026-11-11",
+      "createdAt": "2026-11-11T21:18:57.400Z",
+      "isAutosave": false
+    }
+  ],
+  "visual_review_scope": "All 42 boards exported; seven contact sheets inspected by designer; 11 representative boards independently reviewed in full-size exports, with corrected saved-artifact rechecks. Durable preview copies are recorded in ui-site-001-previews/manifest.json."
+}

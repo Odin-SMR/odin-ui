@@ -1,0 +1,287 @@
+{
+  "task": "UI-SITE-001",
+  "observation_date": "2026-11-11",
+  "source_base_revision": "15e659fdd0f5dfb06a2ae0c1e38bc11f1babca50",
+  "source_working_tree": "pre-existing dirty working tree; no application changes made",
+  "deployed_asset_revision": "not established",
+  "source_sha256": {
+    "src/App.tsx": "0b43b661b1f26c37e49899a79c06f7a1f4c44a523401c24790699d750250aa74",
+    "src/ColorModeContext.tsx": "dabd00d23307c0606ac567853c58d8af2ae94c6729ae51c7e46900147a66fcf7",
+    "src/DataAccess.tsx": "71125edcfbd3aaaa369af723534ece58d6773c416bd68b5911968c6bc9f8bca2",
+    "src/definitions.ts": "fa8fed797bb901d6ea8d69567845783beaf18bdd24ccd2332f2ebb12ecb648a9",
+    "src/components/Home.tsx": "527177f5d81e9f6c93a4222a31634a9f1c14cc8e5b00f4a220bd929e958ffd7f",
+    "src/components/Documents.tsx": "904c1124a265b83c2295851d596d590ce56fc1293ea67d1b2babfcffc5e9364a",
+    "src/components/News.tsx": "6ef85cdaaccbd6e5d38db2ee8b356f40a7ab7d7f9a84e014c585637fe070b3f6",
+    "src/components/newList.tsx": "37df5a1ebf5008512279c1f370f0a886a82dd46afeebff944a1544571b3203b2",
+    "src/components/Footer.tsx": "847e15b2cbca6b153f7b59125deecf555c86add902f5bc9202f74fc3bb3c80d2",
+    "src/components/NotFound.tsx": "ee8a87b2d3a9d1d0e908e6d72c86e4187a86f484a203e0ea750a888b62a5d908",
+    "src/components/Level1.tsx": "0da6f8cbfab3f095ca24b91fdb47449c9e99a49053a5d85980dcbc9c72971281",
+    "src/components/StackedBarPlot.tsx": "6f6ec70a0f8ab5fd8c462bb7bd284cf22f04cc6ed9a291251e0453caae827362",
+    "src/components/StackedBarPlottCompare.tsx": "ad9b83aa3ea552e4b742b0e85914e1b80ed096b49c2baae4f64ac1394a20007e",
+    "src/components/L1Calendar.tsx": "d3015203147f19a8443bbbc5217791468befce3cfa9bf3b69f2ef4526d263e4b",
+    "src/components/L1ScanInfoPlot.tsx": "73548338b8c67807e873d021040bdfe47f024e1583da8feda5d92d9d3dad669d",
+    "src/components/plots/L1b.tsx": "01687d7806065eb9c915af9b8e37b128013afdd67c31cf40f5d45e83de39b49b",
+    "src/components/plots/OdinTrack.tsx": "03f17b8cf4460d1b27d202cba231537c2f9d08add7435e869135e461a544e9ab",
+    "src/components/L2Calendar.tsx": "6280d4e18c3776c88fa76a3a10eaf4f6c1716702845585d68f4d1ab0fd6df907",
+    "src/components/L2Plot.tsx": "004cd9deefebea803593f7b61a06b8632aab7dc736450c02253a80b8229fc92a",
+    "src/components/L2Card.tsx": "094b0c669b26a05270200851d38d482721c4ed2ebdc5f7d1c05e865f75d8901e",
+    "src/components/L2ProductPlots.tsx": "eeb5ae79dd25b5faa742ad67b3374ab2961b3bdb46c512fb2b365d59851cd237",
+    "src/components/Leve2PlotInfo.tsx": "8bdf9e291d24eb5aa9bacc4449b63973d3383a6a6e95ee32e8868f7efb9e79bb",
+    "src/components/plots/PilotSpectrum.tsx": "4ab42cb36cc9a408d7e825488677687ced692151692b946285e0daf268bac51f",
+    "src/components/MigrationPilot.tsx": "8c6fdfc16b0e781b4b002351772f5422d9006633fc24072a8102e898fe456fc1",
+    "src/components/MigrationArchive.tsx": "b3b0193c657887987dbf9bb5da5ec05c8926147bfa76c58dbb5e4ea1a8a92943",
+    "src/components/MigrationTimeline.tsx": "98529cd263d19577cfb2387360d2ae25a34e07b317b76d87937e59bd49b3cca1",
+    "src/odinApi/cloud_client.tsx": "4f8805665242eb50eb5fbe830b564912cc6ed8a3cb24571f97c523ba0f05a0d1",
+    "src/hooks/Level1Stats.tsx": "af6034c8fa35794fbf0e241d4cac43c670b58c3c8331d61fc5d98531e4b25e22",
+    "src/hooks/Level2Stats.tsx": "3e933fe59aebcb6a9a0a79b87fef13be3d2852856b559e8d82c0d5d2fcee8870",
+    "src/hooks/MigrationTimeline.tsx": "08d5ef9ca1c0254b10cb39ea1ffee8b05d057588f5c3f03c300329dd33addea8"
+  },
+  "public_shell": {
+    "date": "2026-11-11",
+    "note": "Read-only anonymous shell checks. API/rest_api/l2 requests blocked to avoid scientific queries. No published download or data assertion.",
+    "report": [
+      {
+        "label": "phone",
+        "width": 390,
+        "height": 844,
+        "status": 200,
+        "title": "Odin-SMR",
+        "bodyWidth": 390,
+        "viewport": 390,
+        "headerText": "Odin-SMR\nNEWSDOCUMENTSDATASETS",
+        "mainText": "Odin/SMR\nA long-term mission in space\n\nOdin launched in 2001 and has served both astronomy and aeronomy. Since 2007, it has focused on atmospheric studies, pioneering observations with a sub-millimeter radiometer and spectrograph in a unique orbit and configuration.\n\nThis site provides visualizations and tools built around data from the Sub-Millimetre Radiometer (SMR) instrument onboard the satellite.",
+        "fonts": "Roboto, Helvetica, Arial, sans-serif",
+        "links": [
+          {
+            "text": "Odin-SMR",
+            "href": "/"
+          },
+          {
+            "text": "News",
+            "href": "/news"
+          },
+          {
+            "text": "Documents",
+            "href": "/documentation"
+          }
+        ],
+        "images": [
+          {
+            "src": "/images/odin665.jpg",
+            "complete": true,
+            "naturalWidth": 665
+          },
+          {
+            "src": "/images/Chalmers_white.png",
+            "complete": true,
+            "naturalWidth": 525
+          },
+          {
+            "src": "/images/Molflow_ESA.png",
+            "complete": true,
+            "naturalWidth": 525
+          }
+        ]
+      },
+      {
+        "label": "tablet",
+        "width": 834,
+        "height": 1112,
+        "status": 200,
+        "title": "Odin-SMR",
+        "bodyWidth": 834,
+        "viewport": 834,
+        "headerText": "Odin-SMR\nNEWSDOCUMENTSDATASETS",
+        "mainText": "Odin/SMR\nA long-term mission in space\n\nOdin launched in 2001 and has served both astronomy and aeronomy. Since 2007, it has focused on atmospheric studies, pioneering observations with a sub-millimeter radiometer and spectrograph in a unique orbit and configuration.\n\nThis site provides visualizations and tools built around data from the Sub-Millimetre Radiometer (SMR) instrument onboard the satellite.",
+        "fonts": "Roboto, Helvetica, Arial, sans-serif",
+        "links": [
+          {
+            "text": "Odin-SMR",
+            "href": "/"
+          },
+          {
+            "text": "News",
+            "href": "/news"
+          },
+          {
+            "text": "Documents",
+            "href": "/documentation"
+          }
+        ],
+        "images": [
+          {
+            "src": "/images/odin665.jpg",
+            "complete": true,
+            "naturalWidth": 665
+          },
+          {
+            "src": "/images/Chalmers_white.png",
+            "complete": true,
+            "naturalWidth": 525
+          },
+          {
+            "src": "/images/Molflow_ESA.png",
+            "complete": true,
+            "naturalWidth": 525
+          }
+        ]
+      },
+      {
+        "label": "laptop",
+        "width": 1440,
+        "height": 1000,
+        "status": 200,
+        "title": "Odin-SMR",
+        "bodyWidth": 1440,
+        "viewport": 1440,
+        "headerText": "Odin-SMR\nNEWSDOCUMENTSDATASETS",
+        "mainText": "Odin/SMR\nA long-term mission in space\n\nOdin launched in 2001 and has served both astronomy and aeronomy. Since 2007, it has focused on atmospheric studies, pioneering observations with a sub-millimeter radiometer and spectrograph in a unique orbit and configuration.\n\nThis site provides visualizations and tools built around data from the Sub-Millimetre Radiometer (SMR) instrument onboard the satellite.",
+        "fonts": "Roboto, Helvetica, Arial, sans-serif",
+        "links": [
+          {
+            "text": "Odin-SMR",
+            "href": "/"
+          },
+          {
+            "text": "News",
+            "href": "/news"
+          },
+          {
+            "text": "Documents",
+            "href": "/documentation"
+          }
+        ],
+        "images": [
+          {
+            "src": "/images/odin665.jpg",
+            "complete": true,
+            "naturalWidth": 665
+          },
+          {
+            "src": "/images/Chalmers_white.png",
+            "complete": true,
+            "naturalWidth": 525
+          },
+          {
+            "src": "/images/Molflow_ESA.png",
+            "complete": true,
+            "naturalWidth": 525
+          }
+        ],
+        "datasetItems": [
+          "Statistics",
+          "Level1 Calendar",
+          "Level2 Calendar",
+          "S3 Migration Pilot",
+          "S3 Archive Migration",
+          "Data Access"
+        ]
+      },
+      {
+        "label": "workstation",
+        "width": 1920,
+        "height": 1080,
+        "status": 200,
+        "title": "Odin-SMR",
+        "bodyWidth": 1920,
+        "viewport": 1920,
+        "headerText": "Odin-SMR\nNEWSDOCUMENTSDATASETS",
+        "mainText": "Odin/SMR\nA long-term mission in space\n\nOdin launched in 2001 and has served both astronomy and aeronomy. Since 2007, it has focused on atmospheric studies, pioneering observations with a sub-millimeter radiometer and spectrograph in a unique orbit and configuration.\n\nThis site provides visualizations and tools built around data from the Sub-Millimetre Radiometer (SMR) instrument onboard the satellite.",
+        "fonts": "Roboto, Helvetica, Arial, sans-serif",
+        "links": [
+          {
+            "text": "Odin-SMR",
+            "href": "/"
+          },
+          {
+            "text": "News",
+            "href": "/news"
+          },
+          {
+            "text": "Documents",
+            "href": "/documentation"
+          }
+        ],
+        "images": [
+          {
+            "src": "/images/odin665.jpg",
+            "complete": true,
+            "naturalWidth": 665
+          },
+          {
+            "src": "/images/Chalmers_white.png",
+            "complete": true,
+            "naturalWidth": 525
+          },
+          {
+            "src": "/images/Molflow_ESA.png",
+            "complete": true,
+            "naturalWidth": 525
+          }
+        ]
+      },
+      {
+        "path": "/documentation",
+        "status": 200,
+        "bodyWidth": 390,
+        "viewport": 390,
+        "headings": [
+          "Odin/SMR Documentation"
+        ],
+        "mainText": "Odin/SMR Documentation\nAlgorithm Theoretical Basis Document - Level 1 Processing (PDF) (2020-09-09)\nAlgorithm Theoretical Basis Document - Level 2 Processing (PDF) (2020-03-07)\nOdin/SMR Requirement Baseline Document (PDF) (2015-12-10)\nOdin/SMR Verification Dataset: Technical Note (PDF) (2019-12-04)\nL2 data - format and overview (PDF) (2020-08-12)\nLevel2 processing configuration (PDF) (2020-09-08)\nInput/Output Data Definition Document: Level2 processor (PDF) (2020-09-08)\nOdin/SMR Level 2 Completeness Analysis Document (PDF) (updated 2019-12-04)\nOdin/SMR Product Validation and Evolution Report (PDF) (2020-10-27)\nProgramme planning spreadsheet for the Odin/SMR mission (XLSX)"
+      },
+      {
+        "path": "/news",
+        "status": 200,
+        "bodyWidth": 390,
+        "viewport": 390,
+        "headings": [
+          "Odin 25",
+          "We are preparing a full dataset",
+          "New PI for ODIN-SMR scientific missions",
+          "Probable end of mission in 2026",
+          "Data and processing moved to the Cloud",
+          "Version 3 released",
+          "Warning for FM 01 2010\u20132018",
+          "Documentation updated",
+          "NO empirical model SANOMA",
+          "ESA mesosphEO project",
+          "Contact",
+          "Odin"
+        ],
+        "mainText": "Anniversary\n2026-02-20\nOdin 25\n\nUpcoming celebration of Odin 25 years in orbit!\n\nReprocessing\n2025-09-15\nWe are preparing a full dataset\n\nWe will soon commence an activity to try to reprocess and recover data - focusing on the period 2022 and 2025.\n\nUpdated contact\n2025-01-01\nNew PI for ODIN-SMR scientific missions\n\nJohan Mellqvist\n\n    Chalmers University of Technology\n    Department of Earth and Space Sciences\n    SE-412 96 Gothenburg, Sweden\n\nEnd of mission\n2025-01-01\nProbable end of mission in 2026\n\nThe final years of the ODIN mission are likely to continue until mid-2026. Data is currently being reconciled, re-evaluated, and compared with other datasets.\n\nCloudservice\n2022-03-01\nData and processing moved to the Cloud\n\nData has been transferred to the Amazon web services.\n\nVersion 3 released\n2020-10-30\nVersion 3 released\n\nWe are happy to announce the release of version 3 of the Odin dataset.\n\nComplete reprocessing of the level 0 data to level 1 with improved calibration and correction algorithms. Upgraded level 2 processing scheme for separate mesospheric and stratospheric retrievals. Comprehensive validation against other instruments. Some highlights include:\n\nRecovery of the "
+      },
+      {
+        "path": "/data_access",
+        "status": 200,
+        "bodyWidth": 887,
+        "viewport": 390,
+        "headings": [
+          "Odin/SMR Data Access",
+          "Introduction",
+          "Data format specification",
+          "Endpoints for data access",
+          "Recommended projects and products"
+        ],
+        "mainText": "Odin/SMR Data Access\nIntroduction\n\nThe primary way of accessing data from the Odin/SMR mission is through the Odin/SMR web-API. Data is also available for download as NetCDF files, accessible at http://odin-l2netcdf.s3-website.eu-north-1.amazonaws.com/.\n\nThe Odin web-API is a so called REST API, where the user makes a GET request to an API-endpoint. The result is a JSON-object, a text-based format understood by most modern programming languages.\n\nIt is recommended to access the API via scripts or programs (e.g. Python), not directly in the browser.\n\nThe root URI of the API is: http://odin.rss.chalmers.se/rest_api/v5\n\nData format specification\n\nThe returned structures are documented in:\n\nAlgorithm Theoretical Basis Document: Level 1 Processing\nLevel 2 Data - Format and overview\nEndpoints for data access\n\nAccess to Level 2 data is covered here. For Level 1, see: L1 ATBD\n\nRecommended projects and products\n\nTo access ozone profiles for 2015-01-03:\n\nhttp://odin.rss.chalmers.se/rest_api/v5/level2/ALL-Strat-v3.0.0/2015-01-03/?product=O3%20%2F%20545%20GHz%20%2F%2020%20to%2085%20km&min_pressure=0&max_pressure=100000\n\nSpecies\tProject\tProduct name\tVertical coverage\tComment\nOzone\tALL-Strat-v3."
+      },
+      {
+        "path": "/route-does-not-exist",
+        "status": 200,
+        "bodyWidth": 390,
+        "viewport": 390,
+        "headings": [
+          "Page not found"
+        ],
+        "mainText": "Page not found\n\nThe content you tried to find cannot be found."
+      }
+    ],
+    "blockedRequests": []
+  },
+  "limitations": [
+    "No scientific data requests or downloads tested",
+    "No AWS/database/deployment operations",
+    "Public-shell screenshots are local temporary artifacts, not Penpot exports",
+    "Penpot plots contain illustrative data"
+  ]
+}

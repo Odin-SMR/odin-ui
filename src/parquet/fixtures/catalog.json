@@ -1,0 +1,34 @@
+{
+  "schema_version": 1,
+  "status": "published",
+  "message": "Synthetic test catalog. These are not scientific products or real download locations.",
+  "releases": [{
+    "id": "test-release-1",
+    "title": "Synthetic release",
+    "published_at": "2026-01-01",
+    "license": {"name": "Test metadata only", "url": "https://example.invalid/license"},
+    "citation": "Synthetic fixture; do not cite as Odin observations.",
+    "documentation_url": "https://example.invalid/test-release-1/docs",
+    "datasets": [{
+      "id": "test-l2-profile",
+      "title": "Synthetic L2 profiles",
+      "level": "L2",
+      "project": "test-project",
+      "product": "test-product",
+      "frequency_mode": 1,
+      "inversion_mode": "test",
+      "schema_url": "https://example.invalid/test-release-1/schema",
+      "description": "One synthetic vertical level per row.",
+      "columns": [
+        {"name": "scan_id", "type": "int64", "description": "Synthetic scan identity."},
+        {"name": "altitude", "type": "float64", "unit": "m", "description": "Synthetic altitude, not an accepted science convention."},
+        {"name": "vmr", "type": "float64", "unit": "1", "description": "Synthetic mixing ratio."}
+      ],
+      "notes": ["Synthetic fixture only. No quality filter is defined."],
+      "files": [
+        {"url": "https://example.invalid/test-release-1/january.parquet", "s3_uri": "s3://example-test-only/test-release-1/january.parquet", "region": "eu-north-1", "sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa", "size_bytes": 1024, "row_count": 12, "observation_start": "2015-01-01", "observation_end": "2015-01-31"},
+        {"url": "https://example.invalid/test-release-1/february.parquet", "s3_uri": "s3://example-test-only/test-release-1/february.parquet", "region": "eu-north-1", "sha256": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb", "size_bytes": 2048, "row_count": 24, "observation_start": "2015-02-01", "observation_end": "2015-02-28"}
+      ]
+    }]
+  }]
+}

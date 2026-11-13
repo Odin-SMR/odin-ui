@@ -1,0 +1,139 @@
+{
+  "schema_version": 1,
+  "release": {
+    "id": "odin-parquet-examples-20261113",
+    "title": "Historical L2/L2I notebook examples \u2014 byte-preserving snapshot",
+    "published_at": "2026-11-13",
+    "license": {
+      "name": "No additional license declared; see reuse notes",
+      "url": "https://odin-smr.org/parquet/releases/odin-parquet-examples-20261113/access-terms.md"
+    },
+    "citation": "Odin-SMR, ALL-Strat-v3.0.0, frequency mode 1, O3-501GHz-20to50km and associated retrieval diagnostics. Parquet example snapshot odin-parquet-examples-20261113. Cite the selected file SHA256 values and consult the linked product documentation for scientific references.",
+    "documentation_url": "https://odin-smr.org/parquet/releases/odin-parquet-examples-20261113/README.md"
+  },
+  "dataset": {
+    "id": "strat-fm1-o3",
+    "title": "Ozone profiles \u2014 25\u201326 August 2001",
+    "level": "L2",
+    "project": "ALL-Strat-v3.0.0",
+    "product": "O3-501GHz-20to50km",
+    "frequency_mode": 1,
+    "inversion_mode": "stnd",
+    "schema_url": "https://odin-smr.org/parquet/releases/odin-parquet-examples-20261113/schema.md",
+    "description": "Byte-identical historical ozone file: 6,188 vertical rows in 221 scans. This is a bounded tutorial selection, not mission-wide coverage.",
+    "columns": [
+      {
+        "name": "scan_id",
+        "type": "int64",
+        "description": "Stored scan identifier; join with project and frequency mode."
+      },
+      {
+        "name": "mjd",
+        "type": "double",
+        "description": "Stored Modified Julian Date; preserve original time representation."
+      },
+      {
+        "name": "lat_1d",
+        "type": "double",
+        "description": "Stored source lat_1d; see the release dictionary.",
+        "unit": "degrees_north"
+      },
+      {
+        "name": "lon_1d",
+        "type": "double",
+        "description": "Stored source lon_1d; see the release dictionary.",
+        "unit": "degrees_east"
+      },
+      {
+        "name": "quality",
+        "type": "int64",
+        "description": "Stored quality flag; no automatic quality threshold is applied."
+      },
+      {
+        "name": "altitude",
+        "type": "double",
+        "description": "Stored source altitude; see the release dictionary.",
+        "unit": "m"
+      },
+      {
+        "name": "pressure",
+        "type": "double",
+        "description": "Stored source pressure; see the release dictionary.",
+        "unit": "Pa"
+      },
+      {
+        "name": "latitude",
+        "type": "double",
+        "description": "Stored source latitude; see the release dictionary.",
+        "unit": "degrees_north"
+      },
+      {
+        "name": "longitude",
+        "type": "double",
+        "description": "Stored source longitude; see the release dictionary.",
+        "unit": "degrees_east"
+      },
+      {
+        "name": "temperature",
+        "type": "double",
+        "description": "Stored source temperature; see the release dictionary.",
+        "unit": "K"
+      },
+      {
+        "name": "error_total",
+        "type": "double",
+        "description": "Stored source error_total; see the release dictionary.",
+        "unit": "mol mol-1"
+      },
+      {
+        "name": "error_noise",
+        "type": "double",
+        "description": "Stored source error_noise; see the release dictionary.",
+        "unit": "mol mol-1"
+      },
+      {
+        "name": "meas_response",
+        "type": "double",
+        "description": "Stored measurement response; not an uncertainty."
+      },
+      {
+        "name": "apriori",
+        "type": "double",
+        "description": "Stored source apriori; see the release dictionary.",
+        "unit": "mol mol-1"
+      },
+      {
+        "name": "vmr",
+        "type": "double",
+        "description": "Stored source vmr; see the release dictionary.",
+        "unit": "mol mol-1"
+      },
+      {
+        "name": "avk",
+        "type": "list<element: double>",
+        "description": "Stored averaging-kernel row; preserve its axis and row alignment."
+      },
+      {
+        "name": "time",
+        "type": "timestamp[ns, tz=UTC]",
+        "description": "UTC timestamp stored at nanosecond precision.",
+        "unit": "UTC"
+      }
+    ],
+    "notes": [
+      "VMR and uncertainty are stored in mol/mol; the website displays gas mixing ratios in ppmv.",
+      "No quality filtering or scientific reprocessing has been applied.",
+      "Original producer commit and auxiliary-data versions are not embedded in the source files; the release records this provenance limit."
+    ]
+  },
+  "files": [
+    {
+      "url": "https://odin-smr.org/parquet/releases/odin-parquet-examples-20261113/files/cffb359348a56bedc32e9164f74a9dfc65b9dbfe8858eb5b9477fd55a051d149.parquet",
+      "sha256": "cffb359348a56bedc32e9164f74a9dfc65b9dbfe8858eb5b9477fd55a051d149",
+      "size_bytes": 2145428,
+      "row_count": 6188,
+      "observation_start": "2001-08-25",
+      "observation_end": "2001-08-26"
+    }
+  ]
+}

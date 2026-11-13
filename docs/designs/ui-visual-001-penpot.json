@@ -1,0 +1,154 @@
+{
+  "task": "UI-VISUAL-001",
+  "file": {
+    "id": "110d30a4-9d92-80de-8008-ee405687389b",
+    "name": "Odin UI",
+    "revn": 64
+  },
+  "baselineRevision": 50,
+  "version": {
+    "label": "UI-VISUAL-001 · visual-first exploration · 2026-11-12",
+    "createdAt": "2026-11-12T21:23:42.073Z",
+    "isAutosave": false
+  },
+  "pages": {
+    "1": {
+      "id": "dfad651d-5a91-80a8-8008-efa8dbd8d365",
+      "name": "V1 · Visual-first discovery"
+    },
+    "2": {
+      "id": "dfad651d-5a91-80a8-8008-efa8dbff0ede",
+      "name": "V2 · Spectra & profiles"
+    },
+    "3": {
+      "id": "dfad651d-5a91-80a8-8008-efa8dc00d77f",
+      "name": "V3 · Inspection menus"
+    },
+    "4": {
+      "id": "dfad651d-5a91-80a8-8008-efa8dc0157bf",
+      "name": "V4 · Flows & archive"
+    }
+  },
+  "boards": {
+    "workspaceDesktop": {
+      "id": "dfad651d-5a91-80a8-8008-efa9443f8772",
+      "page": "dfad651d-5a91-80a8-8008-efa8dbd8d365",
+      "name": "Visual-first / Desktop L1 discovery",
+      "w": 1440,
+      "h": 1120
+    },
+    "workspacePhone": {
+      "id": "dfad651d-5a91-80a8-8008-efa94712aab3",
+      "page": "dfad651d-5a91-80a8-8008-efa8dbd8d365",
+      "name": "Visual-first / Phone focused map",
+      "w": 390,
+      "h": 880
+    },
+    "spectrumDesktop": {
+      "id": "dfad651d-5a91-80a8-8008-efa9add2fdcf",
+      "page": "dfad651d-5a91-80a8-8008-efa8dbff0ede",
+      "name": "Visual-first / Desktop spectrum",
+      "w": 1440,
+      "h": 960
+    },
+    "profilesDesktop": {
+      "id": "dfad651d-5a91-80a8-8008-efa9af9799c3",
+      "page": "dfad651d-5a91-80a8-8008-efa8dbff0ede",
+      "name": "Visual-first / Desktop retrieval product grid",
+      "w": 1440,
+      "h": 1040
+    },
+    "profilePhone": {
+      "id": "dfad651d-5a91-80a8-8008-efa9b51af4dc",
+      "page": "dfad651d-5a91-80a8-8008-efa8dbff0ede",
+      "name": "Visual-first / Phone retrieval profile",
+      "w": 390,
+      "h": 1010
+    },
+    "inspectDesktop": {
+      "id": "dfad651d-5a91-80a8-8008-efaa26ff121f",
+      "page": "dfad651d-5a91-80a8-8008-efa8dc00d77f",
+      "name": "Inspection / Desktop preview and pin trigger",
+      "w": 1200,
+      "h": 860
+    },
+    "inspectPhone": {
+      "id": "dfad651d-5a91-80a8-8008-efaa289c301b",
+      "page": "dfad651d-5a91-80a8-8008-efa8dc00d77f",
+      "name": "Inspection / Phone profile and sheet trigger",
+      "w": 390,
+      "h": 1010
+    },
+    "desktopPopover": {
+      "id": "dfad651d-5a91-80a8-8008-efaa2a6f883a",
+      "page": "dfad651d-5a91-80a8-8008-efa8dc00d77f",
+      "name": "Overlay / Pinned spectral channel menu",
+      "w": 376,
+      "h": 404
+    },
+    "phoneSheet": {
+      "id": "dfad651d-5a91-80a8-8008-efaa3f1e0708",
+      "page": "dfad651d-5a91-80a8-8008-efa8dc00d77f",
+      "name": "Overlay / Phone pinned level sheet",
+      "w": 390,
+      "h": 412
+    },
+    "archiveDesktop": {
+      "id": "dfad651d-5a91-80a8-8008-efaaa05f2e26",
+      "page": "dfad651d-5a91-80a8-8008-efa8dc0157bf",
+      "name": "Visual-first / Validated archive workspace",
+      "w": 1440,
+      "h": 1140
+    },
+    "flowReview": {
+      "id": "dfad651d-5a91-80a8-8008-efaaabfcd6d1",
+      "page": "dfad651d-5a91-80a8-8008-efa8dc0157bf",
+      "name": "Flows / Visual-first review and constraints",
+      "w": 1200,
+      "h": 1160
+    }
+  },
+  "metrics": [
+    {
+      "id": "dfad651d-5a91-80a8-8008-efa8dbd8d365",
+      "name": "V1 · Visual-first discovery",
+      "shapes": 143,
+      "topLevelBoards": 2,
+      "boundProperties": 207,
+      "componentCopies": 13,
+      "interactions": 0,
+      "smallAxes": []
+    },
+    {
+      "id": "dfad651d-5a91-80a8-8008-efa8dbff0ede",
+      "name": "V2 · Spectra & profiles",
+      "shapes": 209,
+      "topLevelBoards": 3,
+      "boundProperties": 298,
+      "componentCopies": 15,
+      "interactions": 0,
+      "smallAxes": []
+    },
+    {
+      "id": "dfad651d-5a91-80a8-8008-efa8dc00d77f",
+      "name": "V3 · Inspection menus",
+      "shapes": 123,
+      "topLevelBoards": 4,
+      "boundProperties": 155,
+      "componentCopies": 2,
+      "interactions": 8,
+      "smallAxes": []
+    },
+    {
+      "id": "dfad651d-5a91-80a8-8008-efa8dc0157bf",
+      "name": "V4 · Flows & archive",
+      "shapes": 180,
+      "topLevelBoards": 2,
+      "boundProperties": 279,
+      "componentCopies": 0,
+      "interactions": 0,
+      "smallAxes": []
+    }
+  ],
+  "validation": []
+}

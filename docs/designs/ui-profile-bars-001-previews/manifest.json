@@ -1,0 +1,37 @@
+{
+  "fixtureOnly": true,
+  "artifacts": [
+    {
+      "file": "profile-bars.png",
+      "bytes": 38629,
+      "sha256": "119c3c73efcadb0744a9963e0a236048f8553c42fb6067836d790cbd769f5f2d",
+      "dimensions": [
+        1392,
+        742
+      ]
+    },
+    {
+      "file": "390-profile-hover.png",
+      "bytes": 86544,
+      "sha256": "ef0516dc50cdf3b25bdfe30ed35c296fa30a6f622e60866242c9fcf6bdc818ff",
+      "dimensions": [
+        390,
+        1000
+      ]
+    },
+    {
+      "file": "1440-profile-hover.png",
+      "bytes": 64019,
+      "sha256": "130172c1fec3d0044d23ce093933e1fdd213a3dafccd4b1ac2db431ceb45be42",
+      "dimensions": [
+        1440,
+        1000
+      ]
+    },
+    {
+      "file": "receipt.json",
+      "bytes": 5214,
+      "sha256": "827dcfaec0d31dfcb97623c99ea26efe1dac5913474782c3eb76436528593eef"
+    }
+  ]
+}

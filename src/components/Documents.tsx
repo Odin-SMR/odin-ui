@@ -1,105 +1,70 @@
-import InfoOutlinedIcon from "@mui/icons-material/InfoOutlined";
-import Grid from "@mui/material/Grid";
-import IconButton from "@mui/material/IconButton";
-import Link from "@mui/material/Link";
-import List from "@mui/material/List";
-import ListItem from "@mui/material/ListItem";
-import { useTheme } from "@mui/material/styles";
-import Tooltip from "@mui/material/Tooltip";
-import Typography from "@mui/material/Typography";
+import OpenInNewIcon from "@mui/icons-material/OpenInNew";
+import {
+  Accordion, AccordionDetails, AccordionSummary, Box, Chip, Container,
+  Link, List, ListItem, ListItemButton, Typography,
+} from "@mui/material";
+import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
+import { Link as RouterLink } from "react-router-dom";
+import { PageIntro } from "./PageIntro";
 
-export const Documents = () => {
-  const theme = useTheme();
+const documents = [
+  { file: "L1_ATBD.pdf", title: "L1 processing · Algorithm theoretical basis", date: "2020-09-09" },
+  { file: "L2_ATBD.pdf", title: "L2 processing · Algorithm theoretical basis", date: "2020-03-07" },
+  { file: "RBD.pdf", title: "Requirement baseline", date: "2015-12-10" },
+  { file: "VDS.pdf", title: "Verification dataset · Technical note", date: "2019-12-04" },
+  { file: "L2_DATA.pdf", title: "L2 data · Format and overview", date: "2020-08-12" },
+  { file: "DBMI.pdf", title: "Level 2 processing configuration", date: "2020-09-08" },
+  { file: "IODD.pdf", title: "Input/output data definition · Level 2 processor", date: "2020-09-08" },
+  { file: "CAD.pdf", title: "Level 2 completeness analysis", date: "2019-12-04" },
+  { file: "PVER.pdf", title: "Product validation and evolution report", date: "2020-10-27" },
+];
 
-  return (
-    <Grid
-      container
-      justifyContent="center"
-      spacing={2}
-      padding={2}
-      sx={{ bgcolor: theme.palette.background.paper }}
-    >
-      <Grid size={{ xs: 12, md: 8 }}>
-        <Typography variant="h5" gutterBottom>
-          Odin/SMR Documentation
-        </Typography>
-        <List dense>
-          <ListItem disablePadding>
-            <Link href="/documents/L1_ATBD.pdf" target="_blank" rel="noopener">
-              Algorithm Theoretical Basis Document - Level 1 Processing (PDF)
-              (2020-09-09)
-            </Link>
-          </ListItem>
-          <ListItem disablePadding>
-            <Link href="/documents/L2_ATBD.pdf" target="_blank" rel="noopener">
-              Algorithm Theoretical Basis Document - Level 2 Processing (PDF)
-              (2020-03-07)
-            </Link>
-          </ListItem>
-          <ListItem disablePadding>
-            <Link href="/documents/RBD.pdf" target="_blank" rel="noopener">
-              Odin/SMR Requirement Baseline Document (PDF) (2015-12-10)
-            </Link>
-          </ListItem>
-          <ListItem disablePadding>
-            <Link href="/documents/VDS.pdf" target="_blank" rel="noopener">
-              Odin/SMR Verification Dataset: Technical Note (PDF) (2019-12-04)
-            </Link>
-          </ListItem>
-          <ListItem disablePadding>
-            <Link href="/documents/L2_DATA.pdf" target="_blank" rel="noopener">
-              L2 data - format and overview (PDF) (2020-08-12)
-            </Link>
-          </ListItem>
-          <ListItem disablePadding>
-            <Link href="/documents/DBMI.pdf" target="_blank" rel="noopener">
-              Level2 processing configuration (PDF) (2020-09-08)
-            </Link>
-          </ListItem>
-          <ListItem disablePadding>
-            <Link href="/documents/IODD.pdf" target="_blank" rel="noopener">
-              Input/Output Data Definition Document: Level2 processor (PDF)
-              (2020-09-08)
-            </Link>
-          </ListItem>
-          <ListItem disablePadding>
-            <Link href="/documents/CAD.pdf" target="_blank" rel="noopener">
-              Odin/SMR Level 2 Completeness Analysis Document (PDF) (updated
-              2019-12-04)
-            </Link>
-          </ListItem>
-          <ListItem disablePadding>
-            <Link href="/documents/PVER.pdf" target="_blank" rel="noopener">
-              Odin/SMR Product Validation and Evolution Report (PDF)
-              (2020-10-27)
-            </Link>
-          </ListItem>
-          <ListItem disablePadding>
-            <Link
-              href="/documents/astro_aero_programme159.xlsx"
-              target="_blank"
-              rel="noopener"
-            >
-              Programme planning spreadsheet for the Odin/SMR mission (XLSX)
-            </Link>
-            <Tooltip
-              title={
-                <>
-                  For most users the <strong>Observing Plan</strong> tab is most
-                  interesting. Columns B, R and S show date, mode and
-                  description. Pointing and instrument modes vary by orbital
-                  region. Comments clarify non-standard settings.
-                </>
-              }
-              arrow
-            >
-              <IconButton size="small" sx={{ ml: 1 }}>
-                <InfoOutlinedIcon fontSize="small" />
-              </IconButton>
-            </Tooltip>
-          </ListItem>
-        </List>
-      </Grid>
-    </Grid>
-  );
-};
+export const Documents = () => (
+  <Container maxWidth="lg" sx={{ py: 4 }}>
+    <PageIntro eyebrow="Research resources" title="Odin/SMR documentation">
+      Find the processing methods, data formats and validation guidance needed to
+      work with SMR observations. Document dates are shown below; links open in a new tab.
+    </PageIntro>
+    <List aria-label="Scientific documentation" disablePadding sx={{ display: "grid", gap: 1.5, mb: 4 }}>
+      {documents.map((document) => (
+        <ListItem key={document.file} disablePadding sx={{ border: 1, borderColor: "divider", borderRadius: 2, overflow: "hidden" }}>
+          <ListItemButton component="a" href={`/documents/${document.file}`} target="_blank" rel="noopener noreferrer" aria-label={`${document.title}, PDF, ${document.date}, opens in a new tab`}
+            sx={{ px: { xs: 2, sm: 3 }, py: 2, alignItems: "flex-start", gap: 2 }}>
+            <Box sx={{ flex: 1, minWidth: 0, display: "flex", flexDirection: { xs: "column", sm: "row" }, gap: 1, justifyContent: "space-between" }}>
+              <Typography color="primary">{document.title}</Typography>
+              <Box sx={{ display: "flex", alignItems: "center", gap: 1, flexShrink: 0 }}>
+                <Chip label="PDF" size="small" variant="outlined" sx={{ fontSize: 12 }} />
+                <Typography component="time" dateTime={document.date} variant="caption" color="text.secondary">{document.date}</Typography>
+              </Box>
+            </Box>
+            <OpenInNewIcon fontSize="small" color="action" sx={{ mt: .5 }} aria-label="Opens in a new tab" />
+          </ListItemButton>
+        </ListItem>
+      ))}
+    </List>
+    <Box component="section" aria-labelledby="observing-plan-title" sx={{ mb: 4 }}>
+      <Typography id="observing-plan-title" component="h2" variant="h5" gutterBottom>Mission observing plan</Typography>
+      <Link href="/documents/astro_aero_programme159.xlsx" target="_blank" rel="noopener noreferrer"
+        sx={{ display: "inline-flex", alignItems: "center", gap: 1, py: 1.5, mb: 1 }}>
+        Programme planning spreadsheet <Chip label="XLSX" size="small" variant="outlined" />
+        <OpenInNewIcon fontSize="small" aria-label="Opens in a new tab" />
+      </Link>
+      <Accordion disableGutters elevation={0} sx={{ border: 1, borderColor: "divider", borderRadius: "8px !important", "&::before": { display: "none" }, maxWidth: "75ch" }}>
+        <AccordionSummary expandIcon={<ExpandMoreIcon />} aria-controls="observing-plan-help" id="observing-plan-help-heading">
+          <Typography>How to read the observing plan</Typography>
+        </AccordionSummary>
+        <AccordionDetails id="observing-plan-help">
+          <Typography color="text.secondary">
+            Start with the <strong>Observing Plan</strong> tab. Columns B, R and S
+            show the date, mode and description. Pointing and instrument modes
+            vary by orbital region; comments explain non-standard settings.
+          </Typography>
+        </AccordionDetails>
+      </Accordion>
+    </Box>
+    <Typography color="text.secondary" sx={{ maxWidth: "70ch" }}>
+      Looking for data rather than documentation? See the <Link component={RouterLink} to="/data_access">data access and product guide</Link> for
+      download options and product caveats.
+    </Typography>
+  </Container>
+);

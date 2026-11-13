@@ -1,0 +1,122 @@
+{
+  "task": "UI-VISUAL-001",
+  "date": "2026-11-12",
+  "illustrative": true,
+  "native_exports": [
+    {
+      "board_key": "workspaceDesktop",
+      "file": "workspaceDesktop.png",
+      "dimensions": [
+        1440,
+        1120
+      ],
+      "sha256": "e64d07c1dff9403856a0b1bc6834088a8f778da8157736637d6c230ae1a42d6b",
+      "bytes": 152894
+    },
+    {
+      "board_key": "workspacePhone",
+      "file": "workspacePhone.png",
+      "dimensions": [
+        390,
+        880
+      ],
+      "sha256": "764fd4c91b426ab999afdf4edf5de9fc6f455bb1a4c7e31c3b04881aa9a3211f",
+      "bytes": 77603
+    },
+    {
+      "board_key": "spectrumDesktop",
+      "file": "spectrumDesktop.png",
+      "dimensions": [
+        1440,
+        960
+      ],
+      "sha256": "0fc3a4809965ec1378503c4117ba7e55d9a5e7374e219a6df291b64a9deaee01",
+      "bytes": 79173
+    },
+    {
+      "board_key": "profilesDesktop",
+      "file": "profilesDesktop.png",
+      "dimensions": [
+        1440,
+        1040
+      ],
+      "sha256": "398d085d3703984a391091689511ce7599cdd206ad6d56e26cbcedd0a21f0b9c",
+      "bytes": 81896
+    },
+    {
+      "board_key": "profilePhone",
+      "file": "profilePhone.png",
+      "dimensions": [
+        390,
+        1010
+      ],
+      "sha256": "a276319af4ee443bedb64578313d654c28e8c8e4106237adba65290e80688185",
+      "bytes": 42719
+    },
+    {
+      "board_key": "inspectDesktop",
+      "file": "inspectDesktop.png",
+      "dimensions": [
+        1200,
+        860
+      ],
+      "sha256": "57f68994d98bf866a6a7d58a1a13d9c8e34f67be2c45731dea06cd619b0c08ee",
+      "bytes": 68417
+    },
+    {
+      "board_key": "inspectPhone",
+      "file": "inspectPhone.png",
+      "dimensions": [
+        390,
+        1010
+      ],
+      "sha256": "6060798daf97956cb6fd9cf2abaeed05af630a3562072ba6daedebaee08c01b8",
+      "bytes": 37444
+    },
+    {
+      "board_key": "desktopPopover",
+      "file": "desktopPopover.png",
+      "dimensions": [
+        376,
+        404
+      ],
+      "sha256": "2b5524a65e5c69b9454167a5e63a0151c6e24b83b72fb8bcb6b03421f904d571",
+      "bytes": 24811
+    },
+    {
+      "board_key": "phoneSheet",
+      "file": "phoneSheet.png",
+      "dimensions": [
+        390,
+        412
+      ],
+      "sha256": "aee21cc3a9e987ca622e8e94e854c37fbbdc92ae6af194c8e6d961e35560095e",
+      "bytes": 24021
+    },
+    {
+      "board_key": "archiveDesktop",
+      "file": "archiveDesktop.png",
+      "dimensions": [
+        1440,
+        1140
+      ],
+      "sha256": "bb4c0763631ca219d098fa53131a91bec6c090a3f559a51db28c3cf9059aa8e6",
+      "bytes": 137389
+    },
+    {
+      "board_key": "flowReview",
+      "file": "flowReview.png",
+      "dimensions": [
+        1200,
+        1160
+      ],
+      "sha256": "efc80416b7aca1967241c9a9bac690604c301ecce448470b1daaa015b9bef0f6",
+      "bytes": 102993
+    }
+  ],
+  "contact_sheets": [
+    "contact-1.png",
+    "contact-2.png",
+    "contact-3.png"
+  ]
+}

@@ -50,7 +50,7 @@ export const Level2PlotInfo = ({
   };
 
   return (
-    <Box ref={parentRef} height="inherit">
+    <Box ref={parentRef} sx={{ height: "inherit" }}>
       <svg width={width} height={height}>
         <rect width={width} height={height} fill={theme.palette.background.default} rx={14} />
         {data.length === 0 && (

@@ -1,0 +1,167 @@
+{
+  "snapshot_id": "odin-parquet-examples-20261113",
+  "source_preservation": "Byte-identical copies; no processing or filtering.",
+  "source_metadata": [
+    {
+      "bucket": "odin-level2",
+      "key": "project=ALL-Strat-v3.0.0/freq_mode=1/inv_mode=stnd/product=O3-501GHz-20to50km/year=2001/month=08/4df0a7317f574194b17c8e554214f5f6-0.parquet",
+      "sha256": "cffb359348a56bedc32e9164f74a9dfc65b9dbfe8858eb5b9477fd55a051d149",
+      "bytes": 2145428,
+      "rows": 6188,
+      "scans": 221,
+      "min_scan_id": 257532932,
+      "max_scan_id": 259412240,
+      "observation_start": "2001-08-25T10:56:02.675040236+00:00",
+      "observation_end": "2001-08-26T19:33:38.115071205+00:00",
+      "schema": [
+        {
+          "name": "scan_id",
+          "type": "int64"
+        },
+        {
+          "name": "mjd",
+          "type": "double"
+        },
+        {
+          "name": "lat_1d",
+          "type": "double"
+        },
+        {
+          "name": "lon_1d",
+          "type": "double"
+        },
+        {
+          "name": "quality",
+          "type": "int64"
+        },
+        {
+          "name": "altitude",
+          "type": "double"
+        },
+        {
+          "name": "pressure",
+          "type": "double"
+        },
+        {
+          "name": "latitude",
+          "type": "double"
+        },
+        {
+          "name": "longitude",
+          "type": "double"
+        },
+        {
+          "name": "temperature",
+          "type": "double"
+        },
+        {
+          "name": "error_total",
+          "type": "double"
+        },
+        {
+          "name": "error_noise",
+          "type": "double"
+        },
+        {
+          "name": "meas_response",
+          "type": "double"
+        },
+        {
+          "name": "apriori",
+          "type": "double"
+        },
+        {
+          "name": "vmr",
+          "type": "double"
+        },
+        {
+          "name": "avk",
+          "type": "list<element: double>"
+        },
+        {
+          "name": "time",
+          "type": "timestamp[ns, tz=UTC]"
+        }
+      ]
+    },
+    {
+      "bucket": "odin-level2i",
+      "key": "project=ALL-Strat-v3.0.0/freq_mode=1/scan_id_prefix=00f/923a5f881826430fb064b947999240d5-0.parquet",
+      "sha256": "f5250fdf707dc9b3acc805bbdf7db22c52fffaace4b75bf627e4d70ee9e4c7e5",
+      "bytes": 14866708,
+      "rows": 1184,
+      "schema": [
+        {
+          "name": "bline_offset",
+          "type": "list<element: list<element: double>>"
+        },
+        {
+          "name": "channels_id",
+          "type": "list<element: int64>"
+        },
+        {
+          "name": "fit_spectrum",
+          "type": "list<element: list<element: double>>"
+        },
+        {
+          "name": "freq_offset",
+          "type": "list<element: double>"
+        },
+        {
+          "name": "inv_mode",
+          "type": "string"
+        },
+        {
+          "name": "lo_freq",
+          "type": "list<element: double>"
+        },
+        {
+          "name": "min_lm_factor",
+          "type": "double"
+        },
+        {
+          "name": "point_offset",
+          "type": "double"
+        },
+        {
+          "name": "residual",
+          "type": "double"
+        },
+        {
+          "name": "sb_path",
+          "type": "double"
+        },
+        {
+          "name": "stw",
+          "type": "list<element: int64>"
+        },
+        {
+          "name": "processing_error",
+          "type": "bool"
+        },
+        {
+          "name": "comments",
+          "type": "list<element: string>"
+        },
+        {
+          "name": "scan_id",
+          "type": "int64"
+        }
+      ],
+      "shared_scans": 221,
+      "o3_scans": 221,
+      "min_o3_scan_id": 257532932,
+      "min_scan_id": 257472363,
+      "max_scan_id": 259444795,
+      "inversion_modes": [
+        "None",
+        "stnd"
+      ]
+    }
+  ],
+  "known_provenance_limits": [
+    "Original producer commits and auxiliary versions are not embedded.",
+    "Source buckets are unversioned. Copies use content-addressed names and recorded SHA256.",
+    "L2I rows without observation time retain unknown dates."
+  ]
+}

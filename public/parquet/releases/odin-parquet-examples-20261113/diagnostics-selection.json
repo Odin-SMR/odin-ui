@@ -1,0 +1,117 @@
+{
+  "schema_version": 1,
+  "release": {
+    "id": "odin-parquet-examples-20261113",
+    "title": "Historical L2/L2I notebook examples \u2014 byte-preserving snapshot",
+    "published_at": "2026-11-13",
+    "license": {
+      "name": "No additional license declared; see reuse notes",
+      "url": "https://odin-smr.org/parquet/releases/odin-parquet-examples-20261113/access-terms.md"
+    },
+    "citation": "Odin-SMR, ALL-Strat-v3.0.0, frequency mode 1, O3-501GHz-20to50km and associated retrieval diagnostics. Parquet example snapshot odin-parquet-examples-20261113. Cite the selected file SHA256 values and consult the linked product documentation for scientific references.",
+    "documentation_url": "https://odin-smr.org/parquet/releases/odin-parquet-examples-20261113/README.md"
+  },
+  "dataset": {
+    "id": "strat-fm1-diagnostics",
+    "title": "Matching retrieval diagnostics (includes failed retrievals)",
+    "level": "L2I",
+    "project": "ALL-Strat-v3.0.0",
+    "product": "retrieval-diagnostics",
+    "frequency_mode": 1,
+    "inversion_mode": "stnd",
+    "schema_url": "https://odin-smr.org/parquet/releases/odin-parquet-examples-20261113/schema.md",
+    "description": "Byte-identical historical diagnostic file, containing 221 successful and 963 failed scan rows.",
+    "columns": [
+      {
+        "name": "bline_offset",
+        "type": "list<element: list<element: double>>",
+        "description": "Stored source bline_offset; see the release dictionary."
+      },
+      {
+        "name": "channels_id",
+        "type": "list<element: int64>",
+        "description": "Original channel identifiers; do not substitute a frequency axis."
+      },
+      {
+        "name": "fit_spectrum",
+        "type": "list<element: list<element: double>>",
+        "description": "Nested fitted spectra aligned with the ordered STWs.",
+        "unit": "K"
+      },
+      {
+        "name": "freq_offset",
+        "type": "list<element: double>",
+        "description": "Stored source freq_offset; see the release dictionary.",
+        "unit": "Hz"
+      },
+      {
+        "name": "inv_mode",
+        "type": "string",
+        "description": "Source inversion mode; may be null for failed retrievals."
+      },
+      {
+        "name": "lo_freq",
+        "type": "list<element: double>",
+        "description": "Stored source lo_freq; see the release dictionary.",
+        "unit": "Hz"
+      },
+      {
+        "name": "min_lm_factor",
+        "type": "double",
+        "description": "Stored source min_lm_factor; see the release dictionary."
+      },
+      {
+        "name": "point_offset",
+        "type": "double",
+        "description": "Stored source point_offset; see the release dictionary.",
+        "unit": "degrees"
+      },
+      {
+        "name": "residual",
+        "type": "double",
+        "description": "Stored source residual; see the release dictionary.",
+        "unit": "K"
+      },
+      {
+        "name": "sb_path",
+        "type": "double",
+        "description": "Stored source sb_path; see the release dictionary."
+      },
+      {
+        "name": "stw",
+        "type": "list<element: int64>",
+        "description": "Ordered satellite-time-word identifiers for spectra."
+      },
+      {
+        "name": "processing_error",
+        "type": "bool",
+        "description": "True marks failed retrievals; null values are not successful results."
+      },
+      {
+        "name": "comments",
+        "type": "list<element: string>",
+        "description": "Original retrieval comments."
+      },
+      {
+        "name": "scan_id",
+        "type": "int64",
+        "description": "Stored scan identifier; join with project and frequency mode."
+      }
+    ],
+    "notes": [
+      "No timestamp column exists in this diagnostic file. Date coverage is unknown; join by project, frequency mode and scan ID.",
+      "Preserve processing_error and null nested values. All 221 scans in the paired ozone selection have matching successful diagnostics.",
+      "Original producer commit and auxiliary-data versions are not embedded in the source files; the release records this provenance limit."
+    ]
+  },
+  "files": [
+    {
+      "url": "https://odin-smr.org/parquet/releases/odin-parquet-examples-20261113/files/f5250fdf707dc9b3acc805bbdf7db22c52fffaace4b75bf627e4d70ee9e4c7e5.parquet",
+      "sha256": "f5250fdf707dc9b3acc805bbdf7db22c52fffaace4b75bf627e4d70ee9e4c7e5",
+      "size_bytes": 14866708,
+      "row_count": 1184,
+      "observation_start": null,
+      "observation_end": null
+    }
+  ]
+}

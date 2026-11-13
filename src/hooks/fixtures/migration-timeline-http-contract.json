@@ -1,0 +1,956 @@
+{
+  "provenance": {
+    "source": "/tmp/odin-timeline-full20-api-conformance.json",
+    "observation": "local synthetic FullRunner -> two-pass builder -> standalone checker -> Flask API",
+    "retained_tables": 20,
+    "production_parity": false
+  },
+  "requests": [
+    {
+      "year": null,
+      "body": {
+        "Data": {
+          "1": [
+            [
+              2001,
+              0
+            ],
+            [
+              2002,
+              0
+            ],
+            [
+              2003,
+              0
+            ],
+            [
+              2004,
+              0
+            ],
+            [
+              2005,
+              0
+            ],
+            [
+              2006,
+              0
+            ],
+            [
+              2007,
+              0
+            ],
+            [
+              2008,
+              0
+            ],
+            [
+              2009,
+              0
+            ],
+            [
+              2010,
+              0
+            ],
+            [
+              2011,
+              0
+            ],
+            [
+              2012,
+              0
+            ],
+            [
+              2013,
+              0
+            ],
+            [
+              2014,
+              0
+            ],
+            [
+              2015,
+              0
+            ],
+            [
+              2016,
+              0
+            ],
+            [
+              2017,
+              0
+            ],
+            [
+              2018,
+              0
+            ],
+            [
+              2019,
+              0
+            ],
+            [
+              2020,
+              0
+            ],
+            [
+              2021,
+              0
+            ],
+            [
+              2022,
+              0
+            ],
+            [
+              2023,
+              0
+            ],
+            [
+              2024,
+              0
+            ],
+            [
+              2025,
+              0
+            ],
+            [
+              2026,
+              0
+            ]
+          ],
+          "2": [
+            [
+              2001,
+              0
+            ],
+            [
+              2002,
+              0
+            ],
+            [
+              2003,
+              0
+            ],
+            [
+              2004,
+              0
+            ],
+            [
+              2005,
+              0
+            ],
+            [
+              2006,
+              0
+            ],
+            [
+              2007,
+              0
+            ],
+            [
+              2008,
+              0
+            ],
+            [
+              2009,
+              0
+            ],
+            [
+              2010,
+              0
+            ],
+            [
+              2011,
+              0
+            ],
+            [
+              2012,
+              0
+            ],
+            [
+              2013,
+              0
+            ],
+            [
+              2014,
+              0
+            ],
+            [
+              2015,
+              null
+            ],
+            [
+              2016,
+              null
+            ],
+            [
+              2017,
+              0
+            ],
+            [
+              2018,
+              0
+            ],
+            [
+              2019,
+              0
+            ],
+            [
+              2020,
+              0
+            ],
+            [
+              2021,
+              0
+            ],
+            [
+              2022,
+              0
+            ],
+            [
+              2023,
+              0
+            ],
+            [
+              2024,
+              0
+            ],
+            [
+              2025,
+              0
+            ],
+            [
+              2026,
+              0
+            ]
+          ],
+          "9": [
+            [
+              2001,
+              5
+            ],
+            [
+              2002,
+              0
+            ],
+            [
+              2003,
+              0
+            ],
+            [
+              2004,
+              0
+            ],
+            [
+              2005,
+              0
+            ],
+            [
+              2006,
+              0
+            ],
+            [
+              2007,
+              0
+            ],
+            [
+              2008,
+              0
+            ],
+            [
+              2009,
+              0
+            ],
+            [
+              2010,
+              0
+            ],
+            [
+              2011,
+              0
+            ],
+            [
+              2012,
+              0
+            ],
+            [
+              2013,
+              0
+            ],
+            [
+              2014,
+              0
+            ],
+            [
+              2015,
+              0
+            ],
+            [
+              2016,
+              0
+            ],
+            [
+              2017,
+              0
+            ],
+            [
+              2018,
+              0
+            ],
+            [
+              2019,
+              0
+            ],
+            [
+              2020,
+              0
+            ],
+            [
+              2021,
+              0
+            ],
+            [
+              2022,
+              0
+            ],
+            [
+              2023,
+              0
+            ],
+            [
+              2024,
+              0
+            ],
+            [
+              2025,
+              0
+            ],
+            [
+              2026,
+              0
+            ]
+          ],
+          "null": [
+            [
+              2001,
+              0
+            ],
+            [
+              2002,
+              0
+            ],
+            [
+              2003,
+              0
+            ],
+            [
+              2004,
+              0
+            ],
+            [
+              2005,
+              0
+            ],
+            [
+              2006,
+              0
+            ],
+            [
+              2007,
+              0
+            ],
+            [
+              2008,
+              0
+            ],
+            [
+              2009,
+              0
+            ],
+            [
+              2010,
+              0
+            ],
+            [
+              2011,
+              0
+            ],
+            [
+              2012,
+              0
+            ],
+            [
+              2013,
+              0
+            ],
+            [
+              2014,
+              0
+            ],
+            [
+              2015,
+              0
+            ],
+            [
+              2016,
+              -9
+            ],
+            [
+              2017,
+              0
+            ],
+            [
+              2018,
+              0
+            ],
+            [
+              2019,
+              0
+            ],
+            [
+              2020,
+              0
+            ],
+            [
+              2021,
+              0
+            ],
+            [
+              2022,
+              0
+            ],
+            [
+              2023,
+              0
+            ],
+            [
+              2024,
+              0
+            ],
+            [
+              2025,
+              0
+            ],
+            [
+              2026,
+              0
+            ]
+          ]
+        },
+        "Years": [
+          2001,
+          2002,
+          2003,
+          2004,
+          2005,
+          2006,
+          2007,
+          2008,
+          2009,
+          2010,
+          2011,
+          2012,
+          2013,
+          2014,
+          2015,
+          2016,
+          2017,
+          2018,
+          2019,
+          2020,
+          2021,
+          2022,
+          2023,
+          2024,
+          2025,
+          2026
+        ]
+      },
+      "headers": {
+        "X-Odin-Timeline-SHA256": "8f1f242d2fd7028f2053afc774dec621de6ada7fa14aef61e867ad094b744f37",
+        "X-Odin-Source-Manifest-SHA256": "eea33d9df1fa7f81f9407b15d4a8bebb69a79749feafc5a7269560bbdd8d11b9",
+        "X-Odin-Source": "s3-parquet-migration",
+        "X-Odin-Release": "offline-full-release",
+        "X-Odin-Coverage": "mission",
+        "Access-Control-Expose-Headers": "X-Odin-Source, X-Odin-Release, X-Odin-Coverage, X-Odin-Timeline-SHA256, X-Odin-Source-Manifest-SHA256"
+      }
+    },
+    {
+      "year": 1,
+      "body": {
+        "Data": {
+          "99": [
+            [
+              1,
+              1
+            ],
+            [
+              2,
+              0
+            ],
+            [
+              3,
+              0
+            ],
+            [
+              4,
+              0
+            ],
+            [
+              5,
+              0
+            ],
+            [
+              6,
+              0
+            ],
+            [
+              7,
+              0
+            ],
+            [
+              8,
+              0
+            ],
+            [
+              9,
+              0
+            ],
+            [
+              10,
+              0
+            ],
+            [
+              11,
+              0
+            ],
+            [
+              12,
+              0
+            ]
+          ]
+        },
+        "Months": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "Year": 1
+      },
+      "headers": {
+        "X-Odin-Timeline-SHA256": "8f1f242d2fd7028f2053afc774dec621de6ada7fa14aef61e867ad094b744f37",
+        "X-Odin-Source-Manifest-SHA256": "eea33d9df1fa7f81f9407b15d4a8bebb69a79749feafc5a7269560bbdd8d11b9",
+        "X-Odin-Source": "s3-parquet-migration",
+        "X-Odin-Release": "offline-full-release",
+        "X-Odin-Coverage": "mission",
+        "Access-Control-Expose-Headers": "X-Odin-Source, X-Odin-Release, X-Odin-Coverage, X-Odin-Timeline-SHA256, X-Odin-Source-Manifest-SHA256"
+      }
+    },
+    {
+      "year": 2000,
+      "body": {
+        "Data": {
+          "9": [
+            [
+              1,
+              0
+            ],
+            [
+              2,
+              0
+            ],
+            [
+              3,
+              0
+            ],
+            [
+              4,
+              0
+            ],
+            [
+              5,
+              0
+            ],
+            [
+              6,
+              0
+            ],
+            [
+              7,
+              0
+            ],
+            [
+              8,
+              0
+            ],
+            [
+              9,
+              0
+            ],
+            [
+              10,
+              0
+            ],
+            [
+              11,
+              0
+            ],
+            [
+              12,
+              100
+            ]
+          ]
+        },
+        "Months": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "Year": 2000
+      },
+      "headers": {
+        "X-Odin-Timeline-SHA256": "8f1f242d2fd7028f2053afc774dec621de6ada7fa14aef61e867ad094b744f37",
+        "X-Odin-Source-Manifest-SHA256": "eea33d9df1fa7f81f9407b15d4a8bebb69a79749feafc5a7269560bbdd8d11b9",
+        "X-Odin-Source": "s3-parquet-migration",
+        "X-Odin-Release": "offline-full-release",
+        "X-Odin-Coverage": "mission",
+        "Access-Control-Expose-Headers": "X-Odin-Source, X-Odin-Release, X-Odin-Coverage, X-Odin-Timeline-SHA256, X-Odin-Source-Manifest-SHA256"
+      }
+    },
+    {
+      "year": 2015,
+      "body": {
+        "Data": {
+          "1": [
+            [
+              1,
+              4
+            ],
+            [
+              2,
+              0
+            ],
+            [
+              3,
+              null
+            ],
+            [
+              4,
+              0
+            ],
+            [
+              5,
+              0
+            ],
+            [
+              6,
+              0
+            ],
+            [
+              7,
+              0
+            ],
+            [
+              8,
+              0
+            ],
+            [
+              9,
+              0
+            ],
+            [
+              10,
+              0
+            ],
+            [
+              11,
+              0
+            ],
+            [
+              12,
+              -4
+            ]
+          ],
+          "2": [
+            [
+              1,
+              0
+            ],
+            [
+              2,
+              0
+            ],
+            [
+              3,
+              null
+            ],
+            [
+              4,
+              0
+            ],
+            [
+              5,
+              0
+            ],
+            [
+              6,
+              0
+            ],
+            [
+              7,
+              0
+            ],
+            [
+              8,
+              0
+            ],
+            [
+              9,
+              0
+            ],
+            [
+              10,
+              0
+            ],
+            [
+              11,
+              0
+            ],
+            [
+              12,
+              0
+            ]
+          ]
+        },
+        "Months": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "Year": 2015
+      },
+      "headers": {
+        "X-Odin-Timeline-SHA256": "8f1f242d2fd7028f2053afc774dec621de6ada7fa14aef61e867ad094b744f37",
+        "X-Odin-Source-Manifest-SHA256": "eea33d9df1fa7f81f9407b15d4a8bebb69a79749feafc5a7269560bbdd8d11b9",
+        "X-Odin-Source": "s3-parquet-migration",
+        "X-Odin-Release": "offline-full-release",
+        "X-Odin-Coverage": "mission",
+        "Access-Control-Expose-Headers": "X-Odin-Source, X-Odin-Release, X-Odin-Coverage, X-Odin-Timeline-SHA256, X-Odin-Source-Manifest-SHA256"
+      }
+    },
+    {
+      "year": 2099,
+      "body": {
+        "Data": {
+          "99": [
+            [
+              1,
+              7
+            ],
+            [
+              2,
+              0
+            ],
+            [
+              3,
+              0
+            ],
+            [
+              4,
+              0
+            ],
+            [
+              5,
+              0
+            ],
+            [
+              6,
+              0
+            ],
+            [
+              7,
+              0
+            ],
+            [
+              8,
+              0
+            ],
+            [
+              9,
+              0
+            ],
+            [
+              10,
+              0
+            ],
+            [
+              11,
+              0
+            ],
+            [
+              12,
+              0
+            ]
+          ]
+        },
+        "Months": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "Year": 2099
+      },
+      "headers": {
+        "X-Odin-Timeline-SHA256": "8f1f242d2fd7028f2053afc774dec621de6ada7fa14aef61e867ad094b744f37",
+        "X-Odin-Source-Manifest-SHA256": "eea33d9df1fa7f81f9407b15d4a8bebb69a79749feafc5a7269560bbdd8d11b9",
+        "X-Odin-Source": "s3-parquet-migration",
+        "X-Odin-Release": "offline-full-release",
+        "X-Odin-Coverage": "mission",
+        "Access-Control-Expose-Headers": "X-Odin-Source, X-Odin-Release, X-Odin-Coverage, X-Odin-Timeline-SHA256, X-Odin-Source-Manifest-SHA256"
+      }
+    },
+    {
+      "year": 9999,
+      "body": {
+        "Data": {
+          "null": [
+            [
+              1,
+              0
+            ],
+            [
+              2,
+              0
+            ],
+            [
+              3,
+              0
+            ],
+            [
+              4,
+              0
+            ],
+            [
+              5,
+              0
+            ],
+            [
+              6,
+              0
+            ],
+            [
+              7,
+              0
+            ],
+            [
+              8,
+              0
+            ],
+            [
+              9,
+              0
+            ],
+            [
+              10,
+              0
+            ],
+            [
+              11,
+              0
+            ],
+            [
+              12,
+              -2
+            ]
+          ]
+        },
+        "Months": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "Year": 9999
+      },
+      "headers": {
+        "X-Odin-Timeline-SHA256": "8f1f242d2fd7028f2053afc774dec621de6ada7fa14aef61e867ad094b744f37",
+        "X-Odin-Source-Manifest-SHA256": "eea33d9df1fa7f81f9407b15d4a8bebb69a79749feafc5a7269560bbdd8d11b9",
+        "X-Odin-Source": "s3-parquet-migration",
+        "X-Odin-Release": "offline-full-release",
+        "X-Odin-Coverage": "mission",
+        "Access-Control-Expose-Headers": "X-Odin-Source, X-Odin-Release, X-Odin-Coverage, X-Odin-Timeline-SHA256, X-Odin-Source-Manifest-SHA256"
+      }
+    },
+    {
+      "year": 1999,
+      "body": {
+        "Data": {},
+        "Months": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "Year": 1999
+      },
+      "headers": {
+        "X-Odin-Timeline-SHA256": "8f1f242d2fd7028f2053afc774dec621de6ada7fa14aef61e867ad094b744f37",
+        "X-Odin-Source-Manifest-SHA256": "eea33d9df1fa7f81f9407b15d4a8bebb69a79749feafc5a7269560bbdd8d11b9",
+        "X-Odin-Source": "s3-parquet-migration",
+        "X-Odin-Release": "offline-full-release",
+        "X-Odin-Coverage": "mission",
+        "Access-Control-Expose-Headers": "X-Odin-Source, X-Odin-Release, X-Odin-Coverage, X-Odin-Timeline-SHA256, X-Odin-Source-Manifest-SHA256"
+      }
+    }
+  ]
+}

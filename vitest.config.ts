@@ -1,28 +1,28 @@
 import path from "node:path";
-import { fileURLToPath } from "node:url";
 
 import react from "@vitejs/plugin-react-swc";
 import { storybookTest } from "@storybook/addon-vitest/vitest-plugin";
 import { playwright } from "@vitest/browser-playwright";
 import { defineConfig } from "vitest/config";
 
-const dirname =
-  typeof __dirname !== "undefined"
-    ? __dirname
-    : path.dirname(fileURLToPath(import.meta.url));
-
 export default defineConfig({
   plugins: [react()],
   test: {
     globals: true,
-    environment: "jsdom",
-    setupFiles: ["./.storybook/vitest.setup.ts"],
     projects: [
+      {
+        extends: true,
+        test: {
+          name: "unit",
+          environment: "jsdom",
+          include: ["src/**/*.{test,spec}.{ts,tsx}"],
+        },
+      },
       {
         extends: true,
         plugins: [
           // Run tests for the stories defined in your Storybook config
-          storybookTest({ configDir: path.join(dirname, ".storybook") }),
+          storybookTest({ configDir: path.join(import.meta.dirname, ".storybook") }),
         ],
         test: {
           name: "storybook",
@@ -32,7 +32,6 @@ export default defineConfig({
             provider: playwright({}),
             instances: [{ browser: "chromium" }],
           },
-          setupFiles: ["./.storybook/vitest.setup.ts"],
         },
       },
     ],
