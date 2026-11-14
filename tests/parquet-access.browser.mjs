@@ -35,7 +35,7 @@ try {
     for (const width of [320, 390, 768, 1440]) {
       for (const theme of ["light", "dark"]) {
         await page.setViewportSize({ width, height: 1000 });
-        await page.goto(`${origin}/data_access`);
+        await page.goto(`${origin}/data_access/files`);
         await page.evaluate((value) => localStorage.setItem("themeMode", value), theme);
         await page.reload();
         if (scenario === "planned") await section.getByText("Public Parquet release in preparation", { exact: true }).waitFor();

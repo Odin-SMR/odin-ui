@@ -1,0 +1,812 @@
+{
+  "fixtureOnly": true,
+  "layouts": [
+    {
+      "theme": "light",
+      "width": 320,
+      "path": "/",
+      "textSize": 100
+    },
+    {
+      "theme": "light",
+      "width": 320,
+      "path": "/",
+      "textSize": 200
+    },
+    {
+      "theme": "light",
+      "width": 320,
+      "path": "/instrument",
+      "textSize": 100
+    },
+    {
+      "theme": "light",
+      "width": 320,
+      "path": "/instrument",
+      "textSize": 200
+    },
+    {
+      "theme": "light",
+      "width": 320,
+      "path": "/data_access",
+      "textSize": 100
+    },
+    {
+      "theme": "light",
+      "width": 320,
+      "path": "/data_access",
+      "textSize": 200
+    },
+    {
+      "theme": "light",
+      "width": 320,
+      "path": "/data_access/quickstart",
+      "textSize": 100
+    },
+    {
+      "theme": "light",
+      "width": 320,
+      "path": "/data_access/quickstart",
+      "textSize": 200
+    },
+    {
+      "theme": "light",
+      "width": 320,
+      "path": "/explore",
+      "textSize": 100
+    },
+    {
+      "theme": "light",
+      "width": 320,
+      "path": "/explore",
+      "textSize": 200
+    },
+    {
+      "theme": "light",
+      "width": 320,
+      "path": "/data_access/files",
+      "textSize": 100
+    },
+    {
+      "theme": "light",
+      "width": 320,
+      "path": "/data_access/files",
+      "textSize": 200
+    },
+    {
+      "theme": "light",
+      "width": 320,
+      "path": "/data_access/files#parquet-archive",
+      "textSize": 100
+    },
+    {
+      "theme": "light",
+      "width": 320,
+      "path": "/data_access/files#parquet-archive",
+      "textSize": 200
+    },
+    {
+      "theme": "light",
+      "width": 320,
+      "path": "/data_access/api",
+      "textSize": 100
+    },
+    {
+      "theme": "light",
+      "width": 320,
+      "path": "/data_access/api",
+      "textSize": 200
+    },
+    {
+      "theme": "light",
+      "width": 390,
+      "path": "/",
+      "textSize": 100
+    },
+    {
+      "theme": "light",
+      "width": 390,
+      "path": "/",
+      "textSize": 200
+    },
+    {
+      "theme": "light",
+      "width": 390,
+      "path": "/instrument",
+      "textSize": 100
+    },
+    {
+      "theme": "light",
+      "width": 390,
+      "path": "/instrument",
+      "textSize": 200
+    },
+    {
+      "theme": "light",
+      "width": 390,
+      "path": "/data_access",
+      "textSize": 100
+    },
+    {
+      "theme": "light",
+      "width": 390,
+      "path": "/data_access",
+      "textSize": 200
+    },
+    {
+      "theme": "light",
+      "width": 390,
+      "path": "/data_access/quickstart",
+      "textSize": 100
+    },
+    {
+      "theme": "light",
+      "width": 390,
+      "path": "/data_access/quickstart",
+      "textSize": 200
+    },
+    {
+      "theme": "light",
+      "width": 390,
+      "path": "/explore",
+      "textSize": 100
+    },
+    {
+      "theme": "light",
+      "width": 390,
+      "path": "/explore",
+      "textSize": 200
+    },
+    {
+      "theme": "light",
+      "width": 390,
+      "path": "/data_access/files",
+      "textSize": 100
+    },
+    {
+      "theme": "light",
+      "width": 390,
+      "path": "/data_access/files",
+      "textSize": 200
+    },
+    {
+      "theme": "light",
+      "width": 390,
+      "path": "/data_access/files#parquet-archive",
+      "textSize": 100
+    },
+    {
+      "theme": "light",
+      "width": 390,
+      "path": "/data_access/files#parquet-archive",
+      "textSize": 200
+    },
+    {
+      "theme": "light",
+      "width": 390,
+      "path": "/data_access/api",
+      "textSize": 100
+    },
+    {
+      "theme": "light",
+      "width": 390,
+      "path": "/data_access/api",
+      "textSize": 200
+    },
+    {
+      "theme": "light",
+      "width": 768,
+      "path": "/",
+      "textSize": 100
+    },
+    {
+      "theme": "light",
+      "width": 768,
+      "path": "/",
+      "textSize": 200
+    },
+    {
+      "theme": "light",
+      "width": 768,
+      "path": "/instrument",
+      "textSize": 100
+    },
+    {
+      "theme": "light",
+      "width": 768,
+      "path": "/instrument",
+      "textSize": 200
+    },
+    {
+      "theme": "light",
+      "width": 768,
+      "path": "/data_access",
+      "textSize": 100
+    },
+    {
+      "theme": "light",
+      "width": 768,
+      "path": "/data_access",
+      "textSize": 200
+    },
+    {
+      "theme": "light",
+      "width": 768,
+      "path": "/data_access/quickstart",
+      "textSize": 100
+    },
+    {
+      "theme": "light",
+      "width": 768,
+      "path": "/data_access/quickstart",
+      "textSize": 200
+    },
+    {
+      "theme": "light",
+      "width": 768,
+      "path": "/explore",
+      "textSize": 100
+    },
+    {
+      "theme": "light",
+      "width": 768,
+      "path": "/explore",
+      "textSize": 200
+    },
+    {
+      "theme": "light",
+      "width": 768,
+      "path": "/data_access/files",
+      "textSize": 100
+    },
+    {
+      "theme": "light",
+      "width": 768,
+      "path": "/data_access/files",
+      "textSize": 200
+    },
+    {
+      "theme": "light",
+      "width": 768,
+      "path": "/data_access/files#parquet-archive",
+      "textSize": 100
+    },
+    {
+      "theme": "light",
+      "width": 768,
+      "path": "/data_access/files#parquet-archive",
+      "textSize": 200
+    },
+    {
+      "theme": "light",
+      "width": 768,
+      "path": "/data_access/api",
+      "textSize": 100
+    },
+    {
+      "theme": "light",
+      "width": 768,
+      "path": "/data_access/api",
+      "textSize": 200
+    },
+    {
+      "theme": "light",
+      "width": 1440,
+      "path": "/",
+      "textSize": 100
+    },
+    {
+      "theme": "light",
+      "width": 1440,
+      "path": "/",
+      "textSize": 200
+    },
+    {
+      "theme": "light",
+      "width": 1440,
+      "path": "/instrument",
+      "textSize": 100
+    },
+    {
+      "theme": "light",
+      "width": 1440,
+      "path": "/instrument",
+      "textSize": 200
+    },
+    {
+      "theme": "light",
+      "width": 1440,
+      "path": "/data_access",
+      "textSize": 100
+    },
+    {
+      "theme": "light",
+      "width": 1440,
+      "path": "/data_access",
+      "textSize": 200
+    },
+    {
+      "theme": "light",
+      "width": 1440,
+      "path": "/data_access/quickstart",
+      "textSize": 100
+    },
+    {
+      "theme": "light",
+      "width": 1440,
+      "path": "/data_access/quickstart",
+      "textSize": 200
+    },
+    {
+      "theme": "light",
+      "width": 1440,
+      "path": "/explore",
+      "textSize": 100
+    },
+    {
+      "theme": "light",
+      "width": 1440,
+      "path": "/explore",
+      "textSize": 200
+    },
+    {
+      "theme": "light",
+      "width": 1440,
+      "path": "/data_access/files",
+      "textSize": 100
+    },
+    {
+      "theme": "light",
+      "width": 1440,
+      "path": "/data_access/files",
+      "textSize": 200
+    },
+    {
+      "theme": "light",
+      "width": 1440,
+      "path": "/data_access/files#parquet-archive",
+      "textSize": 100
+    },
+    {
+      "theme": "light",
+      "width": 1440,
+      "path": "/data_access/files#parquet-archive",
+      "textSize": 200
+    },
+    {
+      "theme": "light",
+      "width": 1440,
+      "path": "/data_access/api",
+      "textSize": 100
+    },
+    {
+      "theme": "light",
+      "width": 1440,
+      "path": "/data_access/api",
+      "textSize": 200
+    },
+    {
+      "theme": "dark",
+      "width": 320,
+      "path": "/",
+      "textSize": 100
+    },
+    {
+      "theme": "dark",
+      "width": 320,
+      "path": "/",
+      "textSize": 200
+    },
+    {
+      "theme": "dark",
+      "width": 320,
+      "path": "/instrument",
+      "textSize": 100
+    },
+    {
+      "theme": "dark",
+      "width": 320,
+      "path": "/instrument",
+      "textSize": 200
+    },
+    {
+      "theme": "dark",
+      "width": 320,
+      "path": "/data_access",
+      "textSize": 100
+    },
+    {
+      "theme": "dark",
+      "width": 320,
+      "path": "/data_access",
+      "textSize": 200
+    },
+    {
+      "theme": "dark",
+      "width": 320,
+      "path": "/data_access/quickstart",
+      "textSize": 100
+    },
+    {
+      "theme": "dark",
+      "width": 320,
+      "path": "/data_access/quickstart",
+      "textSize": 200
+    },
+    {
+      "theme": "dark",
+      "width": 320,
+      "path": "/explore",
+      "textSize": 100
+    },
+    {
+      "theme": "dark",
+      "width": 320,
+      "path": "/explore",
+      "textSize": 200
+    },
+    {
+      "theme": "dark",
+      "width": 320,
+      "path": "/data_access/files",
+      "textSize": 100
+    },
+    {
+      "theme": "dark",
+      "width": 320,
+      "path": "/data_access/files",
+      "textSize": 200
+    },
+    {
+      "theme": "dark",
+      "width": 320,
+      "path": "/data_access/files#parquet-archive",
+      "textSize": 100
+    },
+    {
+      "theme": "dark",
+      "width": 320,
+      "path": "/data_access/files#parquet-archive",
+      "textSize": 200
+    },
+    {
+      "theme": "dark",
+      "width": 320,
+      "path": "/data_access/api",
+      "textSize": 100
+    },
+    {
+      "theme": "dark",
+      "width": 320,
+      "path": "/data_access/api",
+      "textSize": 200
+    },
+    {
+      "theme": "dark",
+      "width": 390,
+      "path": "/",
+      "textSize": 100
+    },
+    {
+      "theme": "dark",
+      "width": 390,
+      "path": "/",
+      "textSize": 200
+    },
+    {
+      "theme": "dark",
+      "width": 390,
+      "path": "/instrument",
+      "textSize": 100
+    },
+    {
+      "theme": "dark",
+      "width": 390,
+      "path": "/instrument",
+      "textSize": 200
+    },
+    {
+      "theme": "dark",
+      "width": 390,
+      "path": "/data_access",
+      "textSize": 100
+    },
+    {
+      "theme": "dark",
+      "width": 390,
+      "path": "/data_access",
+      "textSize": 200
+    },
+    {
+      "theme": "dark",
+      "width": 390,
+      "path": "/data_access/quickstart",
+      "textSize": 100
+    },
+    {
+      "theme": "dark",
+      "width": 390,
+      "path": "/data_access/quickstart",
+      "textSize": 200
+    },
+    {
+      "theme": "dark",
+      "width": 390,
+      "path": "/explore",
+      "textSize": 100
+    },
+    {
+      "theme": "dark",
+      "width": 390,
+      "path": "/explore",
+      "textSize": 200
+    },
+    {
+      "theme": "dark",
+      "width": 390,
+      "path": "/data_access/files",
+      "textSize": 100
+    },
+    {
+      "theme": "dark",
+      "width": 390,
+      "path": "/data_access/files",
+      "textSize": 200
+    },
+    {
+      "theme": "dark",
+      "width": 390,
+      "path": "/data_access/files#parquet-archive",
+      "textSize": 100
+    },
+    {
+      "theme": "dark",
+      "width": 390,
+      "path": "/data_access/files#parquet-archive",
+      "textSize": 200
+    },
+    {
+      "theme": "dark",
+      "width": 390,
+      "path": "/data_access/api",
+      "textSize": 100
+    },
+    {
+      "theme": "dark",
+      "width": 390,
+      "path": "/data_access/api",
+      "textSize": 200
+    },
+    {
+      "theme": "dark",
+      "width": 768,
+      "path": "/",
+      "textSize": 100
+    },
+    {
+      "theme": "dark",
+      "width": 768,
+      "path": "/",
+      "textSize": 200
+    },
+    {
+      "theme": "dark",
+      "width": 768,
+      "path": "/instrument",
+      "textSize": 100
+    },
+    {
+      "theme": "dark",
+      "width": 768,
+      "path": "/instrument",
+      "textSize": 200
+    },
+    {
+      "theme": "dark",
+      "width": 768,
+      "path": "/data_access",
+      "textSize": 100
+    },
+    {
+      "theme": "dark",
+      "width": 768,
+      "path": "/data_access",
+      "textSize": 200
+    },
+    {
+      "theme": "dark",
+      "width": 768,
+      "path": "/data_access/quickstart",
+      "textSize": 100
+    },
+    {
+      "theme": "dark",
+      "width": 768,
+      "path": "/data_access/quickstart",
+      "textSize": 200
+    },
+    {
+      "theme": "dark",
+      "width": 768,
+      "path": "/explore",
+      "textSize": 100
+    },
+    {
+      "theme": "dark",
+      "width": 768,
+      "path": "/explore",
+      "textSize": 200
+    },
+    {
+      "theme": "dark",
+      "width": 768,
+      "path": "/data_access/files",
+      "textSize": 100
+    },
+    {
+      "theme": "dark",
+      "width": 768,
+      "path": "/data_access/files",
+      "textSize": 200
+    },
+    {
+      "theme": "dark",
+      "width": 768,
+      "path": "/data_access/files#parquet-archive",
+      "textSize": 100
+    },
+    {
+      "theme": "dark",
+      "width": 768,
+      "path": "/data_access/files#parquet-archive",
+      "textSize": 200
+    },
+    {
+      "theme": "dark",
+      "width": 768,
+      "path": "/data_access/api",
+      "textSize": 100
+    },
+    {
+      "theme": "dark",
+      "width": 768,
+      "path": "/data_access/api",
+      "textSize": 200
+    },
+    {
+      "theme": "dark",
+      "width": 1440,
+      "path": "/",
+      "textSize": 100
+    },
+    {
+      "theme": "dark",
+      "width": 1440,
+      "path": "/",
+      "textSize": 200
+    },
+    {
+      "theme": "dark",
+      "width": 1440,
+      "path": "/instrument",
+      "textSize": 100
+    },
+    {
+      "theme": "dark",
+      "width": 1440,
+      "path": "/instrument",
+      "textSize": 200
+    },
+    {
+      "theme": "dark",
+      "width": 1440,
+      "path": "/data_access",
+      "textSize": 100
+    },
+    {
+      "theme": "dark",
+      "width": 1440,
+      "path": "/data_access",
+      "textSize": 200
+    },
+    {
+      "theme": "dark",
+      "width": 1440,
+      "path": "/data_access/quickstart",
+      "textSize": 100
+    },
+    {
+      "theme": "dark",
+      "width": 1440,
+      "path": "/data_access/quickstart",
+      "textSize": 200
+    },
+    {
+      "theme": "dark",
+      "width": 1440,
+      "path": "/explore",
+      "textSize": 100
+    },
+    {
+      "theme": "dark",
+      "width": 1440,
+      "path": "/explore",
+      "textSize": 200
+    },
+    {
+      "theme": "dark",
+      "width": 1440,
+      "path": "/data_access/files",
+      "textSize": 100
+    },
+    {
+      "theme": "dark",
+      "width": 1440,
+      "path": "/data_access/files",
+      "textSize": 200
+    },
+    {
+      "theme": "dark",
+      "width": 1440,
+      "path": "/data_access/files#parquet-archive",
+      "textSize": 100
+    },
+    {
+      "theme": "dark",
+      "width": 1440,
+      "path": "/data_access/files#parquet-archive",
+      "textSize": 200
+    },
+    {
+      "theme": "dark",
+      "width": 1440,
+      "path": "/data_access/api",
+      "textSize": 100
+    },
+    {
+      "theme": "dark",
+      "width": 1440,
+      "path": "/data_access/api",
+      "textSize": 200
+    }
+  ],
+  "journeys": [
+    "light: mobile navigation → quickstart → region SQL → optional mean → Python download",
+    "light: six legacy fragment links redirect and scroll correctly",
+    "light: Explore → L2 calendar → back → L1 calendar",
+    "dark: mobile navigation → quickstart → region SQL → optional mean → Python download",
+    "dark: six legacy fragment links redirect and scroll correctly",
+    "dark: Explore → L2 calendar → back → L1 calendar"
+  ],
+  "errors": [],
+  "requests": [
+    "/rest_api/v5/statistics/freqmode/timeline/",
+    "/rest_api/v5/statistics/freqmode/timeline/",
+    "/rest_api/v5/statistics/freqmode/timeline/",
+    "/rest_api/v5/statistics/freqmode/timeline/",
+    "/rest_api/v5/statistics/freqmode/timeline/",
+    "/rest_api/v5/statistics/freqmode/timeline/",
+    "/rest_api/v5/statistics/freqmode/timeline/",
+    "/rest_api/v5/statistics/freqmode/timeline/",
+    "/rest_api/v5/statistics/freqmode/timeline/",
+    "/rest_api/v5/statistics/freqmode/timeline/",
+    "/api/calendar",
+    "/rest_api/v5/statistics/freqmode/timeline/",
+    "/rest_api/v5/statistics/freqmode/timeline/",
+    "/rest_api/v5/period_info/2015/01/01/",
+    "/rest_api/v5/statistics/freqmode/timeline/",
+    "/rest_api/v5/statistics/freqmode/timeline/",
+    "/rest_api/v5/statistics/freqmode/timeline/",
+    "/rest_api/v5/statistics/freqmode/timeline/",
+    "/rest_api/v5/statistics/freqmode/timeline/",
+    "/rest_api/v5/statistics/freqmode/timeline/",
+    "/rest_api/v5/statistics/freqmode/timeline/",
+    "/rest_api/v5/statistics/freqmode/timeline/",
+    "/rest_api/v5/statistics/freqmode/timeline/",
+    "/rest_api/v5/statistics/freqmode/timeline/",
+    "/api/calendar",
+    "/rest_api/v5/statistics/freqmode/timeline/",
+    "/rest_api/v5/statistics/freqmode/timeline/",
+    "/rest_api/v5/period_info/2015/01/01/"
+  ]
+}

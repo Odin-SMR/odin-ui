@@ -3,6 +3,7 @@ import { Accordion, AccordionDetails, AccordionSummary, Alert, Box, Button, Chip
 import dayjs, { type Dayjs } from "dayjs";
 import utc from "dayjs/plugin/utc";
 import { useEffect, useState } from "react";
+import { Link as RouterLink } from "react-router-dom";
 import type { z } from "zod";
 import { FREQMODE_COLOURS } from "../definitions";
 import { createApiClient, schemas } from "../odinApi/client";
@@ -70,6 +71,7 @@ export default function CalendarView() {
   const track = rows.map((row) => ({ lat: row.lat, lon: row.lon, scanid: row.scanid }));
 
   return <Box sx={{ p: { xs: 2, sm: 3, xl: 4 }, maxWidth: 1920, mx: "auto" }}><Stack spacing={2}>
+    <Box><Button component={RouterLink} to="/explore">← Explore observations</Button></Box>
     <Box><Typography component="h1" variant="h3">Level 1 observations</Typography>
       {!selected && <Typography color="text.secondary" sx={{ mt: 1 }}>Choose a day and frequency mode, then explore a scan on the map.</Typography>}</Box>
     <Accordion expanded={pickerOpen} onChange={(_, expanded) => setPickerOpen(expanded)} disableGutters variant="outlined">

@@ -3,7 +3,7 @@ import { Accordion, AccordionDetails, AccordionSummary, Alert, Box, Button, Chip
 import dayjs from "dayjs";
 import utc from "dayjs/plugin/utc";
 import { useEffect, useState } from "react";
-import { useNavigate, useParams } from "react-router-dom";
+import { Link as RouterLink, useNavigate, useParams } from "react-router-dom";
 import type { z } from "zod";
 import { FREQMODE_COLOURS } from "../definitions";
 import { createApiClient, schemas } from "../odinApi/cloud_client";
@@ -71,6 +71,7 @@ export function L2Calendar() {
   };
 
   return <Box sx={{ p: { xs: 2, sm: 3, xl: 4 }, maxWidth: 1920, mx: "auto" }}><Stack spacing={2}>
+    <Box><Button component={RouterLink} to="/explore">← Explore observations</Button></Box>
     <Box><Typography component="h1" variant="h3">Level 2 retrievals</Typography>
       {!selected && <Typography color="text.secondary" sx={{ mt: 1 }}>Choose an observation, then select a map point to explore atmospheric profiles.</Typography>}</Box>
     {(!validMonth || (params.day && !selected)) && <Alert severity="warning">This date or frequency mode is invalid. Choose a valid month and observation from the catalogue.</Alert>}

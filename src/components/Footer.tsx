@@ -21,9 +21,10 @@ export default function Footer() {
           <Box>
             <Stack direction="row" useFlexGap spacing={3} sx={{ flexWrap: "wrap", mb: 2 }}>
               <Link component={RouterLink} to="/documentation" sx={{ py: 1 }}>Documents</Link>
-              <Link component={RouterLink} to="/data_access" sx={{ py: 1 }}>Data access</Link>
+              <Link component={RouterLink} to="/data_access" sx={{ py: 1 }}>Use data</Link>
               <Link component={RouterLink} to="/news" sx={{ py: 1 }}>News</Link>
             </Stack>
+            <Link component={RouterLink} to="/migration" variant="body2" sx={{ display: "inline-block", mb: 2 }}>Archive migration status</Link>
             <Typography variant="body2" color="text.secondary">Chalmers University of Technology · Molflow / ESA</Typography>
             <Stack direction="row" spacing={3} sx={{ bgcolor: "#212121", borderRadius: 1, p: 2, mt: 2, maxWidth: 360, alignItems: "center" }}>
               <Box component="img" src="/images/Chalmers_white.png" alt="Chalmers" loading="lazy" sx={{ width: "40%", height: 48, objectFit: "contain" }} />

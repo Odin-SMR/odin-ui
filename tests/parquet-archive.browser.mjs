@@ -36,7 +36,7 @@ try {
   for (const width of [320, 390, 768, 1440]) {
     for (const theme of ["light", "dark"]) {
       await page.setViewportSize({ width, height: 1000 });
-      await page.goto(`${origin}/data_access`);
+      await page.goto(`${origin}/data_access/files#parquet-archive`);
       await page.evaluate((value) => localStorage.setItem("themeMode", value), theme); await page.reload();
       await section.getByText("51 files · 51 KiB in partition 2022-01", { exact: true }).waitFor();
       for (const size of [16, 32]) {
