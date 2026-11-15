@@ -66,5 +66,8 @@ export const Documents = () => (
       Looking for data rather than documentation? See the <Link component={RouterLink} to="/data_access">data access and product guide</Link> for
       download options and product caveats.
     </Typography>
+    <Typography sx={{ mt: 2 }}>
+      Working with an AI assistant? <Link component={RouterLink} to="/data_access/odin-mcp">Install, run and prompt Odin MCP</Link> to use cited research guidance and public data tools.
+    </Typography>
   </Container>
 );

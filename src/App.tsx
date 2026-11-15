@@ -27,6 +27,7 @@ const Instrument = lazy(() => import("./components/Instrument"));
 const Explore = lazy(() => import("./components/Explore"));
 const L2Quickstart = lazy(() => import("./components/L2Quickstart"));
 const ParquetFiles = lazy(() => import("./components/ParquetFiles"));
+const OdinMcp = lazy(() => import("./components/OdinMcp"));
 const DataApi = lazy(() => import("./components/DataApi").then((module) => ({ default: module.DataApi })));
 
 const navigation = [
@@ -44,6 +45,7 @@ const pageTitles = [
   ["/data_access/quickstart", "Level 2 quickstart"],
   ["/data_access/files", "Find Parquet files"],
   ["/data_access/api", "API access"],
+  ["/data_access/odin-mcp", "Odin MCP guide"],
   ["/data_access/parquet-guide", "Parquet analysis guide"],
   ["/data_access/parquet-schema", "Parquet schemas"],
   ["/level1/statistics", "Measurement statistics"],
@@ -135,6 +137,7 @@ function SiteLayout() {
           <Route path="/data_access/quickstart" element={<L2Quickstart />} />
           <Route path="/data_access/files" element={<ParquetFiles />} />
           <Route path="/data_access/api" element={<DataApi />} />
+          <Route path="/data_access/odin-mcp" element={<OdinMcp />} />
           <Route path="/data_access/parquet-guide" element={<ParquetDocumentation page="guide" />} />
           <Route path="/data_access/parquet-schema" element={<ParquetDocumentation page="schema" />} />
           <Route path="/migration-pilot" element={<MigrationPilot />} />

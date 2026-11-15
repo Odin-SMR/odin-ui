@@ -23,6 +23,12 @@ export function DataAccess() {
       <JourneyCard eyebrow="Understand" title="Interpret the fields" to="/data_access/parquet-schema" action="Read the schema guide">Check units, coordinates, retrieval diagnostics and missing values. Formats differ between processing generations.</JourneyCard>
       <JourneyCard eyebrow="Automate" title="Request individual scans" to="/data_access/api" action="Open API reference">Use the Level 1 and Level 2 HTTPS APIs for small requests and interactive applications.</JourneyCard>
     </Box>
+    <Paper variant="outlined" sx={{ p: { xs: 2.5, sm: 4 }, mt: 3 }}>
+      <Typography variant="overline" color="primary">AI-assisted research</Typography>
+      <Typography component="h2" variant="h5" sx={{ mt: 1, mb: 1 }}>Use Odin MCP with your assistant</Typography>
+      <Typography color="text.secondary" sx={{ maxWidth: "65ch", mb: 2 }}>Install the local MCP server, connect your AI application, and use prompts to explore research guidance and public Level 2 files. No AWS account is needed.</Typography>
+      <Button variant="outlined" component={RouterLink} to="/data_access/odin-mcp">Set up Odin MCP</Button>
+    </Paper>
     <Stack spacing={1.5} sx={{ mt: 5, maxWidth: "78ch" }}>
       <Typography component="h2" variant="h5">Which level do I need?</Typography>
       <Typography><strong>Level 2</strong> contains retrieved atmospheric profiles: gases or temperature at a set of vertical levels. This is the usual starting point for atmospheric analysis.</Typography>
