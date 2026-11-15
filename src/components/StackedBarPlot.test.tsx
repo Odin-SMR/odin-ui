@@ -6,11 +6,6 @@ import StackedBarPlotCompare from "./StackedBarPlottCompare";
 import type { TotalResponse, YearResponse } from "../hooks/Level1Stats";
 
 vi.mock("@visx/responsive", () => ({ useParentSize: () => ({ parentRef: () => {}, width: 800, height: 300 }) }));
-vi.mock("@visx/event", () => ({ localPoint: () => ({ x: 1, y: 2 }) }));
-vi.mock("@visx/tooltip", async () => ({
-  ...await vi.importActual<typeof import("@visx/tooltip")>("@visx/tooltip"),
-  useTooltipInPortal: () => ({ containerRef: () => {}, TooltipInPortal: ({ children }: { children: ReactNode }) => <div>{children}</div> }),
-}));
 let container: HTMLDivElement;
 let root: Root;
 const annual = (Data: TotalResponse["Data"]): TotalResponse => ({ Data, Years: [2015] });
@@ -18,6 +13,7 @@ const render = async (element: ReactNode) => {
   await act(async () => { root.render(element); await new Promise((resolve) => setTimeout(resolve, 10)); });
 };
 const hover = (element: Element | null) => { expect(element).not.toBeNull(); act(() => element?.dispatchEvent(new MouseEvent("mousemove", { bubbles: true }))); };
+const tooltipText = () => document.querySelector('[role="tooltip"]')?.textContent;
 beforeEach(() => { vi.stubGlobal("IS_REACT_ACT_ENVIRONMENT", true); container = document.createElement("div"); document.body.appendChild(container); root = createRoot(container); vi.stubGlobal("fetch", vi.fn()); });
 afterEach(() => { act(() => root.unmount()); container.remove(); vi.unstubAllGlobals(); });
 
@@ -31,11 +27,11 @@ describe("honest timeline visualization", () => {
     expect(zero?.getAttribute("data-count")).toBe("0");
     expect(container.textContent).toContain("They have not been replaced with zero");
     hover(missing);
-    expect(container.textContent).toContain("FM Unspecified frequency mode");
-    expect(container.textContent).toContain("L1: Missing");
+    expect(tooltipText()).toContain("FM Unspecified frequency mode");
+    expect(tooltipText()).toContain("L1 countMissing");
     hover(zero);
-    expect(container.textContent).toContain("FM 999");
-    expect(container.textContent).toContain("L1: 0");
+    expect(tooltipText()).toContain("FM 999");
+    expect(tooltipText()).toContain("L1 count0");
     act(() => zero?.dispatchEvent(new MouseEvent("click", { bubbles: true })));
     expect(document.body.textContent).toContain("Range: Unknown");
   });
@@ -73,7 +69,8 @@ describe("honest timeline visualization", () => {
     expect(container.querySelector('[data-level="1"][data-group="2"][data-mode="1"][data-count-state="zero"]')).not.toBeNull();
     expect(Number(container.querySelector('[data-level="2"][data-group="3"][data-mode="1"]')?.getAttribute("height"))).toBeGreaterThan(0);
     hover(container.querySelector('[data-level="2"][data-group="1"][data-mode="1"]'));
-    expect(container.textContent).toContain("L1: Missing"); expect(container.textContent).toContain("L2: 6");
+    expect(tooltipText()).toContain("L1 countMissing"); expect(tooltipText()).toContain("L2 count6");
+    expect(tooltipText()).not.toContain("L2 / L1");
     act(() => container.querySelector('[data-level="2"][data-group="1"][data-mode="1"]')?.dispatchEvent(new MouseEvent("click", { bubbles: true })));
     expect(document.body.textContent).toContain("L2 / L1: —");
     hover(container.querySelector('[data-level="2"][data-group="4"][data-mode="1"]'));
@@ -84,8 +81,39 @@ describe("honest timeline visualization", () => {
     await render(<FrequencyTimelinePlot data={annual({ "999": [[2015, 2]] })} loading={false} error={null} level2={[]} />);
     expect(container.querySelector('[data-level="2"][data-mode="999"][data-count-state="missing"]')).not.toBeNull();
     hover(container.querySelector('[data-level="1"][data-mode="999"]'));
-    expect(container.textContent).toContain("L2: Missing");
-    expect(container.textContent).not.toContain("L2: 0");
+    expect(tooltipText()).toContain("L2 countMissing");
+    expect(tooltipText()).not.toContain("L2 count0");
+  });
+  it("shows a full monthly period, exact grouped counts and filled L2 bars", async () => {
+    const data: YearResponse = { Year: 2023, Months: [1], Data: { "1": [[1, 12340]] } };
+    await render(<FrequencyTimelinePlot data={data} loading={false} error={null} level2={[{ group: 1, "1": 6170 }]} />);
+    const l1 = container.querySelector('[data-level="1"][data-mode="1"]');
+    const l2 = container.querySelector('[data-level="2"][data-mode="1"]');
+    expect(l2?.getAttribute("fill")).toBe(l1?.getAttribute("fill"));
+    expect(l2?.getAttribute("fill")).not.toBe("none");
+    expect(container.textContent).toContain("L1 · left barL2 · right bar");
+    hover(l2);
+    expect(tooltipText()).toContain("January 2023 · FM 1");
+    expect(tooltipText()).toContain("L1 count12,340L2 count6,170L2 / L150.0 %");
+    expect(tooltipText()).toContain("ClO, O3, N2O");
+    expect(tooltipText()).toContain("501.180 - 501.580, 501.980 - 502.380 GHz");
+    expect(l2?.getAttribute("aria-describedby")).toBe(document.querySelector('[role="tooltip"]')?.id);
+    expect(l2?.querySelector("title")).toBeNull();
+    act(() => document.body.dispatchEvent(new KeyboardEvent("keydown", { key: "Escape", bubbles: true })));
+    expect(tooltipText()).toBeUndefined();
+    act(() => l1?.dispatchEvent(new FocusEvent("focusin", { bubbles: true })));
+    expect(tooltipText()).toContain("January 2023");
+    act(() => window.dispatchEvent(new Event("scroll")));
+    expect(tooltipText()).toContain("January 2023");
+    hover(l2);
+    act(() => window.dispatchEvent(new Event("scroll")));
+    expect(tooltipText()).toBeUndefined();
+  });
+  it("does not attach frequency units to an unclassified mode", async () => {
+    await render(<FrequencyTimelinePlot data={annual({ "0": [[2015, 1]] })} loading={false} error={null} />);
+    hover(container.querySelector('[data-mode="0"]'));
+    expect(tooltipText()).toContain("Range: unclassified");
+    expect(tooltipText()).not.toContain("GHz");
   });
   it("both public wrappers retain their default PG routes and show HTTP errors", async () => {
     const fetch = vi.fn().mockResolvedValue(new Response("{}", { status: 503 }));

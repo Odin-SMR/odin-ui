@@ -50,7 +50,7 @@ function StatisticsView({ focusYear, invalidYear }: { focusYear: number | null; 
     {focusYear !== null && <Grid size={{ xs: 12, lg: 6 }}>
       <Paper variant="outlined" sx={{ p: 2 }}><Stack spacing={1}>
         <Typography component="h2" variant="h6">{focusYear} monthly distribution vs. L2</Typography>
-        <Typography variant="body2" color="text.secondary">Filled bars: Level 1 · outlined bars: Level 2. Missing counts stay missing.</Typography>
+        <Typography variant="body2" color="text.secondary">Each month: Level 1 on the left · Level 2 on the right. Colors identify frequency modes. Missing counts stay missing.</Typography>
         {level2.loading && <Typography role="status">Loading Level 2 comparison statistics…</Typography>}
         {level2.error && <Alert severity="warning">{level2.error}</Alert>}
         {!level2.error && !!level2.failedModes.length && <Alert severity="warning">Level 2 statistics are unavailable for frequency modes {level2.failedModes.join(", ")}. Their counts remain missing and have not been replaced with zero.</Alert>}
