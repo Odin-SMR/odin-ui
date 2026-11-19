@@ -2,7 +2,7 @@
 // All statistics responses are deterministic fixtures; no scientific requests reach production.
 import assert from "node:assert/strict";
 import { mkdir, writeFile } from "node:fs/promises";
-import { chromium } from "playwright";
+import { launchBrowser } from "./browser-launcher.mjs";
 
 const origin = process.env.ODIN_UI_URL ?? "http://127.0.0.1:5176";
 assert.ok(["127.0.0.1", "localhost", "[::1]"].includes(new URL(origin).hostname));
@@ -19,7 +19,10 @@ const monthly = { Year: 2023, Months: months, Data: {
   "2": months.map((month) => [month, month === 2 ? null : month === 3 ? 0 : month === 4 ? -200 : 600 + month * 50]),
 } };
 const receipt = { fixtureOnly: true, origin, completed: false, cases: [], interactions: [], errors: [] };
-const browser = await chromium.launch({ headless: true });
+const browser = await launchBrowser();
+receipt.browser = browser.version();
+receipt.browserName = process.env.ODIN_UI_BROWSER ?? "chromium";
+receipt.browserEngine = browser.browserType().name();
 const context = await browser.newContext();
 const fixtureRoute = async (route) => {
   const url = new URL(route.request().url());

@@ -16,7 +16,8 @@
     "test:watch": "vitest",
     "test:unit": "vitest run --project unit",
     "test:storybook": "vitest run --project storybook",
-    "test:ui": "node tests/ui-browser-smoke.mjs"
+    "test:ui": "node tests/ui-browser-smoke.mjs",
+    "test:browsers": "npm run build && node tests/browser-matrix.mjs"
   },
   "dependencies": {
     "@emotion/react": "^11.14.0",

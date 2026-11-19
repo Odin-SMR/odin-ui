@@ -1,13 +1,16 @@
 // Navigation, progressive disclosure and responsive acceptance against local assets.
 import assert from 'node:assert/strict';
 import { mkdir, writeFile } from 'node:fs/promises';
-import { chromium } from 'playwright';
+import { launchBrowser } from './browser-launcher.mjs';
 const origin = process.env.ODIN_UI_URL ?? 'http://127.0.0.1:5174';
 assert.ok(['127.0.0.1', 'localhost'].includes(new URL(origin).hostname));
 const output = process.env.ODIN_UI_FLOW_OUTPUT ?? '/tmp/odin-ui-flow-001';
 await mkdir(output, { recursive: true });
 const receipt = { fixtureOnly: true, layouts: [], journeys: [], errors: [], requests: [] };
-const browser = await chromium.launch({ headless: true });
+const browser = await launchBrowser();
+receipt.browser = browser.version();
+receipt.browserName = process.env.ODIN_UI_BROWSER ?? "chromium";
+receipt.browserEngine = browser.browserType().name();
 try {
   for (const theme of ['light', 'dark']) {
     const context = await browser.newContext();

@@ -37,8 +37,14 @@ npm run build-storybook
 `npm run test:migration` for a narrower check. With a local dev server running,
 `npm run test:ui` checks responsive routes, themes, enlarged text, navigation,
 selection, JSON downloads and release gates using local fixtures. Its receipts
-and screenshots are written under `/tmp/odin-ui-implement-001-browser` by
+and screenshots are written under `/tmp/odin-ui-visual-001-browser` by
 default; `ODIN_UI_QA_DIR` selects another output directory.
+
+`npm run test:browsers` builds the app and runs the acceptance matrix in Chrome,
+Edge and Playwright WebKit using isolated scientific fixtures. Vivaldi is an
+explicit diagnostic target while its download automation remains unresolved. See
+[browser setup, coverage and Safari limitations](docs/browser-testing.md).
+Reports and screenshots are saved in `playwright-results/`.
 
 [Dependency compatibility and remaining advisories](docs/designs/ui-implement-001-dependencies.md)
 records the current supported version choices and the TypeScript/Zod boundaries.

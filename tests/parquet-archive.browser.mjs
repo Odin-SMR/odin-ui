@@ -2,7 +2,7 @@
 import assert from "node:assert/strict";
 import { createHash } from "node:crypto";
 import { mkdir, readFile, writeFile } from "node:fs/promises";
-import { chromium } from "playwright";
+import { launchBrowser } from "./browser-launcher.mjs";
 
 const origin = process.env.ODIN_UI_URL ?? "http://127.0.0.1:5191";
 assert.ok(["localhost", "127.0.0.1"].includes(new URL(origin).hostname));
@@ -17,7 +17,10 @@ const index = { schema_version: 1, snapshot_id: "test", generated_at: "2026-11-1
 const receipt = { fixtureOnly: true, cases: [], errors: [], blocked: [], metadataRequests: [], sourceSha256: {} };
 for (const path of ["src/components/ParquetArchive.tsx", "src/parquet/archive.ts", "src/DataAccess.tsx", "tests/parquet-archive.browser.mjs"]) receipt.sourceSha256[path] = createHash("sha256").update(await readFile(new URL(`../${path}`, import.meta.url))).digest("hex");
 let failShard = false;
-const browser = await chromium.launch({ headless: true });
+const browser = await launchBrowser();
+receipt.browser = browser.version();
+receipt.browserName = process.env.ODIN_UI_BROWSER ?? "chromium";
+receipt.browserEngine = browser.browserType().name();
 try {
   const context = await browser.newContext({ acceptDownloads: true });
   await context.route("**/*", async (route) => {

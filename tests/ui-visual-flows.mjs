@@ -2,7 +2,7 @@
 import assert from "node:assert/strict";
 import { createHash } from "node:crypto";
 import { mkdir, readFile, writeFile } from "node:fs/promises";
-import { chromium } from "playwright";
+import { launchBrowser } from "./browser-launcher.mjs";
 
 const origin = process.env.ODIN_UI_URL ?? "http://127.0.0.1:5173";
 assert.ok(["127.0.0.1", "localhost", "[::1]"].includes(new URL(origin).hostname), "Only a local server is allowed");
@@ -16,7 +16,9 @@ const profileData = { alt: [10000, 20000, 30000], vmr: [1e-6, 2e-6, 3e-6], meas_
 const sourcePaths = ["tests/ui-visual-flows.mjs", "src/components/InspectMenu.tsx", "src/components/plots/OdinTrack.tsx", "src/components/plots/PilotSpectrum.tsx", "src/components/L2Plot.tsx", "src/components/L2Calendar.tsx", "src/components/L1Calendar.tsx", "src/components/L1ScanInfoPlot.tsx", "src/components/plots/L1b.tsx", "src/components/L2Card.tsx", "src/components/L2ProductPlots.tsx", "src/odinApi/cloud_client.tsx", "src/components/MigrationArchive.tsx", "src/components/MigrationPilot.tsx", "src/components/MigrationTimeline.tsx", "src/components/plots/scientificValues.ts", "src/components/plots/mapCoordinates.ts", "src/hooks/Migration.ts", "src/hooks/Pilot.ts", "src/hooks/MigrationTimeline.tsx", "src/odinApi/migration.ts", "src/odinApi/pilot.ts", "src/odinApi/fixtures/migration-http-contract.json", "src/odinApi/fixtures/pilot-http-contract.json", "src/hooks/fixtures/migration-timeline-http-contract.json"];
 const hash = async (path) => createHash("sha256").update(await readFile(new URL(`../${path}`, import.meta.url))).digest("hex");
 const receipt = { fixtureOnly: true, origin, startedAt: new Date().toISOString(), browser: null, checks: [], mapContainment: [], screenshots: [], requests: [], blocked: [], pageErrors: [], sourceSha256: Object.fromEntries(await Promise.all(sourcePaths.map(async (path) => [path, await hash(path)]))), fixtureNotes: ["Pilot fixture paths omit release_id; requests must carry the fixture release, then matching omits only that parameter.", "Archive timeline uses the existing timeline fixture with its release header set to the archive fixture release.", "L2 touch-only fixture supplies two scan locations and three finite profile levels; L1 uses one local scan and the archive spectrum fixture. These are illustrative acceptance data."] };
-const browser = await chromium.launch({ headless: true });
+const browser = await launchBrowser();
+receipt.browserName = process.env.ODIN_UI_BROWSER ?? "chromium";
+receipt.browserEngine = browser.browserType().name();
 receipt.browser = browser.version();
 let currentPage;
 try {

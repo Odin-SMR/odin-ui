@@ -2,7 +2,7 @@
 import assert from 'node:assert/strict';
 import { createHash } from 'node:crypto';
 import { mkdir, readFile, writeFile } from 'node:fs/promises';
-import { chromium } from 'playwright';
+import { launchBrowser } from './browser-launcher.mjs';
 
 const origin = process.env.ODIN_UI_URL ?? 'http://127.0.0.1:5173';
 assert.ok(['127.0.0.1', 'localhost', '[::1]'].includes(new URL(origin).hostname));
@@ -20,7 +20,9 @@ const product = { name: 'O3 · illustrative fixture', scanid: 1000, data };
 const receipt = { fixtureOnly: true, startedAt: new Date().toISOString(), cases: [], errors: [], blocked: [], screenshots: [], sourceSha256: {} };
 const sourcePaths = ['src/components/L2Plot.tsx', 'src/components/L2Card.tsx', 'src/components/L2ProductPlots.tsx', 'src/components/plots/profileGeometry.ts', 'src/odinApi/cloud_client.tsx', 'tests/ui-profile-bars.mjs'];
 for (const path of sourcePaths) receipt.sourceSha256[path] = createHash('sha256').update(await readFile(new URL(`../${path}`, import.meta.url))).digest('hex');
-const browser = await chromium.launch({ headless: true });
+const browser = await launchBrowser();
+receipt.browserName = process.env.ODIN_UI_BROWSER ?? "chromium";
+receipt.browserEngine = browser.browserType().name();
 receipt.browser = browser.version();
 try {
   for (const width of [320, 390, 834, 1440, 1920]) {

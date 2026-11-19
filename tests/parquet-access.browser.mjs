@@ -1,7 +1,7 @@
 // Local acceptance only. Never sends requests to scientific APIs or object stores.
 import assert from "node:assert/strict";
 import { mkdir, readFile, writeFile } from "node:fs/promises";
-import { chromium } from "playwright";
+import { launchBrowser } from "./browser-launcher.mjs";
 
 const origin = process.env.ODIN_UI_URL ?? "http://127.0.0.1:5187";
 assert.ok(["127.0.0.1", "localhost"].includes(new URL(origin).hostname));
@@ -12,7 +12,10 @@ const fixture = JSON.parse(await readFile(new URL("../src/parquet/fixtures/catal
 const planned = { schema_version: 1, status: "planned", message: "Local planned-release fixture.", releases: [] };
 let scenario = "planned";
 const receipt = { fixtureOnly: true, cases: [], errors: [], blockedRequests: [] };
-const browser = await chromium.launch({ headless: true });
+const browser = await launchBrowser();
+receipt.browser = browser.version();
+receipt.browserName = process.env.ODIN_UI_BROWSER ?? "chromium";
+receipt.browserEngine = browser.browserType().name();
 try {
   const context = await browser.newContext({ acceptDownloads: true });
   await context.route("**/*", (route) => {

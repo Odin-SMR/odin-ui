@@ -1,9 +1,11 @@
-import { chromium } from 'playwright';
-import { writeFile } from 'node:fs/promises';
+import { launchBrowser } from './browser-launcher.mjs';
+import { mkdir, writeFile } from 'node:fs/promises';
 import assert from 'node:assert/strict';
 const origin=process.env.ODIN_UI_URL ?? 'http://127.0.0.1:5174';
 assert.ok(['127.0.0.1','localhost'].includes(new URL(origin).hostname));
-const browser=await chromium.launch();
+const output=process.env.ODIN_UI_FLOW_OUTPUT ?? '/tmp/odin-ui-flow-001';
+await mkdir(output,{recursive:true});
+const browser=await launchBrowser();
 const results=[];
 try {
   for(const theme of ['light','dark']) {
@@ -25,7 +27,7 @@ try {
     }
     await page.evaluate(()=>document.documentElement.style.fontSize='100%');
     await page.setViewportSize({width:390,height:1000});
-    await page.screenshot({path:`/tmp/odin-ui-flow-001/${theme}-390-instrument-expanded.png`,fullPage:true});
+    await page.screenshot({path:`${output}/${theme}-390-instrument-expanded.png`,fullPage:true});
     const trigger=page.getByRole('button',{name:'Open navigation menu'});
     await trigger.click(); await page.keyboard.press('Escape');
     await page.getByRole('navigation',{name:'Mobile navigation'}).waitFor({state:'hidden'});
@@ -34,5 +36,5 @@ try {
     await context.close();
   }
 } finally {await browser.close();}
-await writeFile('/tmp/odin-ui-flow-001/disclosures.json',JSON.stringify(results,null,2));
+await writeFile(`${output}/disclosures.json`,JSON.stringify(results,null,2));
 console.log(`Passed ${results.length} expanded-diagram and keyboard checks`);

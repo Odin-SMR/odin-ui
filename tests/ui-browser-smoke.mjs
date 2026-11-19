@@ -3,7 +3,7 @@
 import assert from "node:assert/strict";
 import { readFile, mkdir, writeFile } from "node:fs/promises";
 import { createHash } from "node:crypto";
-import { chromium } from "playwright";
+import { launchBrowser } from "./browser-launcher.mjs";
 
 const origin = process.env.ODIN_UI_URL ?? "http://127.0.0.1:5173";
 assert.ok(["127.0.0.1", "localhost", "[::1]"].includes(new URL(origin).hostname), "UI acceptance is restricted to a local server");
@@ -22,7 +22,9 @@ const receipt = { fixtureOnly: true, origin, startedAt: new Date().toISOString()
 for (const path of ["src/components/InspectMenu.tsx", "src/components/MigrationTimeline.tsx", "src/App.tsx", "src/ColorModeContext.tsx", "src/components/L1Calendar.tsx", "src/components/L2Calendar.tsx", "src/components/OdinCalendar.tsx", "src/components/ScanTable.tsx", "src/components/Level1.tsx", "src/components/StackedBarPlot.tsx", "src/components/L1ScanInfoPlot.tsx", "src/components/plots/OdinTrack.tsx", "src/components/plots/PilotSpectrum.tsx", "src/components/plots/usePlotWidth.ts", "src/components/L2Plot.tsx", "src/components/L2Card.tsx", "src/components/L2ProductPlots.tsx", "src/components/MigrationArchive.tsx", "src/components/MigrationPilot.tsx", "src/components/plots/scientificValues.ts", "src/components/plots/mapCoordinates.ts", "src/components/Home.tsx", "src/components/News.tsx", "src/components/Documents.tsx", "src/components/Footer.tsx", "src/components/NotFound.tsx", "src/components/PageIntro.tsx", "src/DataAccess.tsx", "package.json", "package-lock.json", "tests/ui-browser-smoke.mjs"]) {
   receipt.sourceSha256[path] = createHash("sha256").update(await readFile(new URL(`../${path}`, import.meta.url))).digest("hex");
 }
-const browser = await chromium.launch({ headless: true });
+const browser = await launchBrowser();
+receipt.browserName = process.env.ODIN_UI_BROWSER ?? "chromium";
+receipt.browserEngine = browser.browserType().name();
 receipt.browser = browser.version();
 const context = await browser.newContext({ viewport: { width: 390, height: 1000 }, timezoneId: "Europe/Stockholm" });
 let failure = false;
@@ -239,16 +241,20 @@ try {
   await page.getByRole("dialog").waitFor();
   await page.getByRole("button", { name: "View 2015", exact: true }).first().click();
   await page.getByRole("heading", { name: "2015 monthly distribution vs. L2" }).waitFor();
+  // The heading mounts before the nested comparison fetch begins. Verify the
+  // loaded chart before leaving this route and cancelling its pending request.
+  await page.locator('svg[aria-label="Level 1 and Level 2 frequency-mode timeline"] [data-level="1"]').first().waitFor();
+  await settle();
   receipt.interactions.push("Exact signed-count table → monthly comparison");
-  await page.goto(origin); await settle();
+  await page.goto(origin + "/explore"); await settle();
   await page.locator('[data-group="2015"][data-mode="2"][data-level="1"]').focus();
   await page.keyboard.press("Enter");
   await page.getByRole("dialog").waitFor();
   await page.getByRole("button", { name: "View 2015 monthly", exact: true }).click();
   await page.waitForURL("**/level1/statistics/2015"); await settle();
   await page.goBack(); await settle();
-  assert.equal(new URL(page.url()).pathname, "/");
-  receipt.interactions.push("Home visual count selection → persistent inspector → monthly URL → browser Back");
+  assert.equal(new URL(page.url()).pathname, "/explore");
+  receipt.interactions.push("Explore visual count selection → persistent inspector → monthly URL → browser Back");
 
 
   await page.goto(origin + "/documentation"); await settle();
@@ -272,6 +278,42 @@ try {
   await page.reload(); await settle();
   assert.equal(await page.locator("body").evaluate((element) => getComputedStyle(element).backgroundColor), background);
   receipt.interactions.push("Skip link and visible header keyboard focus; theme preference survives reload");
+
+  for (const path of ["/level1/calendar", "/level2/calendar"]) {
+    await page.goto(origin + path); await settle();
+    const month = page.getByLabel("Observation month (UTC)", { exact: true });
+    const nativeType = await month.evaluate((input) => input.type);
+    const waitForMonth = async (value) => {
+      await page.waitForFunction(({ input, value }) => input.value === value, { input: await month.elementHandle(), value });
+      await settle();
+    };
+    // Browsers without native month support fall back to a text input. Exercise
+    // incremental editing there; fill() alone would conceal resets on each key.
+    if (nativeType === "text") {
+      await month.focus();
+      await month.press("ControlOrMeta+A");
+      await month.pressSequentially("2016-02");
+      await month.press("Tab");
+    } else {
+      await month.fill("2016-02");
+      await month.press("Tab");
+    }
+    await waitForMonth("2016-02");
+    assert.equal(await month.inputValue(), "2016-02", `${path}: month entry retains the requested UTC month`);
+    const request = new URL(requests.filter((value) => value.startsWith(path.startsWith("/level1") ? "/rest_api/v5/period_info/" : "/api/calendar")).at(-1), origin);
+    if (path.startsWith("/level1")) {
+      assert.equal(request.pathname, "/rest_api/v5/period_info/2016/02/01/");
+      assert.equal(request.searchParams.get("length"), "29", "Leap-year February uses 29 UTC days");
+    } else {
+      assert.equal(request.searchParams.get("year"), "2016");
+      assert.equal(request.searchParams.get("month"), "2");
+    }
+    await page.getByRole("button", { name: "Next month", exact: true }).click(); await waitForMonth("2016-03");
+    assert.equal(await month.inputValue(), "2016-03");
+    await page.getByRole("button", { name: "Previous month", exact: true }).click(); await waitForMonth("2016-02");
+    assert.equal(await month.inputValue(), "2016-02");
+    receipt.interactions.push(`${path}: ${nativeType} month entry, leap-year UTC request and previous/next navigation`);
+  }
 
   const zoomTheme = await page.evaluate(() => localStorage.getItem("themeMode") ?? "light");
   for (const width of [320, 390, 834]) for (const path of routes.slice(0, 9)) {

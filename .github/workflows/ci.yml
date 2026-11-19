@@ -39,3 +39,40 @@ jobs:
 
       - name: Build app
         run: npm run build
+
+  browsers:
+    name: Browser acceptance (${{ matrix.browser }})
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    permissions:
+      contents: read
+    strategy:
+      fail-fast: false
+      matrix:
+        browser: [chrome, msedge, webkit]
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-node@v6
+        with:
+          node-version-file: .nvmrc
+          cache: npm
+      - run: npm install --global npm@12.2.2
+      - run: npm ci
+      - name: Install WebKit
+        if: matrix.browser == 'webkit'
+        run: npx playwright install --with-deps webkit
+      - name: Install Chromium dependencies
+        if: matrix.browser != 'webkit'
+        run: npx playwright install-deps chromium
+      - name: Install branded browser
+        if: matrix.browser == 'chrome' || matrix.browser == 'msedge'
+        run: npx playwright install ${{ matrix.browser }}
+      - name: Production browser acceptance
+        run: npm run test:browsers -- --browsers=${{ matrix.browser }} --workers=1
+      - name: Retain browser evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: browser-${{ matrix.browser }}
+          path: playwright-results/
+          retention-days: 14
