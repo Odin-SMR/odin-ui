@@ -24,6 +24,7 @@ const browser = await launchBrowser();
 receipt.browserName = process.env.ODIN_UI_BROWSER ?? "chromium";
 receipt.browserEngine = browser.browserType().name();
 receipt.browser = browser.version();
+let currentPage;
 try {
   for (const width of [320, 390, 834, 1440, 1920]) {
     for (const theme of ['light', 'dark']) {
@@ -46,7 +47,7 @@ try {
         if (!body) { receipt.blocked.push(url.href); return route.abort(); }
         return route.fulfill({ status: 200, contentType: 'application/json', body: JSON.stringify(body) });
       });
-      const page = await context.newPage();
+      const page = await context.newPage(); currentPage = page;
       page.setDefaultTimeout(10000);
       page.on('pageerror', (error) => receipt.errors.push({ width, theme, message: String(error) }));
       const open = async () => {
@@ -61,17 +62,19 @@ try {
       await plot.scrollIntoViewIfNeeded();
       const level = plot.locator('circle[data-level="5"]');
       await level.hover();
-      const tooltip = page.getByRole('tooltip');
+      // Scientific hover details live beside the SVG; toolbar helper tooltips
+      // are independent portals and may still be exiting after a control click.
+      const tooltip = plot.locator('..').getByRole('tooltip');
       await tooltip.waitFor();
       assert.match(await tooltip.innerText(), /20000 m/);
       assert.match(await tooltip.innerText(), /4 ppmv/);
       assert.match(await tooltip.innerText(), /0.5 ppmv/);
       const fit = async () => {
         assert.ok(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth + 1), `${width}/${theme} fits viewport`);
-        for (const overlay of [page.getByRole('tooltip'), page.getByRole('dialog')]) {
+        for (const overlay of [tooltip, page.getByRole('dialog')]) {
           if (await overlay.isVisible()) {
             const box = await overlay.boundingBox();
-            assert.ok(box && box.x >= -1 && box.x + box.width <= width + 1, `${width}/${theme} overlay fits`);
+            assert.ok(box && box.x >= -1 && box.x + box.width <= width + 1, `${width}/${theme} ${await overlay.getAttribute('role')} fits: ${JSON.stringify({ box, fontSize: await page.evaluate(() => document.documentElement.style.fontSize) })}`);
           }
         }
       };
@@ -103,11 +106,27 @@ try {
       await page.keyboard.press('Escape'); await page.getByRole('dialog').waitFor({ state: 'hidden' });
       await card.getByRole('button', { name: 'Zoom +', exact: true }).click();
       await card.getByRole('button', { name: 'Reset', exact: true }).click();
+      const clearOverlays = async () => {
+        await page.mouse.move(0, 0);
+        await plot.focus();
+        await page.keyboard.press('Escape');
+        // Wait for both dialog and helper-tooltip exit transitions. A stationary
+        // pointer on the toolbar can otherwise hit another control after reflow.
+        await page.waitForFunction(() => !document.querySelector('[role="tooltip"], [role="dialog"], .MuiModal-root'));
+      };
+      await clearOverlays();
       for (const font of [100, 200]) {
         await page.evaluate((size) => { document.documentElement.style.fontSize = `${size}%`; }, font);
-        await page.waitForTimeout(150);
+        await page.evaluate(() => document.fonts.ready);
+        await page.waitForFunction(svg => Math.abs(svg.getBoundingClientRect().width - svg.viewBox.baseVal.width) < 1, await plot.elementHandle());
+        await level.hover();
+        await tooltip.waitFor();
+        assert.match(await tooltip.innerText(), /20000 m/);
+        assert.match(await tooltip.innerText(), /4 ppmv/);
+        assert.match(await tooltip.innerText(), /0.5 ppmv/);
         await fit();
         receipt.cases.push({ width, theme, font, touch, hover: true, keyboard: true, downloadExact: true });
+        await clearOverlays();
       }
       await page.evaluate(() => { document.documentElement.style.fontSize = '100%'; });
       if (width === 1440 && theme === 'light') {
@@ -120,7 +139,7 @@ try {
       assert.match(await card.innerText(), /unavailable|unprovided|not supplied|not available|missing/i);
       receipt.cases.push({ width, theme, olderResponse: true });
       console.log(`${width}px ${theme} passed`);
-      await context.close();
+      await context.close(); currentPage = undefined;
     }
   }
   assert.deepEqual(receipt.errors, []);
@@ -128,6 +147,17 @@ try {
   for (const path of sourcePaths) assert.equal(createHash('sha256').update(await readFile(new URL(`../${path}`, import.meta.url))).digest('hex'), receipt.sourceSha256[path], `${path} unchanged during acceptance`);
   receipt.completedAt = new Date().toISOString();
   console.log(JSON.stringify({ cases: receipt.cases.length, screenshots: receipt.screenshots, errors: receipt.errors }));
+} catch (error) {
+  receipt.failure = String(error);
+  if (currentPage) {
+    receipt.lastUrl = currentPage.url();
+    receipt.overlaysAtFailure = await currentPage.locator('[role="tooltip"], [role="dialog"]').evaluateAll(elements => elements.map(element => ({
+      role: element.getAttribute('role'), text: element.textContent, className: element.className,
+      rectangle: element.getBoundingClientRect().toJSON(), opacity: getComputedStyle(element).opacity,
+    })));
+    await currentPage.screenshot({ path: `${output}/failure.png`, fullPage: false });
+  }
+  throw error;
 } finally {
   await writeFile(`${output}/receipt.json`, JSON.stringify(receipt, null, 2) + '\n');
   await browser.close();
